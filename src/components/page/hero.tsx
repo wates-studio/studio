@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from '@/lib/utils';
@@ -28,6 +28,16 @@ export function HeroSection() {
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.4, 0.7]);
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+
+  useEffect(() => {
+    return imageBrightness.on("change", (latest) => {
+      if (latest < 0.6) {
+        setLightsOn(false);
+      } else {
+        setLightsOn(true);
+      }
+    });
+  }, [imageBrightness]);
   
   return (
     <section ref={heroRef} className="relative h-[150vh] w-full overflow-hidden">
