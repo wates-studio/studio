@@ -181,7 +181,7 @@ export default function Home() {
           
           <ScrollAnimation>
             <section>
-              <h2 className="text-3xl md:text-4xl text-center font-light mb-12">Opinion Waterfall</h2>
+              <h2 className="text-3xl md:text-4xl text-center font-light mb-12">The Journal</h2>
               <div className="grid md:grid-cols-3 gap-12">
                 {journalEntries.map((entry) => (
                   <JournalCard key={entry.title} {...entry} />
