@@ -2,16 +2,15 @@
 "use client";
 
 import { Logo } from '@/components/logo';
-import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export function Header() {
   return (
     <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="bg-black/30 backdrop-blur-lg"
+      className="absolute top-0 left-0 right-0 z-20 bg-black/30 backdrop-blur-lg"
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 text-white">
