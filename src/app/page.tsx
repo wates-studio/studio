@@ -47,7 +47,6 @@ export default function Home() {
             <ScrollAnimation>
               <section className="grid md:grid-cols-2 gap-16 items-center">
                 <div className="text-white/90">
-                  <h3 className="text-sm uppercase tracking-widest text-white/60 mb-4">NARRATIVE HOOK</h3>
                   <p className="text-2xl md:text-3xl font-light leading-relaxed">
                     In the workshops of Bali, a legacy of craft meets the rigor of modern engineering. We believe light is more than illumination—it is a material to be sculpted, an atmosphere to be composed. Each DUA fixture is a dialogue between the hand and the machine, the natural and the technical. The result is not just a lamp, but a feeling.
                   </p>
@@ -67,7 +66,7 @@ export default function Home() {
             
             <ScrollAnimation>
               <section className="text-center">
-                <h2 className="text-3xl md:text-4xl font-light mb-12">Narrative</h2>
+                <h2 className="text-3xl md:text-4xl font-light mb-12">Our Philosophy</h2>
                 <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
                   <div className="flex flex-col items-center gap-4">
                     <Lightbulb className="w-12 h-12 text-white/80" />
@@ -105,7 +104,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-black/60 backdrop-blur-sm rounded-lg"></div>
               <div className="relative z-10 p-8">
                 <ScrollAnimation>
-                  <h3 className="text-sm uppercase tracking-widest text-white/80 mb-4">WORK AND PORTFOLIO</h3>
+                  <h3 className="text-sm uppercase tracking-widest text-white/80 mb-4">Featured Project</h3>
                   <h2 className="text-4xl md:text-5xl font-semibold mb-4">Mandapa, a Ritz-Carlton Reserve, Bali</h2>
                   <blockquote className="text-xl md:text-2xl font-light italic max-w-3xl mx-auto mb-8">
                     &quot;DUA&apos;s lighting was not an addition to the space; it was fundamental to its soul. Their work is a masterclass in creating atmosphere.&quot;
@@ -117,7 +116,7 @@ export default function Home() {
 
             <ScrollAnimation>
               <section className="text-center">
-                <h2 className="text-3xl md:text-4xl font-light mb-12">Team Behind</h2>
+                <h2 className="text-3xl md:text-4xl font-light mb-12">The Team Behind</h2>
                 <div className="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
                   {teamMembers.map((member) => (
                     <div key={member.name} className="flex flex-col items-center gap-4">
@@ -146,7 +145,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-white/90">
-                  <h3 className="text-sm uppercase tracking-widest text-white/60 mb-4">DUA COLLECTIVE FAMILY EXPLAINED</h3>
+                  <h3 className="text-sm uppercase tracking-widest text-white/60 mb-4">The Collective</h3>
                   <p className="text-2xl md:text-3xl font-light leading-relaxed">
                     We are a family of designers, engineers, and artisans united by a shared passion for light. Our collective model fosters a unique environment of collaboration, allowing us to push the boundaries of what's possible in lighting design.
                   </p>
