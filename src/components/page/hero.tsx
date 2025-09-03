@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from '@/lib/utils';
@@ -15,25 +15,18 @@ export function HeroSection() {
   const [showHeader, setShowHeader] = useState(false);
   const [activeRoom, setActiveRoom] = useState('Living Room');
   
-  const heroRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowHeader(entry.intersectionRatio < 0.2);
-      },
-      { threshold: [0, 0.2, 1.0] }
-    );
-
-    const currentHeroRef = heroRef.current;
-    if (currentHeroRef) {
-      observer.observe(currentHeroRef);
-    }
-
-    return () => {
-      if (currentHeroRef) {
-        observer.unobserve(currentHeroRef);
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
       }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -42,7 +35,7 @@ export function HeroSection() {
       <AnimatePresence>
         {showHeader && <Header />}
       </AnimatePresence>
-      <section ref={heroRef} className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
+      <section className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
         <Image
           src="https://picsum.photos/1920/1280"
           alt="Luxurious living room with DUA lighting fixtures"
