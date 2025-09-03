@@ -14,7 +14,7 @@ export function Header({ show }: HeaderProps) {
         show ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
       )}
     >
-      <div className="p-4 md:p-6 bg-black/50 backdrop-blur-md">
+      <div className="p-4 md:p-6 bg-black/30 backdrop-blur-xl border-b border-white/20">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-white">
           <div className="font-semibold text-xl tracking-wider">
             DUA
@@ -26,7 +26,7 @@ export function Header({ show }: HeaderProps) {
             <a href="#" className="hover:text-white/80 transition-colors">Philosophy</a>
           </nav>
           <div>
-            <Button variant="outline" className="text-white border-white/50 hover:bg-white hover:text-black h-9 px-4 rounded-full text-sm">
+            <Button variant="outline" className="text-white border-white/50 hover:bg-white hover:text-black h-9 px-4 rounded-full text-sm bg-transparent">
               Trade Portal
             </Button>
           </div>

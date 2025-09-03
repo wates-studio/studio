@@ -140,7 +140,7 @@ function FeaturedProjectSection() {
         />
       </motion.div>
       <AnimatedSection>
-        <div className="relative z-10 max-w-3xl mx-auto text-center p-8 bg-black/30 backdrop-blur-sm rounded-lg">
+        <div className="relative z-10 max-w-3xl mx-auto text-center p-8 bg-black/20 backdrop-blur-xl border border-white/30 rounded-2xl shadow-xl">
           <h3 className="text-sm tracking-widest uppercase mb-2">Featured Project</h3>
           <h2 className="text-4xl md:text-5xl font-semibold mb-4">Mandapa, a Ritz-Carlton Reserve, Bali</h2>
           <blockquote className="text-lg md:text-xl italic my-6">
