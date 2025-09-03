@@ -140,7 +140,7 @@ export default function Home() {
             className="bg-white/5 backdrop-blur-md border border-white/20 rounded-2xl p-4 px-8 flex items-center gap-8 text-sm"
           >
             <div className="flex items-center gap-3">
-              <span className="text-white/90">Lights on</span>
+              <span className="text-white/90">{lightsOn ? 'Lights on' : 'Lights off'}</span>
               <CustomToggle checked={lightsOn} onChange={setLightsOn} />
             </div>
             <div className="w-px h-6 bg-white/20" />
@@ -273,5 +273,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
