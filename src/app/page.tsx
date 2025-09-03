@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Lightbulb, Users, Handshake } from 'lucide-react';
 import Link from 'next/link';
+import { Header } from '@/components/header';
 
 const journalEntries = [
   {
@@ -39,6 +40,7 @@ const teamMembers = [
 export default function Home() {
   return (
     <div className="bg-[#111111] text-white antialiased">
+      <Header />
       <HeroSection />
 
       <div className="relative z-10">
