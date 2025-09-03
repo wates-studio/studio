@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -11,6 +12,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Poppins', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
         headline: ['Poppins', 'sans-serif'],
         code: ['monospace'],
       },
