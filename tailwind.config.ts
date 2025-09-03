@@ -12,7 +12,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Poppins', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        serif: ['Poppins', 'sans-serif'],
         headline: ['Poppins', 'sans-serif'],
         code: ['monospace'],
       },
