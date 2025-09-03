@@ -6,10 +6,9 @@ type JournalCardProps = {
   image: string;
   alt: string;
   hint: string;
-  linkText: string;
 };
 
-export function JournalCard({ title, image, alt, hint, linkText }: JournalCardProps) {
+export function JournalCard({ title, image, alt, hint }: JournalCardProps) {
   return (
     <div className="group space-y-4">
       <div className="overflow-hidden rounded-lg">
@@ -23,7 +22,7 @@ export function JournalCard({ title, image, alt, hint, linkText }: JournalCardPr
         />
       </div>
       <h3 className="text-xl font-medium pt-2">{title}</h3>
-      <a href="#" className="text-black/70 hover:text-black font-medium transition-colors">{linkText}</a>
+      <a href="#" className="text-black/70 hover:text-black font-medium transition-colors">Read More →</a>
     </div>
   );
 }
