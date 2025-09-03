@@ -36,11 +36,9 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 text-white">
-          <div className="p-2">
-             <Link href="/" aria-label="Homepage">
-              <Logo />
-            </Link>
-          </div>
+          <Link href="/" aria-label="Homepage">
+            <Logo />
+          </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
             <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
             <Link href="/journal" className="hover:text-white transition-colors">The Journal</Link>

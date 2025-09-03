@@ -29,7 +29,7 @@ export function Footer() {
 
           {/* Column 1: Brand */}
           <div className="md:col-span-4">
-            <div className="mb-4">
+            <div className="mb-4 -ml-2">
               <Logo />
             </div>
             <p className="text-white/60 text-sm max-w-xs">
