@@ -36,10 +36,10 @@ export function Hero() {
           textVisible ? 'opacity-100' : 'opacity-0'
         )}
       >
-        <h1 className="text-5xl md:text-7xl font-medium" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+        <h1 className="text-5xl md:text-7xl font-medium">
           Where Soul Meets Science.
         </h1>
-        <p className="mt-4 text-lg md:text-xl" style={{ textShadow: '0 1px 5px rgba(0,0,0,0.5)' }}>
+        <p className="mt-4 text-lg md:text-xl">
           Handcrafted lighting from Bali, engineered for the world.
         </p>
       </div>
