@@ -7,62 +7,55 @@ import { ArrowRight } from "lucide-react";
 export function Footer() {
   return (
     <footer className="bg-[#1C1C1C] text-white py-16 md:py-24">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {/* Col 1: Logo & Social */}
-          <div className="space-y-4">
+      <div className="container mx-auto px-4 flex flex-col items-center text-center">
+        
+        {/* Logo and Tagline */}
+        <div className="mb-12">
+          <div className="flex justify-center mb-4">
             <Logo />
-            <p className="text-sm text-white/60 max-w-xs">
-              Crafting atmospheres through light.
-            </p>
-            <div className="flex space-x-4">
-              {/* Add social icons here */}
-            </div>
           </div>
+          <p className="text-white/60">
+            Crafting atmospheres through light. Where soul meets science.
+          </p>
+        </div>
 
-          {/* Col 2: Navigate */}
-          <div>
-            <h4 className="font-semibold mb-4">Navigate</h4>
-            <ul className="space-y-2 text-sm text-white/80">
-              <li><a href="#" className="hover:text-white transition-colors">Collections</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Projects</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">The Journal</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Philosophy</a></li>
-            </ul>
-          </div>
+        {/* Navigation Links */}
+        <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-12 text-sm text-white/80">
+          <a href="#" className="hover:text-white transition-colors">Collections</a>
+          <a href="#" className="hover:text-white transition-colors">Projects</a>
+          <a href="#" className="hover:text-white transition-colors">The Journal</a>
+          <a href="#" className="hover:text-white transition-colors">Philosophy</a>
+          <a href="#" className="hover:text-white transition-colors">Contact</a>
+          <a href="#" className="hover:text-white transition-colors">Showrooms</a>
+        </nav>
 
-          {/* Col 3: Support */}
-          <div>
-            <h4 className="font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-sm text-white/80">
-              <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Showrooms</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Care & Maintenance</a></li>
-            </ul>
-          </div>
-
-          {/* Col 4: Newsletter */}
-          <div>
-            <h4 className="font-semibold mb-4">Stay Illuminated</h4>
-            <p className="text-sm text-white/60 mb-4">
-              Receive occasional insights on design, lighting, and new collections.
-            </p>
-            <div className="flex w-full max-w-sm items-center space-x-2">
-              <Input type="email" placeholder="Email" className="bg-transparent border-white/30 focus:border-white" />
-              <Button type="submit" size="icon" className="bg-white text-black hover:bg-white/80">
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </div>
+        {/* Newsletter Signup */}
+        <div className="w-full max-w-md mb-12">
+          <h4 className="font-semibold text-lg mb-2">Stay Illuminated</h4>
+          <p className="text-sm text-white/60 mb-4">
+            Receive occasional insights on design, lighting, and new collections.
+          </p>
+          <div className="flex w-full items-center space-x-2">
+            <Input 
+              type="email" 
+              placeholder="Enter your email address" 
+              className="bg-transparent border-white/30 focus:border-white text-center md:text-left" 
+            />
+            <Button type="submit" size="icon" className="bg-white text-black hover:bg-white/80 flex-shrink-0">
+              <ArrowRight className="h-4 w-4" />
+            </Button>
           </div>
         </div>
-        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between text-sm text-white/60">
+
+        {/* Bottom Bar */}
+        <div className="w-full border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-white/60 gap-4">
           <p>© 2025 Dua Lighting. All Rights Reserved.</p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+          <div className="flex space-x-6">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
+
       </div>
     </footer>
   )
