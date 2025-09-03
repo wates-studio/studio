@@ -22,7 +22,7 @@ const PinterestIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export function Footer() {
   return (
-    <footer className="bg-[#1C1C1C] text-white">
+    <footer className="bg-[#111111] text-white">
       <div className="container mx-auto px-4 pt-16 pb-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
