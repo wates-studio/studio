@@ -15,7 +15,9 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 text-white">
-          <Logo />
+          <div className="p-2">
+            <Logo />
+          </div>
           <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
             <a href="#" className="hover:text-white transition-colors">Collections</a>
             <a href="#" className="hover:text-white transition-colors">Projects</a>
