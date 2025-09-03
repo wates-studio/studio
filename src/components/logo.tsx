@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function Logo() {
   return (
-    <div className="p-2 cursor-pointer">
+    <div className="p-4 cursor-pointer">
       <Image 
         src="/logo.svg" 
         alt="Dua Collective Logo" 
