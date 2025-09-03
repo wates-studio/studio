@@ -19,12 +19,12 @@ export function Header() {
 
   return (
     <motion.header 
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: isScrolled ? 0 : -100, opacity: isScrolled ? 1 : 0 }}
+      initial={{ y: -100 }}
+      animate={{ y: isScrolled ? 0 : -100 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={cn(
         "fixed top-0 left-0 right-0 z-20",
-        isScrolled && "bg-black/30 backdrop-blur-lg"
+        isScrolled ? "bg-black/30 backdrop-blur-lg" : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4">
