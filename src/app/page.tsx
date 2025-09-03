@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
@@ -52,27 +52,24 @@ const ScrollAnimation = ({ children }: { children: React.ReactNode }) => {
 
 const CustomToggle = ({ checked, onChange }: { checked: boolean, onChange: (checked: boolean) => void }) => {
   return (
-    <button onClick={() => onChange(!checked)} className="relative focus:outline-none" aria-label="Toggle Lights">
-      <svg width="60" height="34" viewBox="0 0 60 34" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-colors duration-300">
-        <rect width="60" height="34" rx="17" fill={checked ? "#32D74B" : "rgba(120, 120, 128, 0.36)"} />
-        <motion.div
-          animate={{ x: checked ? 27 : 1 }}
-          transition={{ type: "spring", stiffness: 700, damping: 30 }}
-          style={{
-            position: 'absolute',
-            top: '2px',
-            left: '2px',
-            width: '30px',
-            height: '30px',
-            backgroundColor: 'white',
-            borderRadius: '50%',
-            boxShadow: '0 3px 8px rgba(0,0,0,0.15), 0 3px 1px rgba(0,0,0,0.06)',
-          }}
-        />
-      </svg>
+    <button
+      onClick={() => onChange(!checked)}
+      className={cn(
+        "relative inline-flex h-[25px] w-[50px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75",
+        checked ? 'bg-green-500' : 'bg-gray-600'
+      )}
+      aria-label="Toggle Lights"
+    >
+      <motion.span
+        aria-hidden="true"
+        animate={{ x: checked ? 25 : 0 }}
+        transition={{ type: 'spring', stiffness: 700, damping: 30 }}
+        className="pointer-events-none inline-block h-[21px] w-[21px] transform rounded-full bg-white shadow-lg ring-0"
+      />
     </button>
   );
 };
+
 
 export default function Home() {
   const [lightsOn, setLightsOn] = useState(true);
@@ -84,9 +81,10 @@ export default function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // Show header when the hero section is less than 20% visible
         setShowHeader(entry.intersectionRatio < 0.2);
       },
-      { threshold: [0, 0.2, 1.0] }
+      { threshold: [0, 0.2, 1.0] } // Trigger at 0%, 20%, and 100% visibility
     );
 
     if (heroRef.current) {
@@ -102,9 +100,14 @@ export default function Home() {
 
   return (
     <div className="bg-[#111111] text-white antialiased">
-      <AnimatePresence>
-        {showHeader && <Header />}
-      </AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showHeader ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="fixed top-0 left-0 right-0 z-50"
+      >
+        <Header />
+      </motion.div>
 
       <section ref={heroRef} className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
         <Image
@@ -135,7 +138,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
-            className="bg-black/20 backdrop-blur-xl border border-white/20 rounded-2xl p-4 px-8 flex items-center gap-8 text-sm"
+            className="bg-white/5 backdrop-blur-md border border-white/20 rounded-2xl p-4 px-8 flex items-center gap-8 text-sm"
           >
             <div className="flex items-center gap-3">
               <span className="text-white/90">Lights on</span>
