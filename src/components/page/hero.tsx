@@ -22,6 +22,14 @@ export function HeroSection() {
   });
 
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const imageBrightness = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [1, 0.4]
+  );
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.4, 0.7]);
+
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -44,22 +52,30 @@ export function HeroSection() {
       <AnimatePresence>
         {showHeader && <Header />}
       </AnimatePresence>
-      <section ref={heroRef} className="relative h-[150vh] w-full">
+      <section ref={heroRef} className="relative h-[150vh] w-full overflow-hidden">
         <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
-          <Image
-            src="https://picsum.photos/1920/1280"
-            alt="Luxurious living room with DUA lighting fixtures"
-            fill
-            priority
-            className="object-cover transition-all duration-1000"
-            style={{ filter: lightsOn ? 'brightness(1)' : 'brightness(0.4)' }}
-            data-ai-hint="luxury living room lamps"
-            quality={90}
+          <motion.div 
+            className="absolute inset-0"
+            style={{ scale: imageScale }}
+          >
+            <Image
+              src="https://picsum.photos/1920/1280"
+              alt="Luxurious living room with DUA lighting fixtures"
+              fill
+              priority
+              className="object-cover transition-all duration-1000"
+              style={{ filter: `brightness(${lightsOn ? imageBrightness.get() : 0.4})` }}
+              data-ai-hint="luxury living room lamps"
+              quality={90}
+            />
+          </motion.div>
+
+          <motion.div 
+            className="absolute inset-0 bg-black"
+            style={{ 
+              opacity: lightsOn ? overlayOpacity : 0.7 
+            }}
           />
-          <div className={cn(
-            "absolute inset-0 bg-black transition-opacity duration-1000",
-            lightsOn ? "opacity-40" : "opacity-70"
-          )} />
           
           <div className="relative z-10 flex flex-col items-center">
             <motion.div 
