@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
@@ -100,14 +100,9 @@ export default function Home() {
 
   return (
     <div className="bg-[#111111] text-white antialiased">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showHeader ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="fixed top-0 left-0 right-0 z-50"
-      >
-        <Header />
-      </motion.div>
+      <AnimatePresence>
+        {showHeader && <Header />}
+      </AnimatePresence>
 
       <section ref={heroRef} className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
         <Image
@@ -115,11 +110,15 @@ export default function Home() {
           alt="Luxurious living room with DUA lighting fixtures"
           fill
           priority
-          className="object-cover"
+          className="object-cover transition-all duration-1000"
+          style={{ filter: lightsOn ? 'brightness(1)' : 'brightness(0.4)' }}
           data-ai-hint="luxury living room lamps"
           quality={90}
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className={cn(
+            "absolute inset-0 bg-black transition-opacity duration-1000",
+            lightsOn ? "opacity-40" : "opacity-70"
+          )} />
         
         <div className="relative z-10 flex flex-col items-center">
           <motion.div 
@@ -274,3 +273,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
