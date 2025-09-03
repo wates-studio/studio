@@ -1,19 +1,34 @@
 
+"use client";
+
 import { Logo } from '@/components/logo';
+import { cn } from '@/lib/utils';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 p-6 md:p-8">
-      <div className="max-w-screen-2xl mx-auto flex items-start justify-between">
-        <Logo />
-        <nav className="hidden md:flex items-center gap-8 text-white/80 text-sm pt-4">
-          <a href="#" className="hover:text-white transition-colors">Profile</a>
-          <a href="#" className="hover:text-white transition-colors">Technical</a>
-          <a href="#" className="hover:text-white transition-colors">Portfolio</a>
-          <a href="#" className="hover:text-white transition-colors">Product</a>
-          <a href="#" className="hover:text-white transition-colors">Services</a>
-        </nav>
+    <motion.header 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="bg-black/30 backdrop-blur-lg"
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20 text-white">
+          <Logo />
+          <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+            <a href="#" className="hover:text-white transition-colors">Collections</a>
+            <a href="#" className="hover:text-white transition-colors">Projects</a>
+            <a href="#" className="hover:text-white transition-colors">The Journal</a>
+            <a href="#" className="hover:text-white transition-colors">Philosophy</a>
+          </nav>
+          <div>
+            <a href="#" className="hidden md:inline-block text-sm px-4 py-2 border border-white/50 rounded-full hover:bg-white hover:text-black transition-colors">
+              Trade Portal
+            </a>
+          </div>
+        </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

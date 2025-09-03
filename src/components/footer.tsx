@@ -1,67 +1,69 @@
 
-'use client';
+import { Logo } from "./logo";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
-import { useState } from 'react';
-import { Switch } from "@/components/ui/switch";
-import { Slider } from "@/components/ui/slider";
-import { cn } from '@/lib/utils';
-
-type FooterProps = {
-  lightsOn: boolean;
-  onLightsToggle: (on: boolean) => void;
-};
-
-export function Footer({ lightsOn, onLightsToggle }: FooterProps) {
-  const [activeRoom, setActiveRoom] = useState('Living Room');
-  const rooms = ['Living Room', 'Lounge', 'Bedroom'];
-
+export function Footer() {
   return (
-    <footer className="w-full">
-      <div className="bg-black/20 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl p-3">
-        <div className="flex items-center justify-between text-white text-sm">
-          {/* Lights Toggle */}
-          <div className="flex items-center gap-3 px-4">
-            <label htmlFor="lights-toggle" className="cursor-pointer">Lights on</label>
-            <Switch
-              id="lights-toggle"
-              checked={lightsOn}
-              onCheckedChange={onLightsToggle}
-              className="data-[state=checked]:bg-green-500 data-[state=unchecked]:bg-gray-600"
-            />
+    <footer className="bg-[#1C1C1C] text-white py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          {/* Col 1: Logo & Social */}
+          <div className="space-y-4">
+            <Logo />
+            <p className="text-sm text-white/60 max-w-xs">
+              Crafting atmospheres through light.
+            </p>
+            <div className="flex space-x-4">
+              {/* Add social icons here */}
+            </div>
           </div>
-          
-          <div className="h-6 w-px bg-white/20" />
-          
-          {/* Brightness Slider */}
-          <div className="flex-1 px-6">
-            <Slider
-              defaultValue={[80]}
-              max={100}
-              step={1}
-              className={cn("w-full transition-opacity", !lightsOn && "opacity-50 cursor-not-allowed")}
-              disabled={!lightsOn}
-            />
+
+          {/* Col 2: Navigate */}
+          <div>
+            <h4 className="font-semibold mb-4">Navigate</h4>
+            <ul className="space-y-2 text-sm text-white/80">
+              <li><a href="#" className="hover:text-white transition-colors">Collections</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Projects</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">The Journal</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Philosophy</a></li>
+            </ul>
           </div>
-          
-          <div className="h-6 w-px bg-white/20" />
-          
-          {/* Room Selector */}
-          <div className="flex items-center gap-2 p-1 bg-black/20 rounded-full">
-            {rooms.map(room => (
-              <button
-                key={room}
-                onClick={() => setActiveRoom(room)}
-                className={cn(
-                  "px-4 py-1.5 rounded-full transition-colors duration-300",
-                  activeRoom === room ? "bg-white/90 text-black font-medium" : "text-white/70 hover:bg-white/10"
-                )}
-              >
-                {room}
-              </button>
-            ))}
+
+          {/* Col 3: Support */}
+          <div>
+            <h4 className="font-semibold mb-4">Support</h4>
+            <ul className="space-y-2 text-sm text-white/80">
+              <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Showrooms</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Care & Maintenance</a></li>
+            </ul>
+          </div>
+
+          {/* Col 4: Newsletter */}
+          <div>
+            <h4 className="font-semibold mb-4">Stay Illuminated</h4>
+            <p className="text-sm text-white/60 mb-4">
+              Receive occasional insights on design, lighting, and new collections.
+            </p>
+            <div className="flex w-full max-w-sm items-center space-x-2">
+              <Input type="email" placeholder="Email" className="bg-transparent border-white/30 focus:border-white" />
+              <Button type="submit" size="icon" className="bg-white text-black hover:bg-white/80">
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between text-sm text-white/60">
+          <p>© 2025 Dua Lighting. All Rights Reserved.</p>
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" className="hover:text-white">Privacy Policy</a>
+            <a href="#" className="hover:text-white">Terms of Service</a>
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
