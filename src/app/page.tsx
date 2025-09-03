@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Lightbulb, Users, Handshake } from 'lucide-react';
+import Link from 'next/link';
 
 const journalEntries = [
   {
@@ -109,7 +110,9 @@ export default function Home() {
                   <blockquote className="text-xl md:text-2xl font-light italic max-w-3xl mx-auto mb-8">
                     &quot;DUA&apos;s lighting was not an addition to the space; it was fundamental to its soul. Their work is a masterclass in creating atmosphere.&quot;
                   </blockquote>
-                  <Button size="lg" className="bg-white text-black hover:bg-white/80">Explore The Project</Button>
+                  <Button asChild size="lg" className="bg-white text-black hover:bg-white/80">
+                    <Link href="/projects">Explore The Project</Link>
+                  </Button>
                 </ScrollAnimation>
               </div>
             </section>
@@ -149,7 +152,7 @@ export default function Home() {
                   <p className="text-2xl md:text-3xl font-light leading-relaxed">
                     We are a family of designers, engineers, and artisans united by a shared passion for light. Our collective model fosters a unique environment of collaboration, allowing us to push the boundaries of what's possible in lighting design.
                   </p>
-                  <a href="#" className="inline-block mt-6 text-white hover:underline">Learn More About Our Collective →</a>
+                  <Link href="/philosophy" className="inline-block mt-6 text-white hover:underline">Learn More About Our Collective →</Link>
                 </div>
               </section>
             </ScrollAnimation>

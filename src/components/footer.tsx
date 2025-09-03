@@ -3,6 +3,7 @@ import { Logo } from "./logo";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { ArrowRight, Instagram, Facebook } from "lucide-react";
+import Link from 'next/link';
 
 // Pinterest SVG icon component as it's not in lucide-react
 const PinterestIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -40,9 +41,9 @@ export function Footer() {
           <div className="md:col-span-2">
             <h4 className="font-semibold text-sm uppercase tracking-wider text-white/80 mb-4">Company</h4>
             <nav className="flex flex-col gap-3 text-sm text-white/60">
-              <a href="#" className="hover:text-white transition-colors">Philosophy</a>
-              <a href="#" className="hover:text-white transition-colors">Projects</a>
-              <a href="#" className="hover:text-white transition-colors">The Journal</a>
+              <Link href="/philosophy" className="hover:text-white transition-colors">Philosophy</Link>
+              <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
+              <Link href="/journal" className="hover:text-white transition-colors">The Journal</Link>
               <a href="#" className="hover:text-white transition-colors">Contact</a>
             </nav>
           </div>
