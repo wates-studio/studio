@@ -1,6 +1,5 @@
 
 import { HeroSection } from '@/components/page/hero';
-import { CollectionCard } from '@/components/page/collection-card';
 import { JournalCard } from '@/components/page/journal-card';
 import { ScrollAnimation } from '@/components/scroll-animation';
 import { Footer } from '@/components/footer';
@@ -8,30 +7,6 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Lightbulb, Users, Handshake } from 'lucide-react';
-
-const collections = [
-  {
-    title: 'The Aura Collection',
-    description: 'Sculptural Pendants',
-    image: 'https://picsum.photos/800/600?1',
-    alt: 'Aura Collection',
-    hint: 'sculptural pendant dining table'
-  },
-  {
-    title: 'The Terra Collection',
-    description: 'Earthen Sconces',
-    image: 'https://picsum.photos/800/600?2',
-    alt: 'Terra Collection',
-    hint: 'earthen sconce concrete wall'
-  },
-  {
-    title: 'The Zenith Collection',
-    description: 'Architectural Exteriors',
-    image: 'https://picsum.photos/800/600?3',
-    alt: 'Zenith Collection',
-    hint: 'architectural bollard stone path'
-  }
-];
 
 const journalEntries = [
   {

@@ -11,17 +11,10 @@ const PinterestIcon = (props: React.SVGProps<SVGSVGElement>) => (
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
+    fill="currentColor"
+    className="w-5 h-5"
   >
-    <path d="M12.4 3.9c-4.4 0-8 3.6-8 8 0 2.9 1.6 5.5 4 6.9.1.1.1.2.1.3l-.2 1c-.1.5.4 1 1 1 .2 0 .4-.1.5-.2l1.6-1.6c.4.1.8.1 1.2.1 4.4 0 8-3.6 8-8s-3.6-8-8-8zm-3.2 10.2c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6z" />
-    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
-    <path d="M12.4 3.9c-4.4 0-8 3.6-8 8 0 2.9 1.6 5.5 4 6.9.1.1.1.2.1.3l-.2 1c-.1.5.4 1 1 1 .2 0 .4-.1.5-.2l1.6-1.6c.4.1.8.1 1.2.1 4.4 0 8-3.6 8-8s-3.6-8-8-8zm-3.2 10.2c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6z" />
-    <path d="M12.4 3.9c-4.4 0-8 3.6-8 8 0 2.9 1.6 5.5 4 6.9.1.1.1.2.1.3l-.2 1c-.1.5.4 1 1 1 .2 0 .4-.1.5-.2l1.6-1.6c.4.1.8.1 1.2.1 4.4 0 8-3.6 8-8s-3.6-8-8-8zm-3.2 10.2c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6z" />
+    <path d="M12.4 3.9c-4.4 0-8 3.6-8 8 0 2.9 1.6 5.5 4 6.9.1.1.1.2.1.3l-.2 1c-.1.5.4 1 1 1 .2 0 .4-.1.5-.2l1.6-1.6c.4.1.8.1 1.2.1 4.4 0 8-3.6 8-8s-3.6-8-8-8zm3.2 10.2c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm-2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6zm-2.4 0c-.3 0-.6-.3-.6-.6V9.2c0-.3.3-.6.6-.6s.6.3.6.6v4.3c0 .3-.3.6-.6.6z" />
   </svg>
 );
 
@@ -54,15 +47,8 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Column 3: Navigation - Collections */}
+          {/* Column 3: Spacer */}
           <div className="md:col-span-2">
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-white/80 mb-4">Collections</h4>
-            <nav className="flex flex-col gap-3 text-sm text-white/60">
-              <a href="#" className="hover:text-white transition-colors">Aura Collection</a>
-              <a href="#" className="hover:text-white transition-colors">Terra Collection</a>
-              <a href="#" className="hover:text-white transition-colors">Zenith Collection</a>
-              <a href="#" className="hover:text-white transition-colors">Showrooms</a>
-            </nav>
           </div>
 
           {/* Column 4: Newsletter */}
@@ -90,7 +76,7 @@ export function Footer() {
           <div className="flex items-center space-x-4">
             <a href="#" aria-label="Instagram" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
             <a href="#" aria-label="Facebook" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
-            <a href="#" aria-label="Pinterest" className="hover:text-white transition-colors"><PinterestIcon className="w-5 h-5" /></a>
+            <a href="#" aria-label="Pinterest" className="hover:text-white transition-colors"><PinterestIcon /></a>
           </div>
         </div>
 
