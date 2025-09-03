@@ -13,14 +13,21 @@ const rooms = ['Living Room', 'Lounge', 'Bedroom'];
 export function HeroSection() {
   const [lightsOn, setLightsOn] = useState(true);
   const [showHeader, setShowHeader] = useState(false);
+  const [showText, setShowText] = useState(false);
   const [activeRoom, setActiveRoom] = useState('Living Room');
   
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      const scrollY = window.scrollY;
+      if (scrollY > 100) {
         setShowHeader(true);
       } else {
         setShowHeader(false);
+      }
+      if (scrollY > 50) {
+        setShowText(true);
+      } else {
+        setShowText(false);
       }
     };
 
@@ -52,15 +59,20 @@ export function HeroSection() {
         )} />
         
         <div className="relative z-10 flex flex-col items-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">The Art of Duality</h1>
-            <p className="mt-4 text-lg md:text-xl text-white/80 max-w-2xl">Where soul meets science. Handcrafted lighting from Bali, engineered for the world.</p>
-          </motion.div>
+          <AnimatePresence>
+            {showText && (
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-center"
+              >
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight">The Art of Duality</h1>
+                <p className="mt-4 text-lg md:text-xl text-white/80 max-w-2xl">Where soul meets science. Handcrafted lighting from Bali, engineered for the world.</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         <footer className="absolute bottom-8 z-10">
