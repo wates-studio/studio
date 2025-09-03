@@ -4,13 +4,11 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, Sun, Moon, Dot } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
-import { Switch } from "@/components/ui/switch"
-import { Slider } from "@/components/ui/slider"
 
 const ScrollAnimation = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,6 +50,30 @@ const ScrollAnimation = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const CustomToggle = ({ checked, onChange }: { checked: boolean, onChange: (checked: boolean) => void }) => {
+  return (
+    <button onClick={() => onChange(!checked)} className="relative focus:outline-none" aria-label="Toggle Lights">
+      <svg width="60" height="34" viewBox="0 0 60 34" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-colors duration-300">
+        <rect width="60" height="34" rx="17" fill={checked ? "#32D74B" : "rgba(120, 120, 128, 0.36)"} />
+        <motion.div
+          animate={{ x: checked ? 27 : 1 }}
+          transition={{ type: "spring", stiffness: 700, damping: 30 }}
+          style={{
+            position: 'absolute',
+            top: '2px',
+            left: '2px',
+            width: '30px',
+            height: '30px',
+            backgroundColor: 'white',
+            borderRadius: '50%',
+            boxShadow: '0 3px 8px rgba(0,0,0,0.15), 0 3px 1px rgba(0,0,0,0.06)',
+          }}
+        />
+      </svg>
+    </button>
+  );
+};
+
 export default function Home() {
   const [lightsOn, setLightsOn] = useState(true);
   const [showHeader, setShowHeader] = useState(false);
@@ -62,10 +84,9 @@ export default function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When the hero section is 80% out of view, show the header
         setShowHeader(entry.intersectionRatio < 0.2);
       },
-      { threshold: [0, 0.2, 1.0] } // trigger at 0%, 20% and 100% visibility
+      { threshold: [0, 0.2, 1.0] }
     );
 
     if (heroRef.current) {
@@ -82,20 +103,10 @@ export default function Home() {
   return (
     <div className="bg-[#111111] text-white antialiased">
       <AnimatePresence>
-        {showHeader && (
-          <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            transition={{ duration: 0.5 }}
-            className="fixed top-0 left-0 right-0 z-50"
-          >
-            <Header />
-          </motion.div>
-        )}
+        {showHeader && <Header />}
       </AnimatePresence>
 
-      <section ref={heroRef} className="relative h-screen w-full flex flex-col">
+      <section ref={heroRef} className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
         <Image
           src="https://picsum.photos/1920/1280"
           alt="Luxurious living room with DUA lighting fixtures"
@@ -105,54 +116,47 @@ export default function Home() {
           data-ai-hint="luxury living room lamps"
           quality={90}
         />
-        <div className="absolute inset-0 bg-black/30" />
-
-        <header className="relative z-10 p-8">
-          <div className="container mx-auto flex justify-between items-center">
-             <div className="bg-black/70 p-4 rounded-md">
-                <div className="font-light text-2xl tracking-[0.3em] leading-none">DUA</div>
-                <div className="text-xs text-white/70 tracking-[0.1em]">COLLECTIVE</div>
-            </div>
-            <nav className="flex items-center gap-8 text-sm text-white/80">
-                <a href="#" className="hover:text-white transition-colors">Profile</a>
-                <a href="#" className="hover:text-white transition-colors">Technical</a>
-                <a href="#" className="hover:text-white transition-colors">Portfolio</a>
-                <a href="#" className="hover:text-white transition-colors">Product</a>
-                <a href="#" className="hover:text-white transition-colors">Services</a>
-            </nav>
-          </div>
-        </header>
-
-        <div className="flex-grow flex items-center justify-center">
-            {/* Main content can go here if needed, but the design is minimal */}
+        <div className="absolute inset-0 bg-black/40" />
+        
+        <div className="relative z-10 flex flex-col items-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-center"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">The Art of Duality</h1>
+            <p className="mt-4 text-lg md:text-xl text-white/80 max-w-2xl">Where soul meets science. Handcrafted lighting from Bali, engineered for the world.</p>
+          </motion.div>
         </div>
 
-        <footer className="relative z-10 p-8 flex justify-center">
-          <div className="bg-black/50 backdrop-blur-md border border-white/20 rounded-full p-2 px-6 flex items-center gap-6 text-sm">
-            <div className="flex items-center gap-2">
-              <label htmlFor="lights-on">Lights on</label>
-              <Switch id="lights-on" checked={lightsOn} onCheckedChange={setLightsOn} />
+        <footer className="absolute bottom-8 z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="bg-black/20 backdrop-blur-xl border border-white/20 rounded-2xl p-4 px-8 flex items-center gap-8 text-sm"
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-white/90">Lights on</span>
+              <CustomToggle checked={lightsOn} onChange={setLightsOn} />
             </div>
             <div className="w-px h-6 bg-white/20" />
-            <div className="w-40">
-                <Slider defaultValue={[50]} max={100} step={1} />
-            </div>
-            <div className="w-px h-6 bg-white/20" />
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-6">
               {['Living Room', 'Lounge', 'Bedroom'].map((room) => (
                 <button
                   key={room}
                   onClick={() => setActiveRoom(room)}
                   className={cn(
-                    "px-4 py-1.5 rounded-full transition-colors",
-                    activeRoom === room ? "bg-white/90 text-black" : "bg-transparent text-white/70 hover:bg-white/20"
+                    "transition-all",
+                    activeRoom === room ? "text-white font-bold" : "text-white/50 hover:text-white/80"
                   )}
                 >
                   {room}
                 </button>
               ))}
             </div>
-          </div>
+          </motion.div>
         </footer>
       </section>
 
