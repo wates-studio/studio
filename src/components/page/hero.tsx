@@ -1,9 +1,9 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
 import { CustomToggle } from '@/components/custom-toggle';
@@ -13,8 +13,15 @@ const rooms = ['Living Room', 'Lounge', 'Bedroom'];
 export function HeroSection() {
   const [lightsOn, setLightsOn] = useState(true);
   const [showHeader, setShowHeader] = useState(false);
-  const [showText, setShowText] = useState(false);
   const [activeRoom, setActiveRoom] = useState('Living Room');
+  
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  const textOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -23,11 +30,6 @@ export function HeroSection() {
         setShowHeader(true);
       } else {
         setShowHeader(false);
-      }
-      if (scrollY > 50) {
-        setShowText(true);
-      } else {
-        setShowText(false);
       }
     };
 
@@ -42,7 +44,7 @@ export function HeroSection() {
       <AnimatePresence>
         {showHeader && <Header />}
       </AnimatePresence>
-      <section className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
+      <section ref={heroRef} className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
         <Image
           src="https://picsum.photos/1920/1280"
           alt="Luxurious living room with DUA lighting fixtures"
@@ -59,20 +61,13 @@ export function HeroSection() {
         )} />
         
         <div className="relative z-10 flex flex-col items-center">
-          <AnimatePresence>
-            {showText && (
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-center"
-              >
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight">The Art of Duality</h1>
-                <p className="mt-4 text-lg md:text-xl text-white/80 max-w-2xl">Where soul meets science. Handcrafted lighting from Bali, engineered for the world.</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <motion.div 
+            style={{ opacity: textOpacity }}
+            className="text-center"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">The Art of Duality</h1>
+            <p className="mt-4 text-lg md:text-xl text-white/80 max-w-2xl">Where soul meets science. Handcrafted lighting from Bali, engineered for the world.</p>
+          </motion.div>
         </div>
 
         <footer className="absolute bottom-8 z-10">
