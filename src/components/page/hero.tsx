@@ -5,7 +5,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from "framer-motion";
 import { cn } from '@/lib/utils';
-import { Header } from '@/components/header';
 import { CustomToggle } from '@/components/custom-toggle';
 
 const rooms = ['Living Room', 'Lounge', 'Bedroom'];
@@ -16,7 +15,6 @@ export function HeroSection() {
   
   return (
     <section className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
-      <Header />
       <Image
         src="https://picsum.photos/1920/1280"
         alt="Luxurious living room with DUA lighting fixtures"
