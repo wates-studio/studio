@@ -86,7 +86,7 @@ export default function Home() {
             
             <ScrollAnimation>
               <section className="grid md:grid-cols-2 gap-16 items-center">
-                <div className="text-white/90 p-8 rounded-lg bg-black/50 backdrop-blur-md">
+                <div className="text-white/90 p-8 md:p-12 advanced-glass">
                   <p className="text-2xl md:text-3xl font-light leading-relaxed">
                     In the workshops of Bali, a legacy of craft meets the rigor of modern engineering. We believe light is more than illumination—it is a material to be sculpted, an atmosphere to be composed. Each DUA fixture is a dialogue between the hand and the machine, the natural and the technical. The result is not just a lamp, but a feeling.
                   </p>
@@ -105,7 +105,7 @@ export default function Home() {
             </ScrollAnimation>
             
             <ScrollAnimation>
-              <section className="text-center p-8 rounded-lg bg-black/50 backdrop-blur-md">
+              <section className="text-center p-8 md:p-12 advanced-glass">
                 <h2 className="text-3xl md:text-4xl font-light mb-12">Our Philosophy</h2>
                 <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
                   <div className="flex flex-col items-center gap-4">
@@ -157,7 +157,7 @@ export default function Home() {
             </section>
 
             <ScrollAnimation>
-              <section className="text-center p-8 rounded-lg bg-black/50 backdrop-blur-md">
+              <section className="text-center p-8 md:p-12 advanced-glass">
                 <h2 className="text-3xl md:text-4xl font-light mb-12">The Team Behind</h2>
                 <div className="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
                   {teamMembers.map((member) => (
@@ -186,7 +186,7 @@ export default function Home() {
                     data-ai-hint="team workshop collaboration"
                   />
                 </div>
-                <div className="text-white/90 p-8 rounded-lg bg-black/50 backdrop-blur-md">
+                <div className="text-white/90 p-8 md:p-12 advanced-glass">
                   <h3 className="text-sm uppercase tracking-widest text-white/60 mb-4">The Collective</h3>
                   <p className="text-2xl md:text-3xl font-light leading-relaxed">
                     We are a family of designers, engineers, and artisans united by a shared passion for light. Our collective model fosters a unique environment of collaboration, allowing us to push the boundaries of what's possible in lighting design.
@@ -197,7 +197,7 @@ export default function Home() {
             </ScrollAnimation>
             
             <ScrollAnimation>
-              <section className="p-8 rounded-lg bg-black/50 backdrop-blur-md">
+              <section className="p-8 md:p-12 advanced-glass">
                 <h2 className="text-3xl md:text-4xl text-center font-light mb-12">The Journal</h2>
                 <div className="grid md:grid-cols-3 gap-12">
                   {journalEntries.map((entry) => (
