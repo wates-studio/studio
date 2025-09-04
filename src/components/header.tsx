@@ -3,26 +3,37 @@
 
 import { useState, useEffect } from 'react';
 import { Logo } from '@/components/logo';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+
+const navItems = [
+  { name: 'Profile', href: '/' },
+  { name: 'Technical', href: '/' },
+  { name: 'Portfolio', href: '/' },
+  { name: 'Product', href: '/' },
+  { name: 'Services', href: '/' }
+];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
+      setScrolled(window.scrollY > 10);
     };
 
+    // Add event listener only on the client side
     window.addEventListener('scroll', handleScroll);
+    
+    // Call handler once to set initial state
+    handleScroll();
+
+    // Clean up event listener
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [scrolled]);
+  }, []); // Empty dependency array ensures this effect runs only once on mount
 
   return (
     <motion.header 
@@ -40,17 +51,16 @@ export function Header() {
             <Logo />
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
-            <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
-            <Link href="/journal" className="hover:text-white transition-colors">The Journal</Link>
-            <Link href="/philosophy" className="hover:text-white transition-colors">Philosophy</Link>
+            {navItems.map((item) => (
+              <Link key={item.name} href={item.href} className="hover:text-white transition-colors">
+                {item.name}
+              </Link>
+            ))}
           </nav>
-          <div>
-            <a href="#" className="hidden md:inline-block text-sm px-4 py-2 border border-white/50 rounded-full hover:bg-white hover:text-black transition-colors">
-              Trade Portal
-            </a>
-          </div>
         </div>
       </div>
     </motion.header>
   );
 }
+
+    
