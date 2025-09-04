@@ -1,17 +1,15 @@
-
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from '@/lib/utils';
 import { CustomToggle } from '@/components/custom-toggle';
+import { scenes } from '@/data/scenes';
 
-const rooms = ['Living Room', 'Lounge', 'Bedroom'];
-
-export function HeroSection() {
+export function Scenes() {
   const [lightsOn, setLightsOn] = useState(true);
-  const [activeRoom, setActiveRoom] = useState('Living Room');
+  const [activeSceneId, setActiveSceneId] = useState(scenes[0].id);
   
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -19,51 +17,35 @@ export function HeroSection() {
     offset: ["start start", "end end"]
   });
 
-  const textOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const imageBrightness = useTransform(
-    scrollYProgress,
-    [0, 0.5],
-    [1, 0.4]
-  );
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.4, 0.7]);
-
+  const textOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
-  useEffect(() => {
-    return imageBrightness.on("change", (latest) => {
-      if (latest < 0.6) {
-        setLightsOn(false);
-      } else {
-        setLightsOn(true);
-      }
-    });
-  }, [imageBrightness]);
-  
+  const activeScene = scenes.find((scene) => scene.id === activeSceneId) || scenes[0];
+
   return (
-    <section ref={heroRef} className="relative h-[150vh] w-full overflow-hidden">
+    <section ref={heroRef} className="relative h-[150vh] w-full">
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
         <motion.div 
           className="absolute inset-0"
           style={{ scale: imageScale }}
         >
           <Image
-            src="https://picsum.photos/1920/1280"
-            alt="Luxurious living room with DUA lighting fixtures"
+            src={activeScene.imageOn}
+            alt={`Luxurious ${activeScene.name} with DUA lighting fixtures on`}
             fill
             priority
-            className="object-cover transition-all duration-1000"
-            style={{ filter: `brightness(${lightsOn ? imageBrightness.get() : 0.4})` }}
-            data-ai-hint="luxury living room lamps"
+            className={cn("object-cover transition-opacity duration-1000", lightsOn ? "opacity-100" : "opacity-0")}
+            quality={90}
+          />
+          <Image
+            src={activeScene.imageOff}
+            alt={`Luxurious ${activeScene.name} with DUA lighting fixtures off`}
+            fill
+            priority
+            className={cn("object-cover transition-opacity duration-1000", !lightsOn ? "opacity-100" : "opacity-0")}
             quality={90}
           />
         </motion.div>
-
-        <motion.div 
-          className="absolute inset-0 bg-black"
-          style={{ 
-            opacity: lightsOn ? overlayOpacity : 0.7 
-          }}
-        />
         
         <div className="relative z-10 flex flex-col items-center">
           <motion.div 
@@ -88,16 +70,16 @@ export function HeroSection() {
             </div>
             <div className="w-px h-6 bg-white/20" />
             <div className="flex items-center gap-6">
-              {rooms.map((room) => (
+              {scenes.map((scene) => (
                 <button
-                  key={room}
-                  onClick={() => setActiveRoom(room)}
+                  key={scene.id}
+                  onClick={() => setActiveSceneId(scene.id)}
                   className={cn(
                     "transition-all",
-                    activeRoom === room ? "text-white font-bold" : "text-white/50 hover:text-white/80"
+                    activeSceneId === scene.id ? "text-white font-bold" : "text-white/50 hover:text-white/80"
                   )}
                 >
-                  {room}
+                  {scene.name}
                 </button>
               ))}
             </div>

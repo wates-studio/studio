@@ -1,5 +1,4 @@
-
-import { HeroSection } from '@/components/page/hero';
+import { Scenes } from '@/components/page/scenes';
 import { JournalCard } from '@/components/page/journal-card';
 import { ScrollAnimation } from '@/components/scroll-animation';
 import { Footer } from '@/components/footer';
@@ -41,7 +40,7 @@ export default function Home() {
   return (
     <div className="bg-[#111111] text-white antialiased">
       <Header />
-      <HeroSection />
+      <Scenes />
 
       <div className="relative z-10">
         <main className="bg-[#111111]">
