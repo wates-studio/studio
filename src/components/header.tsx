@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -22,7 +23,8 @@ export function Header() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Set initial state
+    // Set initial state without causing hydration error
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -38,9 +40,9 @@ export function Header() {
     >
       <div
         className={cn(
-          "advanced-glass container mx-auto flex items-center justify-between h-20 px-6 md:px-10",
-          "transition-colors duration-500",
-          scrolled ? "bg-black/30" : "bg-transparent"
+          "container mx-auto flex items-center justify-between h-20 px-6 md:px-10 rounded-lg",
+          "transition-all duration-500",
+          scrolled ? "advanced-glass bg-black/30" : "bg-transparent"
         )}
       >
         <Link href="/" aria-label="Homepage">
