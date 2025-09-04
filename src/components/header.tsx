@@ -55,8 +55,14 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Button variant="outline" className="hidden md:inline-flex bg-transparent text-white border-white/50 hover:bg-white hover:text-black">
-          Trade Portal
+        <Button 
+          variant="outline" 
+          className={cn(
+            "hidden md:inline-flex bg-transparent text-white border-white/50 hover:bg-white hover:text-black transition-opacity duration-300",
+            scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+          )}
+        >
+          Book Consultation
         </Button>
       </div>
     </motion.header>

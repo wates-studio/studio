@@ -12,8 +12,8 @@ export function Logo({ scrolled = false }: LogoProps) {
       <Image
         src="/logo.svg"
         alt="Dua Collective Logo"
-        width={scrolled ? 80 : 120}
-        height={scrolled ? 50 : 75}
+        width={scrolled ? 60 : 120}
+        height={scrolled ? 38 : 75}
         priority
         className="transition-all duration-300"
       />
