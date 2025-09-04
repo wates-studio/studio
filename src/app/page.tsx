@@ -1,13 +1,19 @@
+
+"use client";
+
+import { useState } from 'react';
+import Image from 'next/image';
 import { Scenes } from '@/components/page/scenes';
 import { JournalCard } from '@/components/page/journal-card';
 import { ScrollAnimation } from '@/components/scroll-animation';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Lightbulb, Users, Handshake } from 'lucide-react';
 import Link from 'next/link';
 import { Header } from '@/components/header';
+import { scenes, type Scene } from '@/data/scenes';
+import { cn } from '@/lib/utils';
 
 const journalEntries = [
   {
@@ -37,18 +43,50 @@ const teamMembers = [
 ];
 
 export default function Home() {
+  const [lightsOn, setLightsOn] = useState(true);
+  const [activeSceneId, setActiveSceneId] = useState(scenes[0].id);
+  const activeScene = scenes.find((scene) => scene.id === activeSceneId) || scenes[0];
+
   return (
     <div className="bg-[#111111] text-white antialiased">
-      <Header />
-      <Scenes />
+      {/* Persistent Background */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src={activeScene.imageOn}
+          alt={`Luxurious ${activeScene.name} with DUA lighting fixtures on`}
+          fill
+          priority
+          className={cn("object-cover transition-opacity duration-1000", lightsOn ? "opacity-100" : "opacity-0")}
+          quality={90}
+        />
+        <Image
+          src={activeScene.imageOff}
+          alt={`Luxurious ${activeScene.name} with DUA lighting fixtures off`}
+          fill
+          priority
+          className={cn("object-cover transition-opacity duration-1000", !lightsOn ? "opacity-100" : "opacity-0")}
+          quality={90}
+        />
+      </div>
 
+      <div className="relative z-20">
+        <Header />
+      </div>
+      
       <div className="relative z-10">
-        <main className="bg-[#111111]">
+        <Scenes 
+          lightsOn={lightsOn}
+          setLightsOn={setLightsOn}
+          activeSceneId={activeSceneId}
+          setActiveSceneId={setActiveSceneId}
+        />
+
+        <main className="bg-transparent">
           <div className="container mx-auto px-4 py-20 md:py-32 space-y-20 md:space-y-32">
             
             <ScrollAnimation>
               <section className="grid md:grid-cols-2 gap-16 items-center">
-                <div className="text-white/90">
+                <div className="text-white/90 p-8 rounded-lg bg-black/50 backdrop-blur-md">
                   <p className="text-2xl md:text-3xl font-light leading-relaxed">
                     In the workshops of Bali, a legacy of craft meets the rigor of modern engineering. We believe light is more than illumination—it is a material to be sculpted, an atmosphere to be composed. Each DUA fixture is a dialogue between the hand and the machine, the natural and the technical. The result is not just a lamp, but a feeling.
                   </p>
@@ -67,7 +105,7 @@ export default function Home() {
             </ScrollAnimation>
             
             <ScrollAnimation>
-              <section className="text-center">
+              <section className="text-center p-8 rounded-lg bg-black/50 backdrop-blur-md">
                 <h2 className="text-3xl md:text-4xl font-light mb-12">Our Philosophy</h2>
                 <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
                   <div className="flex flex-col items-center gap-4">
@@ -119,7 +157,7 @@ export default function Home() {
             </section>
 
             <ScrollAnimation>
-              <section className="text-center">
+              <section className="text-center p-8 rounded-lg bg-black/50 backdrop-blur-md">
                 <h2 className="text-3xl md:text-4xl font-light mb-12">The Team Behind</h2>
                 <div className="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
                   {teamMembers.map((member) => (
@@ -148,7 +186,7 @@ export default function Home() {
                     data-ai-hint="team workshop collaboration"
                   />
                 </div>
-                <div className="text-white/90">
+                <div className="text-white/90 p-8 rounded-lg bg-black/50 backdrop-blur-md">
                   <h3 className="text-sm uppercase tracking-widest text-white/60 mb-4">The Collective</h3>
                   <p className="text-2xl md:text-3xl font-light leading-relaxed">
                     We are a family of designers, engineers, and artisans united by a shared passion for light. Our collective model fosters a unique environment of collaboration, allowing us to push the boundaries of what's possible in lighting design.
@@ -159,7 +197,7 @@ export default function Home() {
             </ScrollAnimation>
             
             <ScrollAnimation>
-              <section>
+              <section className="p-8 rounded-lg bg-black/50 backdrop-blur-md">
                 <h2 className="text-3xl md:text-4xl text-center font-light mb-12">The Journal</h2>
                 <div className="grid md:grid-cols-3 gap-12">
                   {journalEntries.map((entry) => (
@@ -170,9 +208,8 @@ export default function Home() {
             </ScrollAnimation>
           </div>
         </main>
-
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
