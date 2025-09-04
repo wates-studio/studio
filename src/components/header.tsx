@@ -6,13 +6,12 @@ import { Logo } from '@/components/logo';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
 
 const navItems = [
-  { name: 'Profile', href: '/' },
-  { name: 'Technical', href: '/' },
-  { name: 'Portfolio', href: '/' },
-  { name: 'Product', href: '/' },
-  { name: 'Services', href: '/' }
+  { name: 'Projects', href: '/projects' },
+  { name: 'The Journal', href: '/journal' },
+  { name: 'Philosophy', href: '/philosophy' },
 ];
 
 export function Header() {
@@ -41,8 +40,8 @@ export function Header() {
     >
       <div
         className={cn(
-          "container mx-auto flex items-center justify-between h-20 px-6 md:px-10 transition-all duration-300",
-          scrolled && "bg-white/5 backdrop-blur-md border border-white/20 rounded-2xl"
+          "container mx-auto flex items-center justify-between h-20 px-6 md:px-10 transition-all duration-300 rounded-2xl",
+          scrolled && "bg-white/5 backdrop-blur-md border border-white/20"
         )}
       >
         <Link href="/" aria-label="Homepage">
@@ -55,6 +54,9 @@ export function Header() {
             </Link>
           ))}
         </nav>
+        <Button variant="outline" className="hidden md:inline-flex bg-transparent text-white border-white/50 hover:bg-white hover:text-black">
+          Trade Portal
+        </Button>
       </div>
     </motion.header>
   );
