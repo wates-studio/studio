@@ -42,11 +42,11 @@ export function Header() {
         className={cn(
           "container mx-auto flex items-center justify-between h-20 px-6 md:px-10 rounded-lg",
           "transition-all duration-500",
-          scrolled ? "advanced-glass bg-black/30" : "bg-transparent"
+          scrolled ? "advanced-glass" : "bg-transparent"
         )}
       >
         <Link href="/" aria-label="Homepage">
-          <Logo />
+          <Logo scrolled={scrolled} />
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
           {navItems.map((item) => (

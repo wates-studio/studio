@@ -1,15 +1,21 @@
 
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
-export function Logo() {
+interface LogoProps {
+  scrolled?: boolean;
+}
+
+export function Logo({ scrolled = false }: LogoProps) {
   return (
-    <div className="p-4 cursor-pointer">
+    <div className={cn("cursor-pointer p-4 transition-all duration-300", scrolled ? "py-2" : "py-4")}>
       <Image
         src="/logo.svg"
         alt="Dua Collective Logo"
-        width={120}
-        height={75}
+        width={scrolled ? 80 : 120}
+        height={scrolled ? 50 : 75}
         priority
+        className="transition-all duration-300"
       />
     </div>
   );
