@@ -209,12 +209,15 @@ export default function Home() {
 
           {/* Section 9: The Invitation */}
           <div className="bg-black py-20 md:py-32">
-            <div className="container mx-auto px-4 text-center">
-              <h2 className="text-4xl md:text-5xl mb-6 text-white max-w-4xl mx-auto">Big company resources, small company care.</h2>
-              <p className="text-xl max-w-3xl mx-auto mb-8 text-white/80 leading-relaxed">
-                You get access to a world-class supply chain and state-of-the-art technology, guided by a dedicated team that treats your project with the focus and passion it deserves. Let's begin the conversation.
-              </p>
-              <Button size="lg" variant={"outline"}>Book a Consultation</Button>
+            <div className="container mx-auto px-4">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+                <h2 className="text-4xl md:text-5xl text-white max-w-2xl text-center md:text-left">
+                  Big company resources, small company care.
+                </h2>
+                <div className="flex-shrink-0">
+                  <Button size="lg" variant={"outline"}>Book a Consultation</Button>
+                </div>
+              </div>
             </div>
           </div>
 
