@@ -8,8 +8,9 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { name: 'Projects', href: '/projects' },
-  { name: 'The Journal', href: '/journal' },
-  { name: 'Philosophy', href: '/philosophy' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Services', href: '/services' },
+  { name: 'About', href: '/philosophy' },
 ];
 
 export function Header() {
@@ -31,35 +32,25 @@ export function Header() {
         scrolled ? "advanced-glass" : "bg-transparent"
       )}
     >
-      <div className="grid grid-cols-3 items-center h-20">
-        <div className="justify-self-start pl-6 md:pl-10">
+      <div className="container mx-auto flex items-center justify-between h-20 px-4 md:px-6">
+        <div className="flex-1 flex justify-start">
           <Link href="/" aria-label="Homepage">
             <Logo scrolled={scrolled} />
           </Link>
         </div>
 
-        <div
-          className={cn(
-            "hidden md:flex justify-self-center transition-all duration-500",
-            !scrolled && "col-start-3 justify-self-end"
-          )}
-        >
-          <nav className="flex items-center gap-8 text-sm text-white/80 pr-6 md:pr-10">
-            {navItems.map((item) => (
-              <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
+        <nav className="hidden md:flex flex-1 justify-center items-center gap-8 text-sm text-white/80">
+          {navItems.map((item) => (
+            <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
+              {item.name}
+            </Link>
+          ))}
+        </nav>
 
-        <div className="col-start-3 justify-self-end pr-6 md:pr-10">
+        <div className="flex-1 flex justify-end">
           <Button 
             variant="outline" 
-            className={cn(
-              "hidden md:inline-flex bg-transparent text-white border-white/50 hover:bg-white hover:text-black transition-opacity duration-300",
-              scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
-            )}
+            className="hidden md:inline-flex bg-transparent text-white border-white/50 hover:bg-white hover:text-black"
           >
             Book Consultation
           </Button>
