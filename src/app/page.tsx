@@ -280,7 +280,7 @@ export default function Home() {
                           Big company resources, small company care.
                       </motion.h2>
                       <motion.div variants={cardVariants} className="flex-shrink-0">
-                          <Button size="lg" variant={"outline"} className="bg-white text-black hover:bg-white/90">Book a Consultation</Button>
+                          <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
                       </motion.div>
                   </ScrollAnimation>
               </div>
