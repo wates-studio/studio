@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -9,8 +10,8 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { name: 'Projects', href: '/projects' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Services', href: '/services' },
-  { name: 'About', href: '/philosophy' },
+  { name: 'Journal', href: '/journal' },
+  { name: 'Philosophy', href: '/philosophy' },
 ];
 
 export function Header() {
