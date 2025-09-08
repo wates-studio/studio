@@ -65,12 +65,12 @@ export default function Home() {
               key={scene.id}
               initial={{ opacity: 0 }}
               animate={{ opacity: scene.id === activeSceneId ? 1 : 0 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
               className="absolute inset-0"
             >
               <motion.div
                 animate={{ opacity: lightsOn ? 1 : 0 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
                 <Image
@@ -84,7 +84,7 @@ export default function Home() {
               </motion.div>
               <motion.div
                 animate={{ opacity: lightsOn ? 0 : 1 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
                 <Image
