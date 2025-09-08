@@ -5,12 +5,12 @@ import { useRef, useLayoutEffect } from 'react';
 import { motion } from "framer-motion";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
+import { TextPlugin } from 'gsap/TextPlugin';
 import { cn } from '@/lib/utils';
 import { CustomToggle } from '@/components/custom-toggle';
 import { scenes } from '@/data/scenes';
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 interface ScenesProps {
   lightsOn: boolean;
@@ -19,14 +19,15 @@ interface ScenesProps {
   setActiveSceneId: (id: string) => void;
 }
 
-export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId }: ScenesProps) {
+export function ScenesClient({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId }: ScenesProps) {
   const heroRef = useRef<HTMLElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
+  // Scroll-based animation for lights on/off
   useLayoutEffect(() => {
-    if (!heroRef.current || !headlineRef.current) return;
-
-    const lightTrigger = ScrollTrigger.create({
+    if (!heroRef.current) return;
+    
+    const trigger = ScrollTrigger.create({
       trigger: heroRef.current,
       start: "top top",
       end: "+=50%",
@@ -36,34 +37,50 @@ export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId 
       },
     });
 
-    // Re-split the text content including the new HTML structure
-    const split = new SplitText(headlineRef.current, { type: "words" });
-    gsap.set(split.words, { opacity: 0, yPercent: 50 });
-    
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "top top",
-        end: "+=50%",
-        scrub: 1,
-      }
+    return () => trigger.kill();
+  }, [setLightsOn]);
+
+  // GSAP animation for hero text
+  useLayoutEffect(() => {
+    if (!headingRef.current) return;
+
+    const heading = headingRef.current;
+    const phrases = ["we breathe life into spaces", "we sculpt soul into spaces"];
+
+    // Master timeline
+    const tl = gsap.timeline({ 
+      repeat: -1, 
+      repeatDelay: 1.5 
     });
 
-    tl.set(headlineRef.current, { visibility: 'visible' })
-      .to(split.words, {
-        opacity: 1,
-        yPercent: 0,
-        stagger: 0.05,
-        ease: "power2.out",
-        duration: 1
-      });
+    // 1. Initial Animation: Fade in and move up
+    tl.from(heading, {
+      opacity: 0,
+      y: 20,
+      duration: 1,
+      ease: "power2.out",
+    });
+    
+    // 2. Typing Animation Part 1: Type out the second phrase
+    tl.to(heading, {
+      delay: 1.5, // Pause before typing
+      text: phrases[1],
+      duration: 1.5,
+      ease: "none",
+    });
+
+    // 3. Typing Animation Part 2: Type back to the first phrase
+    tl.to(heading, {
+      delay: 1.5, // Pause before typing back
+      text: phrases[0],
+      duration: 1.5,
+      ease: "none",
+    });
 
     return () => {
-      lightTrigger.kill();
-      tl.scrollTrigger?.kill();
-      split.revert();
-    };
-  }, [setLightsOn]);
+      tl.kill(); // Cleanup the timeline on component unmount
+    }
+  }, []);
 
   return (
     <section>
@@ -72,12 +89,12 @@ export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId 
           
           <div className="relative z-10 flex flex-col items-center">
             <div className="text-center">
-              <h1 
-                ref={headlineRef}
-                className="text-5xl md:text-7xl tracking-tight font-light"
-                style={{ visibility: 'hidden' }}
+              <h1
+                ref={headingRef}
+                className="text-5xl md:text-7xl font-bold tracking-tight"
               >
-                We <span className="font-bold">breathe life</span> into <span className="font-bold">spaces</span>
+                {/* Initial text is set here, GSAP will take over */}
+                we breathe life into spaces
               </h1>
             </div>
           </div>
@@ -114,6 +131,7 @@ export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId 
         </div>
       </div>
       
+      {/* Spacer to push content down */}
       <div className="h-24"></div> 
     </section>
   );
