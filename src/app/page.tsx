@@ -165,8 +165,8 @@ export default function Home() {
           {/* Section 2: The Philosophy */}
           <section className="min-h-screen flex items-center justify-center py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.2} className="flex flex-col md:flex-row items-center justify-between gap-16">
-                <motion.div variants={cardVariants} className="md:w-1/2 space-y-8">
+              <ScrollAnimation staggerChildren={0.2} className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32">
+                <motion.div variants={cardVariants} className="md:w-1/2 max-w-xl space-y-8">
                   <h2 className="text-5xl md:text-6xl leading-tight">
                     We breathe life
                     <br />
@@ -177,9 +177,12 @@ export default function Home() {
                     <br />
                     with light and shadow.
                   </h2>
+                   <Link href="/philosophy" className="inline-block text-3xl md:text-4xl font-bold hover:underline">
+                      READ MORE →
+                  </Link>
                 </motion.div>
-                <motion.div variants={cardVariants} className="md:w-1/2 flex justify-center items-center">
-                  <div className="relative w-80 h-80">
+                <motion.div variants={cardVariants} className="md:w-auto flex justify-center items-center">
+                  <div className="relative w-72 h-80">
                     <div className="absolute top-0 left-0 w-48 h-48 border border-white/50 rounded-full flex items-center justify-center">
                       <span className="text-xl">Artistry</span>
                     </div>
