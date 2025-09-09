@@ -185,7 +185,7 @@ export default function Home() {
                         <motion.div
                             animate={{ x: [0, 5, 0] }}
                             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            className="ml-4 transition-transform duration-300 group-hover:translate-x-2"
+                            className="ml-4"
                         >
                             <ArrowRight className="w-10 h-10" />
                         </motion.div>
@@ -236,7 +236,7 @@ export default function Home() {
                         <motion.div
                             animate={{ x: [0, 4, 0] }}
                             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            className="ml-3 transition-transform duration-300 group-hover:translate-x-1.5"
+                            className="ml-3"
                         >
                             <ArrowRight className="w-8 h-8" />
                         </motion.div>
@@ -389,7 +389,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
