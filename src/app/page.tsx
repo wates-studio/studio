@@ -15,6 +15,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { InfoCarousel } from '@/components/page/info-carousel';
 import { ArrowRight } from 'lucide-react';
 import { ReadMoreLink } from '@/components/read-more-link';
+import { JournalCard } from '@/components/page/journal-card';
 
 const teamMembers = [
   {
@@ -64,6 +65,27 @@ const designers = [
     description: "Known as the 'poet of light,' Maurer was a German industrial designer who specialized in lamps and light installations, consistently pushing the boundaries of art and technology.",
     image: 'https://picsum.photos/400/500?8',
     hint: 'portrait ingo maurer'
+  }
+];
+
+const journalEntries = [
+  {
+    title: 'The Science of Atmosphere: An Introduction to Human-Centric Lighting',
+    image: 'https://picsum.photos/600/400?4',
+    alt: 'Abstract light and shadows',
+    hint: 'abstract light shadow'
+  },
+  {
+    title: 'Material Focus: The Living Finish of Hand-Brushed Brass',
+    image: 'https://picsum.photos/600/400?5',
+    alt: 'Molten brass',
+    hint: 'molten brass'
+  },
+  {
+    title: 'Designer Spotlight: The Mind Behind the Aura Collection',
+    image: 'https://picsum.photos/600/400?6',
+    alt: 'Designer sketching',
+    hint: 'designer sketching black white'
   }
 ];
 
@@ -339,23 +361,23 @@ export default function Home() {
           {/* DUA Journal Section */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.3}>
-                <motion.div 
-                    variants={cardVariants} 
-                    className="flex justify-center items-center flex-col gap-[18px] p-[50px] bg-[#000000] rounded-[25px] max-w-4xl mx-auto"
-                >
-                  <span className="text-[#FFFFFF] text-[15px] font-bold tracking-widest opacity-50">
-                    DUA JOURNAL
-                  </span>
-                  <p className="self-stretch text-[#FFFFFF] text-[40px] text-center leading-[1.1]">
-                    <Link href="/journal">
-                      <span className="hover:underline">
-                        In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
-                      </span>
-                      <span className="font-bold ml-2 hover:underline">READ MORE →</span>
-                    </Link>
+              <ScrollAnimation>
+                <motion.div variants={cardVariants} className="text-center mb-16">
+                  <h2 className="text-4xl md:text-5xl">From the Journal</h2>
+                  <p className="mt-4 text-lg text-white/70">
+                    Insights on design, material, and the art of atmospheric engineering.
                   </p>
                 </motion.div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                  {journalEntries.map((entry) => (
+                    <JournalCard key={entry.title} {...entry} />
+                  ))}
+                </div>
+                <div className="text-center mt-16">
+                  <Link href="/journal" className="text-lg font-semibold text-white hover:underline">
+                    View All Articles →
+                  </Link>
+                </div>
               </ScrollAnimation>
             </div>
           </section>
@@ -380,7 +402,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
