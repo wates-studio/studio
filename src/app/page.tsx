@@ -44,23 +44,23 @@ const teamMembers = [
 const designers = [
   {
     name: 'Achille Castiglioni',
-    quote: "There has to be a reason for every detail. You can't just add a detail to make it look pretty. It has to have a meaning, a function.",
+    quote: "A master of form and wit, Castiglioni saw design as a tool for solving problems with intelligence and grace.",
     description: "A master of form and wit, Castiglioni saw design as a tool for solving problems with intelligence and grace. His belief that an object's purpose must justify its existence is a constant inspiration.",
-    image: 'https://picsum.photos/200/200?6',
+    image: 'https://picsum.photos/400/500?6',
     hint: 'portrait achille castiglioni'
   },
   {
     name: 'Poul Henningsen',
-    quote: "It's not about the lamp, it's about the light.",
+    quote: "The Danish designer who revolutionized lighting with his PH-lamp series, creating glare-free, uniform illumination.",
     description: "The Danish designer who revolutionized lighting with his PH-lamp series, creating glare-free, uniform illumination that shaped the aesthetics of Danish modernism.",
-    image: 'https://picsum.photos/200/200?7',
+    image: 'https://picsum.photos/400/500?7',
     hint: 'portrait poul henningsen'
   },
   {
     name: 'Ingo Maurer',
-    quote: "Light can be sensual; it can be comforting; it can be poetic.",
+    quote: "Known as the 'poet of light,' Maurer was a German industrial designer who consistently pushed the boundaries of art and technology.",
     description: "Known as the 'poet of light,' Maurer was a German industrial designer who specialized in lamps and light installations, consistently pushing the boundaries of art and technology.",
-    image: 'https://picsum.photos/200/200?8',
+    image: 'https://picsum.photos/400/500?8',
     hint: 'portrait ingo maurer'
   }
 ];
@@ -323,15 +323,19 @@ export default function Home() {
                 subtitle: designer.quote
             }))}
             renderItem={({ item }) => (
-              <div className="flex flex-col items-center text-center p-4 h-full">
-                <div className="relative w-32 h-32 rounded-full mx-auto mb-8 shrink-0 overflow-hidden">
-                    <Image src={item.image} alt={`Portrait of ${item.title}`} fill className="object-cover" data-ai-hint={item.hint} />
+              <>
+                <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden mb-4">
+                    <Image
+                        src={item.image}
+                        alt={`Portrait of ${item.title}`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-ai-hint={item.hint}
+                    />
                 </div>
-                <blockquote className="text-lg italic text-white grow">
-                    "{item.subtitle}"
-                </blockquote>
-                <p className="mt-4 text-base font-semibold text-white">{item.title}</p>
-              </div>
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <p className="text-white/70 text-sm">{item.subtitle}</p>
+              </>
             )}
           />
 

@@ -51,7 +51,7 @@ export function InfoCarousel<T extends CarouselItemData>({ title, description, i
               <CarouselContent className="-ml-4">
                 {items.map((item) => (
                   <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/2 pl-4">
-                    <div className="flex flex-col items-center text-center h-full">
+                    <div className="p-1 group">
                         {renderItem({ item })}
                     </div>
                   </CarouselItem>
