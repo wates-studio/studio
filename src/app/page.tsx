@@ -16,6 +16,7 @@ import { InfoCarousel } from '@/components/page/info-carousel';
 import { ArrowRight } from 'lucide-react';
 import { ReadMoreLink } from '@/components/read-more-link';
 import { TextJournalCard } from '@/components/page/text-journal-card';
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const teamMembers = [
   {
@@ -333,18 +334,23 @@ export default function Home() {
           {/* DUA Journal Section */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {journalEntries.map((entry) => (
-                    <TextJournalCard key={entry.title} {...entry} />
-                  ))}
-                </div>
-                <div className="text-center mt-16">
-                  <Link href="/journal" className="text-lg font-semibold text-white hover:underline">
-                    View All Articles →
-                  </Link>
-                </div>
-              </ScrollAnimation>
+                <Carousel
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
+                    className="w-full"
+                >
+                    <CarouselContent>
+                        {journalEntries.map((entry, index) => (
+                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-[70%]">
+                                <div className="p-1">
+                                    <TextJournalCard {...entry} />
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                </Carousel>
             </div>
           </section>
 
