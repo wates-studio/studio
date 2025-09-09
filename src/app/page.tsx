@@ -334,12 +334,6 @@ export default function Home() {
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
               <ScrollAnimation>
-                <motion.div variants={cardVariants} className="text-center mb-16">
-                  <h2 className="text-4xl md:text-5xl">From the Journal</h2>
-                  <p className="mt-4 text-lg text-white/70">
-                    Insights on design, material, and the art of atmospheric engineering.
-                  </p>
-                </motion.div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {journalEntries.map((entry) => (
                     <TextJournalCard key={entry.title} {...entry} />
