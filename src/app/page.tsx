@@ -251,36 +251,27 @@ export default function Home() {
           </section>
 
           {/* Featured Project Section */}
-          <section className="py-20 md:py-32">
-            <div className="container mx-auto px-4">
-                <ScrollAnimation staggerChildren={0.2} className="max-w-6xl mx-auto">
-                    <motion.div variants={cardVariants} className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl">Featured Project</h2>
-                    </motion.div>
-                    <motion.div variants={cardVariants} className="grid md:grid-cols-2 gap-12 md:gap-16 items-center bg-black/20 backdrop-blur-md border border-white/10 rounded-lg p-12">
-                        <div>
-                            <Image 
-                                src="https://picsum.photos/1200/800?1"
-                                alt="Mandapa, a Ritz-Carlton Reserve"
-                                width={1200}
-                                height={800}
-                                className="rounded-lg object-cover"
-                                data-ai-hint="luxury resort lobby night"
-                            />
-                        </div>
-                        <div>
-                            <h3 className="text-3xl md:text-4xl font-semibold">Mandapa, a Ritz-Carlton Reserve</h3>
-                            <p className="text-white/60 text-lg mb-4">Ubud, Bali</p>
-                            <p className="text-white/80 text-xl font-light leading-relaxed mb-8">
-                                A complete lighting solution for a world-renowned luxury resort, enhancing its connection to the natural landscape.
-                            </p>
-                            <Button asChild size="lg" className="bg-white text-black hover:bg-white/80">
-                                <Link href="/projects/mandapa-ritz-carlton">View Case Study</Link>
-                            </Button>
-                        </div>
-                    </motion.div>
-                </ScrollAnimation>
-            </div>
+          <section className="py-8 md:py-16">
+            <ScrollAnimation>
+              <div className="relative w-full h-[80vh] flex items-end">
+                <Image
+                  src="https://picsum.photos/1800/1200?1"
+                  alt="Mandapa, a Ritz-Carlton Reserve"
+                  fill
+                  className="object-cover"
+                  data-ai-hint="luxury resort lobby night"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+                <div className="relative z-10 container mx-auto px-4 pb-12 md:pb-20 text-white">
+                  <h2 className="text-sm font-bold tracking-widest uppercase text-white/80 mb-4">Featured Project</h2>
+                  <h3 className="text-4xl md:text-6xl font-semibold max-w-4xl">Mandapa, a Ritz-Carlton Reserve</h3>
+                  <p className="text-white/80 text-lg md:text-xl mt-2">Ubud, Bali</p>
+                  <Button asChild size="lg" className="mt-8 bg-white text-black hover:bg-white/80">
+                      <Link href="/projects/mandapa-ritz-carlton">View Case Study</Link>
+                  </Button>
+                </div>
+              </div>
+            </ScrollAnimation>
           </section>
 
           {/* Our Team Section */}
