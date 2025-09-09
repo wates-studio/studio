@@ -39,7 +39,7 @@ export function InfoCarousel<T extends CarouselItemData>({ title, description, i
   return (
     <section className="py-20 md:py-32 overflow-hidden">
       <div className="container mx-auto px-4">
-        <ScrollAnimation staggerChildren={0.2} className="grid md:grid-cols-2 gap-16 items-center">
+        <ScrollAnimation staggerChildren={0.2} className="grid md:grid-cols-2 gap-16 items-center px-12">
           <motion.div variants={cardVariants} className="space-y-6 md:pr-8">
             <h2 className="text-4xl md:text-5xl">{title}</h2>
             <p className="text-xl leading-relaxed text-white/80">

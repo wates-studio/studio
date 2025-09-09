@@ -251,7 +251,7 @@ export default function Home() {
           {/* Our Clients Section */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.2} className="text-center">
+              <ScrollAnimation staggerChildren={0.2} className="text-center px-12">
                 <motion.h2 variants={cardVariants} className="text-sm font-bold tracking-widest uppercase text-white/50 mb-12">
                   OUR CLIENTS
                 </motion.h2>
@@ -283,13 +283,15 @@ export default function Home() {
                   data-ai-hint="luxury resort lobby night"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-                <div className="relative z-10 container mx-auto px-4 pb-12 md:pb-20 text-white">
-                  <h2 className="text-sm font-bold tracking-widest uppercase text-white/80 mb-4">Featured Project</h2>
-                  <h3 className="text-4xl md:text-6xl font-semibold max-w-4xl">Mandapa, a Ritz-Carlton Reserve</h3>
-                  <p className="text-white/80 text-lg md:text-xl mt-2">Ubud, Bali</p>
-                  <Button asChild size="lg" className="mt-8 bg-white text-black hover:bg-white/80">
-                      <Link href="/projects/mandapa-ritz-carlton">View Case Study</Link>
-                  </Button>
+                <div className="relative z-10 container mx-auto px-4 pb-12 md:pb-20">
+                  <div className="px-12">
+                    <h2 className="text-sm font-bold tracking-widest uppercase text-white/80 mb-4">Featured Project</h2>
+                    <h3 className="text-4xl md:text-6xl font-semibold max-w-4xl">Mandapa, a Ritz-Carlton Reserve</h3>
+                    <p className="text-white/80 text-lg md:text-xl mt-2">Ubud, Bali</p>
+                    <Button asChild size="lg" className="mt-8 bg-white text-black hover:bg-white/80">
+                        <Link href="/projects/mandapa-ritz-carlton">View Case Study</Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </ScrollAnimation>
@@ -354,7 +356,7 @@ export default function Home() {
           {/* Get Inspired / Blog Section */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.3} className="p-12 md:p-16 rounded-lg bg-black/20 backdrop-blur-md border border-white/10">
+              <ScrollAnimation staggerChildren={0.3} className="p-12 md:p-16 rounded-lg bg-black/20 backdrop-blur-md border border-white/10 mx-12">
                 <motion.div variants={cardVariants} className="max-w-3xl mx-auto text-left space-y-6">
                   <h3 className="text-lg uppercase tracking-widest text-white/60 text-center">Get Inspired</h3>
                   <p className="text-2xl md:text-3xl font-bold leading-relaxed text-white text-center">
@@ -372,7 +374,7 @@ export default function Home() {
           {/* CTA Section */}
           <section className="py-20 md:py-32">
               <div className="container mx-auto px-4">
-                  <ScrollAnimation staggerChildren={0.3} className="flex flex-col md:flex-row justify-between items-center gap-8">
+                  <ScrollAnimation staggerChildren={0.3} className="flex flex-col md:flex-row justify-between items-center gap-8 px-12">
                       <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl text-white max-w-2xl text-center md:text-left">
                           Big company resources, small company care.
                       </motion.h2>
