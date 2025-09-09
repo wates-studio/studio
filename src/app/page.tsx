@@ -127,6 +127,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <ScrollAnimation staggerChildren={0.2} className="flex flex-col md:flex-row items-center justify-between gap-16">
                 <motion.div variants={cardVariants} className="md:w-1/2 space-y-8">
+                  
                   <h2 className="text-5xl md:text-6xl leading-tight">
                     We breathe life
                     <br />
@@ -220,16 +221,18 @@ export default function Home() {
           {/* Section 7: From the Journal */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-                <ScrollAnimation staggerChildren={0.3} className="p-12 md:p-16 rounded-lg bg-black/20 backdrop-blur-md border border-white/10 text-center">
-                    <motion.div variants={cardVariants} className="max-w-2xl mx-auto">
-                        <h3 className="text-lg uppercase tracking-widest text-white/60 mb-4">Featured Blog</h3>
-                        <h2 className="text-4xl md:text-5xl mb-6">The Psychology of Shadow: How Absence Defines Luxury</h2>
-                        <p className="text-xl leading-relaxed text-white/80 mb-8">
-                            In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
-                        </p>
-                        <Link href="/journal" className="text-white hover:underline text-lg">Read the Full Story →</Link>
-                    </motion.div>
-                </ScrollAnimation>
+              <ScrollAnimation staggerChildren={0.3} className="p-12 md:p-16 rounded-lg bg-black/20 backdrop-blur-md border border-white/10">
+                <motion.div variants={cardVariants} className="max-w-3xl mx-auto text-left space-y-6">
+                  <h3 className="text-lg uppercase tracking-widest text-white/60 text-center">Featured Blog</h3>
+                  <p className="text-xl leading-relaxed text-white/80 text-center">
+                    In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
+                  </p>
+                  <div className="flex justify-between items-center pt-4">
+                    <h2 className="text-2xl md:text-3xl">The Psychology of Shadow</h2>
+                    <Link href="/journal" className="text-white hover:underline text-lg">Read the Full Story →</Link>
+                  </div>
+                </motion.div>
+              </ScrollAnimation>
             </div>
           </section>
 
