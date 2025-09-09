@@ -339,8 +339,8 @@ export default function Home() {
           {/* Get Inspired / Blog Section */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.3} className="p-12 md:p-16 rounded-lg bg-black/20 backdrop-blur-md border border-white/10 mx-12">
-                <motion.div variants={cardVariants} className="max-w-3xl mx-auto text-left space-y-6">
+              <ScrollAnimation staggerChildren={0.3} className="advanced-glass mx-12">
+                <motion.div variants={cardVariants} className="max-w-3xl mx-auto text-left space-y-6 p-12 md:p-16">
                   <h3 className="text-lg uppercase tracking-widest text-white/60 text-center">Get Inspired</h3>
                   <p className="text-2xl md:text-3xl font-bold leading-relaxed text-white text-center">
                     In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
