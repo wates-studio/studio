@@ -15,7 +15,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { InfoCarousel } from '@/components/page/info-carousel';
 import { ArrowRight } from 'lucide-react';
 import { ReadMoreLink } from '@/components/read-more-link';
-import { JournalCard } from '@/components/page/journal-card';
+import { TextJournalCard } from '@/components/page/text-journal-card';
 
 const teamMembers = [
   {
@@ -70,22 +70,22 @@ const designers = [
 
 const journalEntries = [
   {
-    title: 'The Science of Atmosphere: An Introduction to Human-Centric Lighting',
-    image: 'https://picsum.photos/600/400?4',
-    alt: 'Abstract light and shadows',
-    hint: 'abstract light shadow'
+    title: 'The Science of Atmosphere',
+    excerpt: 'An introduction to Human-Centric Lighting. In sed lacus ipsum gravida dolor quis fames ac. Orci faucibus ipsum sollicitudin lacus sed elementum. Eget pellentesque nunc eleifend...',
+    category: 'Science of Light',
+    href: '/journal'
   },
   {
-    title: 'Material Focus: The Living Finish of Hand-Brushed Brass',
-    image: 'https://picsum.photos/600/400?5',
-    alt: 'Molten brass',
-    hint: 'molten brass'
+    title: 'Material Focus: Hand-Brushed Brass',
+    excerpt: 'The Living Finish of Hand-Brushed Brass. In sed lacus ipsum gravida dolor quis fames ac. Orci faucibus ipsum sollicitudin lacus sed elementum. Eget pellentesque nunc eleifend...',
+    category: 'Materiality',
+    href: '/journal'
   },
   {
-    title: 'Designer Spotlight: The Mind Behind the Aura Collection',
-    image: 'https://picsum.photos/600/400?6',
-    alt: 'Designer sketching',
-    hint: 'designer sketching black white'
+    title: 'Designer Spotlight: Aura Collection',
+    excerpt: 'The Mind Behind the Aura Collection. In sed lacus ipsum gravida dolor quis fames ac. Orci faucibus ipsum sollicitudin lacus sed elementum. Eget pellentesque nunc eleifend...',
+    category: 'Design',
+    href: '/journal'
   }
 ];
 
@@ -330,34 +330,6 @@ export default function Home() {
             )}
           />
 
-          {/* Get Inspired / Lighting Designer Section */}
-          <InfoCarousel
-            title="Get Inspired"
-            description="We look to the masters who saw design as a tool for solving problems with intelligence and grace. Their belief that an object's purpose must justify its existence is a constant inspiration, reminding us to design with intention, always."
-            items={designers.map(designer => ({
-                id: designer.name,
-                image: designer.image,
-                hint: designer.hint,
-                title: designer.name,
-                subtitle: designer.quote
-            }))}
-            renderItem={({ item }) => (
-              <>
-                <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden mb-4">
-                    <Image
-                        src={item.image}
-                        alt={`Portrait of ${item.title}`}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-ai-hint={item.hint}
-                    />
-                </div>
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="text-white/70 text-sm">{item.subtitle}</p>
-              </>
-            )}
-          />
-
           {/* DUA Journal Section */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
@@ -368,9 +340,9 @@ export default function Home() {
                     Insights on design, material, and the art of atmospheric engineering.
                   </p>
                 </motion.div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {journalEntries.map((entry) => (
-                    <JournalCard key={entry.title} {...entry} />
+                    <TextJournalCard key={entry.title} {...entry} />
                   ))}
                 </div>
                 <div className="text-center mt-16">
