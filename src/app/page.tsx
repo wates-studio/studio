@@ -182,7 +182,7 @@ export default function Home() {
                   </Link>
                 </motion.div>
                 <motion.div variants={cardVariants} className="md:w-auto flex justify-center items-center">
-                  <div className="relative w-72 h-80">
+                  <div className="relative w-48 h-64">
                     <div className="absolute top-0 left-0 w-48 h-48 border border-white/50 rounded-full flex items-center justify-center">
                       <span className="text-xl">Artistry</span>
                     </div>
