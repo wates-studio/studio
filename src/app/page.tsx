@@ -57,6 +57,14 @@ const services = [
     "Lighting Project Management"
 ];
 
+const clientLogos = [
+  { name: 'Ritz-Carlton', component: <svg className="w-full h-12" viewBox="0 0 100 20"><text x="50" y="15" textAnchor="middle" fontSize="12" fill="white">RITZ-CARLTON</text></svg> },
+  { name: 'Four Seasons', component: <svg className="w-full h-12" viewBox="0 0 100 20"><text x="50" y="15" textAnchor="middle" fontSize="12" fill="white">FOUR SEASONS</text></svg> },
+  { name: 'Aman', component: <svg className="w-full h-12" viewBox="0 0 100 20"><text x="50" y="15" textAnchor="middle" fontSize="12" fill="white">AMAN</text></svg> },
+  { name: 'St. Regis', component: <svg className="w-full h-12" viewBox="0 0 100 20"><text x="50" y="15" textAnchor="middle" fontSize="12" fill="white">ST. REGIS</text></svg> },
+  { name: 'Hyatt', component: <svg className="w-full h-12" viewBox="0 0 100 20"><text x="50" y="15" textAnchor="middle" fontSize="12" fill="white">HYATT</text></svg> },
+  { name: 'Mandarin Oriental', component: <svg className="w-full h-12" viewBox="0 0 100 20"><text x="50" y="15" textAnchor="middle" fontSize="12" fill="white">MANDARIN ORIENTAL</text></svg> }
+];
 
 export default function Home() {
   const [lightsOn, setLightsOn] = useState(true);
@@ -187,6 +195,29 @@ export default function Home() {
                       </motion.div>
                   </ScrollAnimation>
               </div>
+          </section>
+
+          {/* Our Clients Section */}
+          <section className="py-20 md:py-32">
+            <div className="container mx-auto px-4">
+              <ScrollAnimation staggerChildren={0.2} className="text-center">
+                <motion.h2 variants={cardVariants} className="text-sm font-bold tracking-widest uppercase text-white/50 mb-12">
+                  IN GOOD COMPANY
+                </motion.h2>
+                <motion.div 
+                  variants={cardVariants} 
+                  className="relative overflow-hidden"
+                >
+                  <div className="flex animate-marquee">
+                    {[...clientLogos, ...clientLogos].map((logo, index) => (
+                      <div key={index} className="flex-shrink-0 w-64 mx-8 text-white/80 hover:text-white transition-colors duration-300">
+                        {logo.component}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </ScrollAnimation>
+            </div>
           </section>
 
           {/* Section 6: The Studio */}
