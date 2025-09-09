@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 const navItems = [
   { name: 'Projects', href: '/projects' },
@@ -27,10 +28,11 @@ export function Header() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      layout
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled ? "advanced-glass" : "bg-transparent"
+        scrolled ? "top-4 left-4 right-4 advanced-glass border border-white/10" : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex items-center justify-between h-20 px-4 md:px-6">
@@ -57,6 +59,6 @@ export function Header() {
           </Button>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

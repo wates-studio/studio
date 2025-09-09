@@ -8,7 +8,7 @@ interface LogoProps {
 
 export function Logo({ scrolled = false }: LogoProps) {
   return (
-    <div className={cn("cursor-pointer p-4 transition-all duration-300", scrolled ? "py-2" : "py-4")}>
+    <div className={cn("cursor-pointer p-4 transition-all duration-300", scrolled ? "py-2" : "py-6")}>
       <Image
         src="/logo.svg"
         alt="Dua Collective Logo"
