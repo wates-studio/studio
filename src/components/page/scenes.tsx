@@ -37,7 +37,7 @@ export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId 
     });
 
     // Re-split the text content including the new HTML structure
-    const split = new SplitText(headlineRef.current, { type: "words" });
+    const split = new SplitText(headlineRef.current, { type: "words, lines" });
     gsap.set(split.words, { opacity: 0, yPercent: 50 });
     
     const tl = gsap.timeline({
@@ -77,7 +77,7 @@ export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId 
                 className="text-5xl md:text-7xl tracking-tight font-light"
                 style={{ visibility: 'hidden' }}
               >
-                We <span className="font-bold">breathe life</span> into <span className="font-bold">spaces</span>
+                We <span className="font-bold">breathe life</span> <br /> into <span className="font-bold">spaces</span>
               </h1>
             </div>
           </div>
