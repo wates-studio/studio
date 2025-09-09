@@ -38,24 +38,19 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex items-center justify-between pl-4 md:pl-6 pr-8 md:pr-12">
-        <div className={cn("flex flex-1 justify-start")}>
+        <div className="flex-1">
             <Link href="/" aria-label="Homepage">
               <Logo scrolled={scrolled} />
             </Link>
         </div>
 
-        <nav className={cn(
-            "hidden md:flex flex-1 items-center gap-10 text-sm text-white/80",
-            scrolled ? "justify-center" : "justify-end"
-        )}>
+        <nav className="hidden md:flex items-center gap-10 text-sm text-white/80">
           {navItems.map((item) => (
             <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
               {item.name}
             </Link>
           ))}
         </nav>
-        
-        {scrolled && <div className="flex-1" />}
       </div>
     </motion.header>
   );
