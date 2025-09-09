@@ -153,34 +153,15 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Section 3: DUA Lighting (Our Service) */}
+          {/* Section 3: The Balance */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4 text-center">
-                <ScrollAnimation staggerChildren={0.2}>
-                    <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl mb-16 text-white">DUA Lighting</motion.h2>
-                    <motion.div variants={cardVariants} className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-                        <div className="flex flex-col items-center gap-4">
-                            <Lightbulb className="w-12 h-12 text-white/80" />
-                            <h3 className="text-2xl font-semibold mb-2">Design & Curation</h3>
-                            <p className="text-white/70 leading-relaxed">
-                                We work alongside architects and designers to select the perfect fixtures from our collection, ensuring a cohesive and powerful lighting scheme that honors the vision for the space.
-                            </p>
-                        </div>
-                        <div className="flex flex-col items-center gap-4">
-                            <Handshake className="w-12 h-12 text-white/80" />
-                            <h3 className="text-2xl font-semibold mb-2">Technical Specification</h3>
-                            <p className="text-white/70 leading-relaxed">
-                                Our team provides comprehensive technical support, from photometric data to integration with control systems, ensuring a flawless execution from blueprint to reality.
-                            </p>
-                        </div>
-                        <div className="flex flex-col items-center gap-4">
-                            <Users className="w-12 h-12 text-white/80" />
-                            <h3 className="text-2xl font-semibold mb-2">Bespoke Creation</h3>
-                            <p className="text-white/70 leading-relaxed">
-                                For unique challenges, we offer a fully bespoke service. We collaborate with you to design and fabricate one-of-a-kind lighting solutions that are singular, powerful, and yours alone.
-                            </p>
-                        </div>
-                    </motion.div>
+                <ScrollAnimation>
+                    <motion.p variants={cardVariants} className="text-2xl md:text-3xl leading-relaxed max-w-4xl mx-auto text-white/90">
+                        It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the <span className="font-bold">purpose of light</span> is not simply to illuminate, but to transform <span className="font-bold">how a space is felt.</span>
+                        <br /><br />
+                        This is the balance we pursue. This is DUA.
+                    </motion.p>
                 </ScrollAnimation>
             </div>
           </section>
