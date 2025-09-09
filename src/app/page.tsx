@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InfoCarousel } from '@/components/page/info-carousel';
 import { ArrowRight } from 'lucide-react';
+import { ReadMoreLink } from '@/components/read-more-link';
 
 const teamMembers = [
   {
@@ -180,16 +181,7 @@ export default function Home() {
                       <br />
                       with light and shadow.
                     </h2>
-                    <Link href="/philosophy" className="inline-flex items-center group text-4xl font-bold">
-                        <span>READ MORE</span>
-                        <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            className="ml-4"
-                        >
-                            <ArrowRight className="w-10 h-10" />
-                        </motion.div>
-                    </Link>
+                    <ReadMoreLink href="/philosophy" size="large" />
                   </div>
                   <div className="flex justify-center items-center">
                     <div className="relative w-[190px] h-[330px]">
@@ -231,16 +223,7 @@ export default function Home() {
                     <p className="text-xl leading-relaxed text-white/80">
                       It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the <span className="font-bold">purpose of light</span> is not simply to illuminate, but to transform <span className="font-bold">how a space is felt.</span> This is the balance we pursue. This is DUA.
                     </p>
-                    <Link href="/philosophy" className="inline-flex items-center group text-3xl font-bold">
-                        <span>READ MORE</span>
-                        <motion.div
-                            animate={{ x: [0, 4, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            className="ml-3"
-                        >
-                            <ArrowRight className="w-8 h-8" />
-                        </motion.div>
-                    </Link>
+                    <ReadMoreLink href="/philosophy" />
                   </div>
                 </motion.div>
               </ScrollAnimation>
