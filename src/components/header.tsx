@@ -38,7 +38,7 @@ export function Header() {
         scrolled ? "top-4 left-4 right-4 advanced-glass" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex items-center justify-between pl-4 md:pl-6 pr-8 md:pr-12">
         {scrolled ? (
           <>
             <div className="flex-1 flex justify-start">
