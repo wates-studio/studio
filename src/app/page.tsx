@@ -182,14 +182,14 @@ export default function Home() {
                   </Link>
                 </motion.div>
                 <motion.div variants={cardVariants} className="md:w-auto flex justify-center items-center">
-                  <div className="relative w-48 h-64">
-                    <div className="absolute top-0 left-0 w-48 h-48 border border-white/50 rounded-full flex items-center justify-center">
+                  <div className="relative w-[189px] h-[329px]">
+                    <div className="absolute top-0 left-0 w-[189px] h-[189px] border border-white/50 rounded-full flex items-center justify-center">
                       <span className="text-xl">Artistry</span>
                     </div>
-                    <div className="absolute bottom-0 right-0 w-48 h-48 border border-white/50 rounded-full flex items-center justify-center">
+                    <div className="absolute bottom-0 right-0 w-[189px] h-[189px] border border-white/50 rounded-full flex items-center justify-center">
                       <span className="text-xl">Craftsmanship</span>
                     </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                       <span className="text-xs font-bold tracking-widest text-white/80">MEETS</span>
                     </div>
                   </div>
