@@ -14,7 +14,7 @@ export function TextJournalCard({ title, excerpt, category, href, className }: T
   return (
     <div
       className={cn(
-        "flex justify-center items-center flex-col gap-[25px] p-12 bg-[#1C1C1C] rounded-[25px]",
+        "flex justify-between items-center flex-col gap-[25px] p-12 bg-[#1C1C1C] rounded-[25px] h-[450px]",
         className
       )}
     >
