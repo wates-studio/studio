@@ -374,31 +374,30 @@ export default function Home() {
           </section>
 
           {/* Featured Project Section */}
-          <section className="py-8 md:py-16">
+          <section className="py-8 md:py-16 px-4 md:px-8">
             <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+              className="relative w-full h-[80vh] rounded-2xl overflow-hidden"
             >
-              <div className="relative w-full h-[80vh] flex items-end">
-                <Image
-                  src="https://picsum.photos/1800/1200?1"
-                  alt="Mandapa, a Ritz-Carlton Reserve"
-                  fill
-                  className="object-cover"
-                  data-ai-hint="luxury resort lobby night"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-                <div className="relative z-10 container mx-auto px-4 pb-12 md:pb-20">
-                  <div className="px-12">
-                    <h2 className="text-sm font-bold tracking-widest uppercase text-white/80 mb-4">Featured Project</h2>
-                    <h3 className="text-4xl md:text-6xl font-semibold max-w-4xl">Mandapa, a Ritz-Carlton Reserve</h3>
-                    <p className="text-white/80 text-lg md:text-xl mt-2">Ubud, Bali</p>
-                    <Button asChild size="lg" className="mt-8 bg-white text-black hover:bg-white/80">
-                        <Link href="/projects/mandapa-ritz-carlton">View Case Study</Link>
-                    </Button>
-                  </div>
+              <Image
+                src="https://picsum.photos/1800/1200?1"
+                alt="Mandapa, a Ritz-Carlton Reserve"
+                fill
+                className="object-cover"
+                data-ai-hint="luxury resort lobby night"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 md:p-12">
+                <div className="max-w-lg">
+                  <h2 className="text-xs font-bold tracking-widest uppercase text-white/80 mb-2">Featured Project</h2>
+                  <h3 className="text-3xl md:text-4xl font-semibold">Mandapa, a Ritz-Carlton Reserve</h3>
+                  <p className="text-white/80 text-base md:text-lg mt-1">Ubud, Bali</p>
+                  <Button asChild size="default" className="mt-6 bg-white text-black hover:bg-white/80">
+                      <Link href="/projects/mandapa-ritz-carlton">View Case Study</Link>
+                  </Button>
                 </div>
               </div>
             </motion.div>
