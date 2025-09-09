@@ -224,9 +224,7 @@ export default function Home() {
                               The way of DUA is balancing <span className="font-bold">artistry</span> and <span className="font-bold">technical refinement.</span>
                           </h3>
                           <p className="text-xl leading-relaxed text-white/80">
-                              It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the <span className="font-bold">purpose of light</span> is not simply to illuminate, but to transform <span className="font-bold">how a space is felt.</span>
-                              <br /><br />
-                              This is the balance we pursue. This is DUA.
+                            It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the purpose of light is not simply to illuminate, but to transform how a space is felt.
                           </p>
                           <Link href="/philosophy" className="inline-block text-3xl font-bold hover:underline">
                               READ MORE →
