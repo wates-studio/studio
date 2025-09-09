@@ -16,7 +16,7 @@ import { InfoCarousel } from '@/components/page/info-carousel';
 import { ArrowRight } from 'lucide-react';
 import { ReadMoreLink } from '@/components/read-more-link';
 import { TextJournalCard } from '@/components/page/text-journal-card';
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const teamMembers = [
   {
@@ -339,7 +339,7 @@ export default function Home() {
                         align: "start",
                         loop: true,
                     }}
-                    className="w-full"
+                    className="w-full px-12"
                 >
                     <CarouselContent>
                         {journalEntries.map((entry, index) => (
@@ -350,6 +350,8 @@ export default function Home() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
+                    <CarouselPrevious className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white -left-4" />
+                    <CarouselNext className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white -right-4" />
                 </Carousel>
             </div>
           </section>
@@ -374,3 +376,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
