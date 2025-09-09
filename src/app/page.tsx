@@ -336,19 +336,25 @@ export default function Home() {
             )}
           />
 
-          {/* Get Inspired / Blog Section */}
+          {/* DUA Journal Section */}
           <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.3} className="advanced-glass mx-12">
-                <motion.div variants={cardVariants} className="max-w-3xl mx-auto text-left space-y-6 p-12 md:p-16">
-                  <h3 className="text-lg uppercase tracking-widest text-white/60 text-center">Get Inspired</h3>
-                  <p className="text-2xl md:text-3xl font-bold leading-relaxed text-white text-center">
-                    In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
+              <ScrollAnimation staggerChildren={0.3}>
+                <motion.div 
+                    variants={cardVariants} 
+                    className="flex justify-center items-center flex-col gap-[18px] p-[50px] bg-[#000000] rounded-[25px] max-w-4xl mx-auto"
+                >
+                  <span className="text-[#FFFFFF] text-[15px] font-bold tracking-widest opacity-50">
+                    DUA JOURNAL
+                  </span>
+                  <p className="self-stretch text-[#FFFFFF] text-[40px] text-center leading-[1.1]">
+                    <Link href="/journal">
+                      <span className="hover:underline">
+                        In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
+                      </span>
+                      <span className="font-bold ml-2 hover:underline">READ MORE →</span>
+                    </Link>
                   </p>
-                  <div className="flex justify-between items-center pt-4">
-                    <h2 className="text-lg md:text-xl">The Psychology of Shadow</h2>
-                    <Link href="/journal" className="text-white hover:underline text-base">Read the Full Story →</Link>
-                  </div>
                 </motion.div>
               </ScrollAnimation>
             </div>
