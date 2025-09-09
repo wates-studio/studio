@@ -49,6 +49,14 @@ const cardVariants = {
   }
 };
 
+const services = [
+    "Lighting Design & Product Development",
+    "Lighting Architectural Master Planning & Design",
+    "Lighting Consultancy & Sourcing",
+    "Lighting Energy Conservation & Safety",
+    "Lighting Project Management"
+];
+
 
 export default function Home() {
   const [lightsOn, setLightsOn] = useState(true);
@@ -132,9 +140,6 @@ export default function Home() {
                     <br />
                     with light and shadow.
                   </h2>
-                  <Link href="/philosophy" className="inline-block text-3xl font-bold hover:underline mt-4">
-                    READ MORE →
-                  </Link>
                 </motion.div>
                 <motion.div variants={cardVariants} className="md:w-1/2 flex justify-center items-center">
                   <div className="relative w-80 h-80">
@@ -153,49 +158,36 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Section 4: Selected Works */}
+          {/* Section 3: What We Do */}
           <section className="py-20 md:py-32">
               <div className="container mx-auto px-4">
-                  <ScrollAnimation staggerChildren={0.2}>
-                      <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl text-center mb-16 text-white">Selected Works</motion.h2>
-                      <motion.div variants={cardVariants} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                          {[1, 2, 3].map((item, i) => (
-                              <motion.div
-                                  key={i}
-                                  variants={cardVariants}
-                                  className="relative group aspect-[4/5] rounded-lg overflow-hidden md:col-span-1 lg:col-span-1"
-                              >
-                                  <Image src={`https://picsum.photos/800/1000?${item}`} alt="Selected Work" layout="fill" className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                                  <div className="absolute inset-0 bg-black/60 flex items-end p-6 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                      <div className="text-center text-white">
-                                          <p className="text-xl font-semibold">Project Title</p>
-                                          <p className="text-white/80">Category</p>
-                                      </div>
-                                  </div>
-                              </motion.div>
+                  <ScrollAnimation staggerChildren={0.2} className="grid md:grid-cols-[1fr_2fr_2fr] gap-16">
+                      <motion.div variants={cardVariants}>
+                          <p className="text-sm font-bold tracking-widest uppercase text-white/50">WHAT WE DO</p>
+                      </motion.div>
+
+                      <motion.div variants={cardVariants} className="flex flex-col gap-4">
+                          {services.map((service, i) => (
+                              <div key={i} className="p-4 bg-white/5 border border-white/20 rounded-lg">
+                                  {service}
+                              </div>
                           ))}
                       </motion.div>
-                      <motion.div variants={cardVariants} className="text-center mt-12">
-                          <Link href="/projects" className="text-white hover:underline text-lg">Explore All Projects →</Link>
+
+                      <motion.div variants={cardVariants} className="space-y-8">
+                          <h3 className="text-4xl leading-tight">
+                              The way of DUA is balancing <span className="font-bold">artistry</span> and <span className="font-bold">technical refinement.</span>
+                          </h3>
+                          <p className="text-xl leading-relaxed text-white/80">
+                              It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the <span className="font-bold">purpose of light</span> is not simply to illuminate, but to transform <span className="font-bold">how a space is felt.</span>
+                              <br /><br />
+                              This is the balance we pursue. This is DUA.
+                          </p>
+                          <Link href="/philosophy" className="inline-block text-3xl font-bold hover:underline">
+                              READ MORE →
+                          </Link>
                       </motion.div>
                   </ScrollAnimation>
-              </div>
-          </section>
-
-
-          {/* Section 5: In Good Company */}
-          <section className="py-20 md:py-32 overflow-hidden">
-              <ScrollAnimation>
-                  <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl text-center mb-16">In Good Company</motion.h2>
-              </ScrollAnimation>
-              <div className="w-full">
-                  <div className="flex animate-marquee-slow whitespace-nowrap">
-                      <span className="text-4xl mx-12 text-white/70">GENSLER</span>
-                      <span className="text-4xl mx-12 text-white/70">HOK</span>
-                      <span className="text-4xl mx-12 text-white/70">FOUR SEASONS</span>
-                      <span className="text-4xl mx-12 text-white/70">AMAN</span>
-                      <span className="text-4xl mx-12 text-white/70">SKIDMORE, OWINGS & MERRILL</span>
-                  </div>
               </div>
           </section>
 
@@ -287,3 +279,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
