@@ -223,7 +223,7 @@ export default function Home() {
                 <ScrollAnimation staggerChildren={0.3} className="p-12 md:p-16 rounded-lg bg-black/20 backdrop-blur-md border border-white/10">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <motion.div variants={cardVariants} className="max-w-lg">
-                            <h3 className="text-lg uppercase tracking-widest text-white/60 mb-4">Featured Study</h3>
+                            <h3 className="text-lg uppercase tracking-widest text-white/60 mb-4">Featured Blog</h3>
                             <h2 className="text-4xl md:text-5xl mb-6">The Psychology of Shadow: How Absence Defines Luxury</h2>
                             <p className="text-xl leading-relaxed text-white/80 mb-8">
                                 In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
