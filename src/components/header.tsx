@@ -35,7 +35,7 @@ export function Header() {
         scrolled ? "top-4 left-4 right-4 advanced-glass" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between h-20 px-4 md:px-6">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
         <div className="flex-1 flex justify-start">
           <Link href="/" aria-label="Homepage">
             <Logo scrolled={scrolled} />
