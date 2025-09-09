@@ -13,6 +13,7 @@ import { scenes } from '@/data/scenes';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InfoCarousel } from '@/components/page/info-carousel';
+import { ArrowRight } from 'lucide-react';
 
 const teamMembers = [
   {
@@ -204,9 +205,14 @@ export default function Home() {
 
                       <motion.div variants={cardVariants} className="flex flex-col gap-4 items-start">
                           {services.map((service, i) => (
-                              <div key={i} className="p-4 bg-white/5 border border-white/20 rounded-lg">
-                                  {service}
-                              </div>
+                              <Link
+                                href="/services"
+                                key={i}
+                                className="group flex items-center justify-between gap-4 p-4 bg-white/5 border border-white/20 rounded-lg transition-all hover:bg-white/10 hover:border-white/30 w-full"
+                              >
+                                <span>{service}</span>
+                                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                              </Link>
                           ))}
                       </motion.div>
 
