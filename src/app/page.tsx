@@ -135,7 +135,6 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <ScrollAnimation staggerChildren={0.2} className="flex flex-col md:flex-row items-center justify-between gap-16">
                 <motion.div variants={cardVariants} className="md:w-1/2 space-y-8">
-                  
                   <h2 className="text-5xl md:text-6xl leading-tight">
                     We breathe life
                     <br />
@@ -202,7 +201,7 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <ScrollAnimation staggerChildren={0.2} className="text-center">
                 <motion.h2 variants={cardVariants} className="text-sm font-bold tracking-widest uppercase text-white/50 mb-12">
-                  IN GOOD COMPANY
+                  OUR CLIENTS
                 </motion.h2>
                 <motion.div 
                   variants={cardVariants} 
@@ -220,11 +219,44 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Section 6: The Studio */}
+          {/* Featured Project Section */}
+          <section className="py-20 md:py-32">
+            <div className="container mx-auto px-4">
+                <ScrollAnimation staggerChildren={0.2} className="max-w-6xl mx-auto">
+                    <motion.div variants={cardVariants} className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl">Featured Project</h2>
+                    </motion.div>
+                    <motion.div variants={cardVariants} className="grid md:grid-cols-2 gap-12 md:gap-16 items-center bg-black/20 backdrop-blur-md border border-white/10 rounded-lg p-12">
+                        <div>
+                            <Image 
+                                src="https://picsum.photos/1200/800?1"
+                                alt="Mandapa, a Ritz-Carlton Reserve"
+                                width={1200}
+                                height={800}
+                                className="rounded-lg object-cover"
+                                data-ai-hint="luxury resort lobby night"
+                            />
+                        </div>
+                        <div>
+                            <h3 className="text-3xl md:text-4xl font-semibold">Mandapa, a Ritz-Carlton Reserve</h3>
+                            <p className="text-white/60 text-lg mb-4">Ubud, Bali</p>
+                            <p className="text-white/80 text-xl font-light leading-relaxed mb-8">
+                                A complete lighting solution for a world-renowned luxury resort, enhancing its connection to the natural landscape.
+                            </p>
+                            <Button asChild size="lg" className="bg-white text-black hover:bg-white/80">
+                                <Link href="/projects/mandapa-ritz-carlton">View Case Study</Link>
+                            </Button>
+                        </div>
+                    </motion.div>
+                </ScrollAnimation>
+            </div>
+          </section>
+
+          {/* Our Team Section */}
           <section className="py-20 md:py-32 text-center">
               <div className="container mx-auto px-4">
                   <ScrollAnimation staggerChildren={0.2}>
-                      <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl mb-8">Behind the Light</motion.h2>
+                      <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl mb-8">Our Team</motion.h2>
                       <motion.p variants={cardVariants} className="text-xl leading-relaxed text-white/80 max-w-3xl mx-auto mb-16">
                           We are a collective of designers, engineers, and craftspeople united by a single belief: that light, when wielded with intention, is the most powerful tool for shaping human experience.
                       </motion.p>
@@ -249,28 +281,11 @@ export default function Home() {
               </div>
           </section>
 
-          {/* Section 7: From the Journal */}
-          <section className="py-20 md:py-32">
-            <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.3} className="p-12 md:p-16 rounded-lg bg-black/20 backdrop-blur-md border border-white/10">
-                <motion.div variants={cardVariants} className="max-w-3xl mx-auto text-left space-y-6">
-                  <h3 className="text-lg uppercase tracking-widest text-white/60 text-center">Featured Blog</h3>
-                  <p className="text-2xl md:text-3xl font-bold leading-relaxed text-white text-center">
-                    In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
-                  </p>
-                  <div className="flex justify-between items-center pt-4">
-                    <h2 className="text-lg md:text-xl">The Psychology of Shadow</h2>
-                    <Link href="/journal" className="text-white hover:underline text-base">Read the Full Story →</Link>
-                  </div>
-                </motion.div>
-              </ScrollAnimation>
-            </div>
-          </section>
-
-          {/* Section 8: On the Shoulders of Giants */}
+          {/* Get Inspired / Lighting Designer Section */}
           <section className="py-20 md:py-32">
               <div className="container mx-auto px-4 text-center">
                   <ScrollAnimation staggerChildren={0.2} className="max-w-4xl mx-auto">
+                      <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl mb-12">Get Inspired</motion.h2>
                       <motion.div variants={cardVariants} className="w-32 h-32 rounded-full mx-auto mb-8 relative overflow-hidden">
                           <Image src="https://picsum.photos/200/200?6" alt="Achille Castiglioni" layout="fill" className="object-cover" data-ai-hint="portrait achille castiglioni" />
                       </motion.div>
@@ -285,7 +300,25 @@ export default function Home() {
               </div>
           </section>
 
-          {/* Section 9: The Invitation */}
+          {/* Get Inspired / Blog Section */}
+          <section className="py-20 md:py-32">
+            <div className="container mx-auto px-4">
+              <ScrollAnimation staggerChildren={0.3} className="p-12 md:p-16 rounded-lg bg-black/20 backdrop-blur-md border border-white/10">
+                <motion.div variants={cardVariants} className="max-w-3xl mx-auto text-left space-y-6">
+                  <h3 className="text-lg uppercase tracking-widest text-white/60 text-center">Get Inspired</h3>
+                  <p className="text-2xl md:text-3xl font-bold leading-relaxed text-white text-center">
+                    In modern luxury design, the most important element is often what isn't there. We explore how leading architects are using darkness and shadow to create spaces that feel resonant, intimate, and profound.
+                  </p>
+                  <div className="flex justify-between items-center pt-4">
+                    <h2 className="text-lg md:text-xl">The Psychology of Shadow</h2>
+                    <Link href="/journal" className="text-white hover:underline text-base">Read the Full Story →</Link>
+                  </div>
+                </motion.div>
+              </ScrollAnimation>
+            </div>
+          </section>
+
+          {/* CTA Section */}
           <section className="py-20 md:py-32">
               <div className="container mx-auto px-4">
                   <ScrollAnimation staggerChildren={0.3} className="flex flex-col md:flex-row justify-between items-center gap-8">
@@ -305,3 +338,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
