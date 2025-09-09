@@ -162,77 +162,77 @@ export default function Home() {
         />
 
         <main className="bg-transparent">
-          {/* Section 2: The Philosophy */}
-          <section className="min-h-screen flex items-center justify-center py-20 md:py-32">
+          {/* Section 2: The Philosophy & Services */}
+          <section className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.2} className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32">
-                <motion.div variants={cardVariants} className="md:w-1/2 max-w-xl space-y-8">
-                  <h2 className="text-5xl md:text-6xl leading-tight">
-                    We breathe life
-                    <br />
-                    into <span className="font-bold">spaces.</span>
-                  </h2>
-                  <h2 className="text-5xl md:text-6xl leading-tight">
-                    We <span className="font-bold">sculpt soul</span>
-                    <br />
-                    with light and shadow.
-                  </h2>
-                   <Link href="/philosophy" className="inline-block text-3xl md:text-4xl font-bold hover:underline">
-                      READ MORE →
-                  </Link>
+              <ScrollAnimation staggerChildren={0.2} className="flex flex-col gap-28">
+
+                {/* Philosophy Part */}
+                <motion.div variants={cardVariants} className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32">
+                  <div className="md:w-1/2 max-w-xl space-y-8">
+                    <h2 className="text-5xl md:text-6xl leading-tight">
+                      We breathe life
+                      <br />
+                      into <span className="font-bold">spaces.</span>
+                    </h2>
+                    <h2 className="text-5xl md:text-6xl leading-tight">
+                      We <span className="font-bold">sculpt soul</span>
+                      <br />
+                      with light and shadow.
+                    </h2>
+                    <Link href="/philosophy" className="inline-block text-4xl font-bold hover:underline">
+                        READ MORE →
+                    </Link>
+                  </div>
+                  <div className="md:w-auto flex justify-center items-center">
+                    <div className="relative w-[330px] h-[330px]">
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[189px] h-[189px] border border-white/50 rounded-full flex items-center justify-center">
+                        <span className="text-xl">Artistry</span>
+                      </div>
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[189px] h-[189px] border border-white/50 rounded-full flex items-center justify-center">
+                        <span className="text-xl">Craftsmanship</span>
+                      </div>
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <span className="text-xs font-bold tracking-widest text-white/80">MEETS</span>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
-                <motion.div variants={cardVariants} className="md:w-auto flex justify-center items-center">
-                  <div className="relative w-[189px] h-[329px]">
-                    <div className="absolute top-0 left-0 w-[189px] h-[189px] border border-white/50 rounded-full flex items-center justify-center">
-                      <span className="text-xl">Artistry</span>
+
+                {/* Services Part */}
+                <motion.div variants={cardVariants} className="grid md:grid-cols-2 gap-16 items-start">
+                  <div className="flex flex-col gap-6 items-start">
+                    <p className="text-sm font-bold tracking-widest uppercase text-white/50">OUR SERVICE</p>
+                    <div className="flex flex-col gap-4 items-start">
+                      {services.map((service, i) => (
+                        <Link
+                          href="/services"
+                          key={i}
+                          className="group flex items-center justify-between gap-4 py-4 px-8 bg-transparent border border-white/50 rounded-3xl transition-all hover:bg-white/10"
+                        >
+                          <span className="text-lg">{service}</span>
+                          <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                        </Link>
+                      ))}
                     </div>
-                    <div className="absolute bottom-0 right-0 w-[189px] h-[189px] border border-white/50 rounded-full flex items-center justify-center">
-                      <span className="text-xl">Craftsmanship</span>
-                    </div>
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <span className="text-xs font-bold tracking-widest text-white/80">MEETS</span>
-                    </div>
+                  </div>
+
+                  <div className="space-y-8">
+                    <h3 className="text-4xl leading-tight">
+                      The way of DUA is balancing <span className="font-bold">artistry</span> and <span className="font-bold">technical refinement.</span>
+                    </h3>
+                    <p className="text-xl leading-relaxed text-white/80">
+                      It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the <span className="font-bold">purpose of light</span> is not simply to illuminate, but to transform <span className="font-bold">how a space is felt.</span> This is the balance we pursue. This is DUA.
+                    </p>
+                    <Link href="/philosophy" className="inline-block text-3xl font-bold hover:underline">
+                        READ MORE →
+                    </Link>
                   </div>
                 </motion.div>
               </ScrollAnimation>
             </div>
           </section>
 
-          {/* Section 3: What We Do */}
-          <section className="py-20 md:py-32">
-              <div className="container mx-auto px-4">
-                  <ScrollAnimation staggerChildren={0.2} className="grid md:grid-cols-[1fr_2fr_2fr] gap-16">
-                      <motion.div variants={cardVariants}>
-                          <p className="text-sm font-bold tracking-widest uppercase text-white/50">WHAT WE DO</p>
-                      </motion.div>
-
-                      <motion.div variants={cardVariants} className="flex flex-col gap-4 items-start">
-                          {services.map((service, i) => (
-                              <Link
-                                href="/services"
-                                key={i}
-                                className="group flex items-center justify-between gap-4 p-4 bg-white/5 border border-white/20 rounded-lg transition-all hover:bg-white/10 hover:border-white/30"
-                              >
-                                <span>{service}</span>
-                                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-                              </Link>
-                          ))}
-                      </motion.div>
-
-                      <motion.div variants={cardVariants} className="space-y-8">
-                          <h3 className="text-4xl leading-tight">
-                              The way of DUA is balancing <span className="font-bold">artistry</span> and <span className="font-bold">technical refinement.</span>
-                          </h3>
-                          <p className="text-xl leading-relaxed text-white/80">
-                            It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the purpose of light is not simply to illuminate, but to transform how a space is felt.
-                          </p>
-                          <Link href="/philosophy" className="inline-block text-3xl font-bold hover:underline">
-                              READ MORE →
-                          </Link>
-                      </motion.div>
-                  </ScrollAnimation>
-              </div>
-          </section>
 
           {/* Our Clients Section */}
           <section className="py-20 md:py-32">
@@ -375,3 +375,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
