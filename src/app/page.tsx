@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 import Image from 'next/image';
 import { Scenes } from '@/components/page/scenes';
 import { ScrollAnimation } from '@/components/scroll-animation';
@@ -13,10 +13,10 @@ import { scenes } from '@/data/scenes';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InfoCarousel } from '@/components/page/info-carousel';
-import { ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { ReadMoreLink } from '@/components/read-more-link';
 import { TextJournalCard } from '@/components/page/text-journal-card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 
 const teamMembers = [
   {
@@ -87,6 +87,12 @@ const journalEntries = [
     excerpt: 'The Mind Behind the Aura Collection. In sed lacus ipsum gravida dolor quis fames ac. Orci faucibus ipsum sollicitudin lacus sed elementum. Eget pellentesque nunc eleifend...',
     category: 'Design',
     href: '/journal'
+  },
+  {
+    title: 'Case Study: The Mandapa Ritz-Carlton',
+    excerpt: 'A deep dive into how lighting shaped the atmosphere of a world-class resort. Orci faucibus ipsum sollicitudin lacus sed elementum. Eget pellentesque nunc eleifend...',
+    category: 'Case Study',
+    href: '/journal'
   }
 ];
 
@@ -126,6 +132,7 @@ export default function Home() {
   const [lightsOn, setLightsOn] = useState(true);
   const [activeSceneId, setActiveSceneId] = useState(scenes[0].id);
   const activeScene = scenes.find((scene) => scene.id === activeSceneId) || scenes[0];
+  const [journalCarouselApi, setJournalCarouselApi] = useState<CarouselApi>();
 
   return (
     <div className="bg-[#111111] text-white antialiased">
@@ -333,27 +340,44 @@ export default function Home() {
 
           {/* DUA Journal Section */}
           <section className="py-20 md:py-32">
-            <div className="container mx-auto px-4">
-                <Carousel
-                    opts={{
-                        align: "start",
-                        loop: true,
-                    }}
-                    className="w-full px-12"
-                >
-                    <CarouselContent>
-                        {journalEntries.map((entry, index) => (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-[70%]">
-                                <div className="p-1">
-                                    <TextJournalCard {...entry} />
-                                </div>
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white -left-4" />
-                    <CarouselNext className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white -right-4" />
-                </Carousel>
-            </div>
+              <div className="container mx-auto px-4">
+                  <div className="px-12 flex flex-col gap-8">
+                      <div className="flex justify-end items-center gap-4">
+                          <Button 
+                              variant="outline" 
+                              size="icon" 
+                              className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white rounded-full"
+                              onClick={() => journalCarouselApi?.scrollPrev()}
+                          >
+                              <ArrowLeft className="h-4 w-4" />
+                          </Button>
+                          <Button 
+                              variant="outline" 
+                              size="icon" 
+                              className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white rounded-full"
+                              onClick={() => journalCarouselApi?.scrollNext()}
+                          >
+                              <ArrowRight className="h-4 w-4" />
+                          </Button>
+                      </div>
+                      <Carousel
+                          setApi={setJournalCarouselApi}
+                          opts={{
+                              align: "start",
+                              loop: true,
+                          }}
+                          className="w-full"
+                      >
+                          <CarouselContent className="-ml-8">
+                              {journalEntries.map((entry, index) => (
+                                  <CarouselItem key={index} className="pl-8 md:basis-1/2 lg:basis-[70%]">
+                                      <TextJournalCard {...entry} />
+                                  </CarouselItem>
+                              ))}
+                          </CarouselContent>
+                      </Carousel>
+                  </div>
+              </div>
           </section>
 
           {/* CTA Section */}
@@ -376,7 +400,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
