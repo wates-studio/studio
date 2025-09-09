@@ -76,13 +76,7 @@
     /* Core Glass Effect */
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-
-    /* Layered Backgrounds */
-    background:
-      /* Noise Texture */
-      url('https://www.transparenttextures.com/patterns/subtle-noise.png'),
-      /* Base Black Fill */
-      rgba(17, 17, 17, 0.2);
+    background-color: rgba(17, 17, 17, 0.2);
 
     /* Lighting & Depth */
     box-shadow: inset 0.5px 0.5px 1px rgba(255, 255, 255, 0.1);
