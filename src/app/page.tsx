@@ -166,7 +166,7 @@ export default function Home() {
                           <p className="text-sm font-bold tracking-widest uppercase text-white/50">WHAT WE DO</p>
                       </motion.div>
 
-                      <motion.div variants={cardVariants} className="flex flex-col gap-4">
+                      <motion.div variants={cardVariants} className="flex flex-col gap-4 items-start">
                           {services.map((service, i) => (
                               <div key={i} className="p-4 bg-white/5 border border-white/20 rounded-lg">
                                   {service}
