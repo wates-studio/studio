@@ -153,19 +153,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Section 3: The Balance */}
-          <section className="py-20 md:py-32">
-            <div className="container mx-auto px-4 text-center">
-                <ScrollAnimation>
-                    <motion.p variants={cardVariants} className="text-2xl md:text-3xl leading-relaxed max-w-4xl mx-auto text-white/90">
-                        It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the <span className="font-bold">purpose of light</span> is not simply to illuminate, but to transform <span className="font-bold">how a space is felt.</span>
-                        <br /><br />
-                        This is the balance we pursue. This is DUA.
-                    </motion.p>
-                </ScrollAnimation>
-            </div>
-          </section>
-
           {/* Section 4: Selected Works */}
           <section className="py-20 md:py-32">
               <div className="container mx-auto px-4">
