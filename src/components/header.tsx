@@ -47,7 +47,7 @@ export function Header() {
               </Link>
             </div>
 
-            <nav className="hidden md:flex flex-1 justify-center items-center gap-8 text-sm text-white/80">
+            <nav className="hidden md:flex flex-1 justify-center items-center gap-10 text-sm text-white/80">
               {navItems.map((item) => (
                 <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
                   {item.name}
@@ -70,7 +70,7 @@ export function Header() {
               <Logo scrolled={scrolled} />
             </Link>
 
-            <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+            <nav className="hidden md:flex items-center gap-10 text-sm text-white/80">
               {navItems.map((item) => (
                 <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
                   {item.name}
