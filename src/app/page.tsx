@@ -127,9 +127,6 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <ScrollAnimation staggerChildren={0.2} className="flex flex-col md:flex-row items-center justify-between gap-16">
                 <motion.div variants={cardVariants} className="md:w-1/2 space-y-8">
-                  <p className="text-sm font-bold tracking-widest uppercase text-white/50">
-                    DUA Philosophy
-                  </p>
                   <h2 className="text-5xl md:text-6xl leading-tight">
                     We breathe life
                     <br />
@@ -279,5 +276,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
