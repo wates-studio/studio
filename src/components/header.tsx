@@ -32,7 +32,7 @@ export function Header() {
       layout
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled ? "top-4 left-4 right-4 advanced-glass border border-white/10" : "bg-transparent"
+        scrolled ? "top-4 left-4 right-4 advanced-glass" : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex items-center justify-between h-20 px-4 md:px-6">
