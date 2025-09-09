@@ -7,12 +7,12 @@ import { Scenes } from '@/components/page/scenes';
 import { ScrollAnimation } from '@/components/scroll-animation';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
-import { Lightbulb, Users, Handshake } from 'lucide-react';
 import Link from 'next/link';
 import { Header } from '@/components/header';
-import { scenes, type Scene } from '@/data/scenes';
+import { scenes } from '@/data/scenes';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import { InfoCarousel } from '@/components/page/info-carousel';
 
 const teamMembers = [
   {
@@ -32,8 +32,39 @@ const teamMembers = [
     title: 'Master Craftsman',
     image: 'https://picsum.photos/400/500?random=12',
     hint: 'craftsman portrait serious',
+  },
+  {
+    name: 'Isabella Rossi',
+    title: 'Lead Designer',
+    image: 'https://picsum.photos/400/500?random=13',
+    hint: 'designer portrait professional',
+    }
+];
+
+const designers = [
+  {
+    name: 'Achille Castiglioni',
+    quote: "There has to be a reason for every detail. You can't just add a detail to make it look pretty. It has to have a meaning, a function.",
+    description: "A master of form and wit, Castiglioni saw design as a tool for solving problems with intelligence and grace. His belief that an object's purpose must justify its existence is a constant inspiration.",
+    image: 'https://picsum.photos/200/200?6',
+    hint: 'portrait achille castiglioni'
+  },
+  {
+    name: 'Poul Henningsen',
+    quote: "It's not about the lamp, it's about the light.",
+    description: "The Danish designer who revolutionized lighting with his PH-lamp series, creating glare-free, uniform illumination that shaped the aesthetics of Danish modernism.",
+    image: 'https://picsum.photos/200/200?7',
+    hint: 'portrait poul henningsen'
+  },
+  {
+    name: 'Ingo Maurer',
+    quote: "Light can be sensual; it can be comforting; it can be poetic.",
+    description: "Known as the 'poet of light,' Maurer was a German industrial designer who specialized in lamps and light installations, consistently pushing the boundaries of art and technology.",
+    image: 'https://picsum.photos/200/200?8',
+    hint: 'portrait ingo maurer'
   }
 ];
+
 
 const cardVariants = {
   offscreen: { y: 20, opacity: 0 },
@@ -253,52 +284,56 @@ export default function Home() {
           </section>
 
           {/* Our Team Section */}
-          <section className="py-20 md:py-32 text-center">
-              <div className="container mx-auto px-4">
-                  <ScrollAnimation staggerChildren={0.2}>
-                      <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl mb-8">Our Team</motion.h2>
-                      <motion.p variants={cardVariants} className="text-xl leading-relaxed text-white/80 max-w-3xl mx-auto mb-16">
-                          We are a collective of designers, engineers, and craftspeople united by a single belief: that light, when wielded with intention, is the most powerful tool for shaping human experience.
-                      </motion.p>
-                      <motion.div variants={cardVariants} className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                          {teamMembers.map((member, i) => (
-                              <motion.div key={i} variants={cardVariants} className="flex flex-col items-center text-center">
-                                  <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden mb-4">
-                                      <Image
-                                          src={member.image}
-                                          alt={`Portrait of ${member.name}`}
-                                          layout="fill"
-                                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                          data-ai-hint={member.hint}
-                                      />
-                                  </div>
-                                  <h3 className="text-xl font-semibold">{member.name}</h3>
-                                  <p className="text-white/70">{member.title}</p>
-                              </motion.div>
-                          ))}
-                      </motion.div>
-                  </ScrollAnimation>
-              </div>
-          </section>
+          <InfoCarousel
+            title="Our Team"
+            description="We are a collective of designers, engineers, and craftspeople united by a single belief: that light, when wielded with intention, is the most powerful tool for shaping human experience."
+            items={teamMembers.map(member => ({
+                id: member.name,
+                image: member.image,
+                hint: member.hint,
+                title: member.name,
+                subtitle: member.title
+            }))}
+            renderItem={({ item }) => (
+              <>
+                <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden mb-4">
+                    <Image
+                        src={item.image}
+                        alt={`Portrait of ${item.title}`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-ai-hint={item.hint}
+                    />
+                </div>
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <p className="text-white/70">{item.subtitle}</p>
+              </>
+            )}
+          />
 
           {/* Get Inspired / Lighting Designer Section */}
-          <section className="py-20 md:py-32">
-              <div className="container mx-auto px-4 text-center">
-                  <ScrollAnimation staggerChildren={0.2} className="max-w-4xl mx-auto">
-                      <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl mb-12">Get Inspired</motion.h2>
-                      <motion.div variants={cardVariants} className="w-32 h-32 rounded-full mx-auto mb-8 relative overflow-hidden">
-                          <Image src="https://picsum.photos/200/200?6" alt="Achille Castiglioni" layout="fill" className="object-cover" data-ai-hint="portrait achille castiglioni" />
-                      </motion.div>
-                      <motion.blockquote variants={cardVariants} className="text-2xl md:text-3xl italic max-w-3xl mx-auto text-white">
-                          "There has to be a reason for every detail. You can't just add a detail to make it look pretty. It has to have a meaning, a function."
-                      </motion.blockquote>
-                      <motion.p variants={cardVariants} className="mt-8 text-lg font-semibold text-white">Achille Castiglioni</motion.p>
-                      <motion.p variants={cardVariants} className="text-lg max-w-2xl mx-auto mt-4 leading-relaxed text-white/70">
-                          A master of form and wit, Castiglioni saw design as a tool for solving problems with intelligence and grace. His belief that an object's purpose must justify its existence is a constant inspiration, reminding us to design with intention, always.
-                      </motion.p>
-                  </ScrollAnimation>
+          <InfoCarousel
+            title="Get Inspired"
+            description="We look to the masters who saw design as a tool for solving problems with intelligence and grace. Their belief that an object's purpose must justify its existence is a constant inspiration, reminding us to design with intention, always."
+            items={designers.map(designer => ({
+                id: designer.name,
+                image: designer.image,
+                hint: designer.hint,
+                title: designer.name,
+                subtitle: designer.quote
+            }))}
+            renderItem={({ item }) => (
+              <div className="flex flex-col items-center text-center p-4 h-full">
+                <div className="relative w-32 h-32 rounded-full mx-auto mb-8 shrink-0 overflow-hidden">
+                    <Image src={item.image} alt={`Portrait of ${item.title}`} fill className="object-cover" data-ai-hint={item.hint} />
+                </div>
+                <blockquote className="text-lg italic text-white grow">
+                    "{item.subtitle}"
+                </blockquote>
+                <p className="mt-4 text-base font-semibold text-white">{item.title}</p>
               </div>
-          </section>
+            )}
+          />
 
           {/* Get Inspired / Blog Section */}
           <section className="py-20 md:py-32">
@@ -338,5 +373,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
