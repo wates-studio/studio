@@ -4,7 +4,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
-import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
@@ -39,46 +38,24 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex items-center justify-between pl-4 md:pl-6 pr-8 md:pr-12">
-        {scrolled ? (
-          <>
-            <div className="flex-1 flex justify-start">
-              <Link href="/" aria-label="Homepage">
-                <Logo scrolled={scrolled} />
-              </Link>
-            </div>
-
-            <nav className="hidden md:flex flex-1 justify-center items-center gap-10 text-sm text-white/80">
-              {navItems.map((item) => (
-                <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-
-            <div className="flex-1 flex justify-end">
-              <Button 
-                variant="outline" 
-                className="hidden md:inline-flex bg-transparent text-white border-white/50 hover:bg-white hover:text-black"
-              >
-                Book Consultation
-              </Button>
-            </div>
-          </>
-        ) : (
-          <>
+        <div className={cn("flex flex-1 justify-start")}>
             <Link href="/" aria-label="Homepage">
               <Logo scrolled={scrolled} />
             </Link>
+        </div>
 
-            <nav className="hidden md:flex items-center gap-10 text-sm text-white/80">
-              {navItems.map((item) => (
-                <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-          </>
-        )}
+        <nav className={cn(
+            "hidden md:flex flex-1 items-center gap-10 text-sm text-white/80",
+            scrolled ? "justify-center" : "justify-end"
+        )}>
+          {navItems.map((item) => (
+            <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+        
+        {scrolled && <div className="flex-1" />}
       </div>
     </motion.header>
   );
