@@ -1,10 +1,9 @@
 
 "use client";
 
-import { useState, type ComponentProps } from 'react';
+import { useState, useRef, useLayoutEffect, type ComponentProps } from 'react';
 import Image from 'next/image';
 import { Scenes } from '@/components/page/scenes';
-import { ScrollAnimation } from '@/components/scroll-animation';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -17,6 +16,11 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { ReadMoreLink } from '@/components/read-more-link';
 import { TextJournalCard } from '@/components/page/text-journal-card';
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/SplitText';
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const teamMembers = [
   {
@@ -134,6 +138,90 @@ export default function Home() {
   const activeScene = scenes.find((scene) => scene.id === activeSceneId) || scenes[0];
   const [journalCarouselApi, setJournalCarouselApi] = useState<CarouselApi>();
 
+  const philosophySectionRef = useRef<HTMLDivElement>(null);
+  const servicesSectionRef = useRef<HTMLDivElement>(null);
+  const clientsSectionRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Philosophy Section Animation
+      if (philosophySectionRef.current) {
+        const philosophySplit = new SplitText(philosophySectionRef.current.querySelectorAll('h2'), { type: 'words,chars' });
+        const philosophyTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: philosophySectionRef.current,
+            start: 'top 70%',
+            end: 'bottom 90%',
+            scrub: 1,
+          }
+        });
+        philosophyTl.from(philosophySplit.chars, {
+          opacity: 0.2,
+          y: 20,
+          stagger: 0.02,
+          ease: 'power2.out',
+        })
+        .from(philosophySectionRef.current.querySelector('[data-anim="artistry-expertise"]'), {
+            opacity: 0,
+            scale: 0.8,
+            duration: 1,
+            ease: 'power3.out'
+        }, "-=0.5");
+      }
+
+      // Services Section Animation
+      if (servicesSectionRef.current) {
+        const servicesSplit = new SplitText(servicesSectionRef.current.querySelectorAll('h3, p'), { type: 'words' });
+        const serviceItems = servicesSectionRef.current.querySelectorAll('[data-anim="service-item"]');
+
+        const servicesTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: servicesSectionRef.current,
+            start: 'top 70%',
+            end: 'bottom 90%',
+            scrub: 1,
+          }
+        });
+
+        servicesTl.from(serviceItems, {
+            opacity: 0,
+            x: -30,
+            stagger: 0.1,
+            ease: 'power2.out'
+        })
+        .from(servicesSplit.words, {
+            opacity: 0.2,
+            y: 10,
+            stagger: 0.01,
+            ease: 'power2.out'
+        }, "-=0.5");
+      }
+
+      // Clients Section Animation
+      if (clientsSectionRef.current) {
+          const clientsTl = gsap.timeline({
+              scrollTrigger: {
+                  trigger: clientsSectionRef.current,
+                  start: 'top 80%',
+                  end: 'center 80%',
+                  scrub: 1,
+              }
+          });
+          clientsTl.from(clientsSectionRef.current.querySelector('h2'), {
+              opacity: 0,
+              y: 20,
+          })
+          .from(clientsSectionRef.current.querySelector('[data-anim="marquee"]'), {
+              opacity: 0,
+              y: 30,
+          }, "-=0.3");
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+
   return (
     <div className="bg-[#111111] text-white antialiased">
       {/* Persistent Background */}
@@ -194,12 +282,12 @@ export default function Home() {
 
         <main className="bg-transparent">
           {/* Section 2: The Philosophy & Services */}
-          <section className="py-20 md:py-32">
+          <section className="py-20 md:py-32 overflow-hidden">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.2} className="flex flex-col gap-28">
+              <div className="flex flex-col gap-28">
 
                 {/* Philosophy Part */}
-                <motion.div variants={cardVariants} className="flex flex-col md:flex-row flex-wrap items-center justify-between gap-y-20 gap-x-12 px-12">
+                <div ref={philosophySectionRef} className="flex flex-col md:flex-row flex-wrap items-center justify-between gap-y-20 gap-x-12 px-12">
                   <div className="md:w-1/2 max-w-xl space-y-8">
                     <h2 className="text-5xl md:text-6xl leading-tight">
                       We breathe life
@@ -213,7 +301,7 @@ export default function Home() {
                     </h2>
                     <ReadMoreLink href="/philosophy" size="large" />
                   </div>
-                  <div className="flex justify-center items-center">
+                  <div className="flex justify-center items-center" data-anim="artistry-expertise">
                     <div className="relative w-[190px] h-[330px]">
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[189px] h-[189px] border border-white/50 rounded-full flex items-center justify-center">
                         <span className="text-xl">Artistry</span>
@@ -226,10 +314,10 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Services Part */}
-                <motion.div variants={cardVariants} className="grid md:grid-cols-2 gap-16 items-start px-12">
+                <div ref={servicesSectionRef} className="grid md:grid-cols-2 gap-16 items-start px-12">
                   <div className="flex flex-col gap-6 items-start">
                     <p className="text-sm font-bold tracking-widest uppercase text-white/50">our lighting services</p>
                     <div className="w-[354px] flex flex-col gap-2.5 items-start">
@@ -237,6 +325,7 @@ export default function Home() {
                         <Link
                           href="/services"
                           key={i}
+                          data-anim="service-item"
                           className="group flex items-center justify-between w-full gap-4 py-3 px-5 bg-transparent border border-white/50 rounded-2xl transition-all hover:bg-white/10"
                         >
                           <span className="text-sm">{service}</span>
@@ -255,21 +344,21 @@ export default function Home() {
                     </p>
                     <ReadMoreLink href="/philosophy" />
                   </div>
-                </motion.div>
-              </ScrollAnimation>
+                </div>
+              </div>
             </div>
           </section>
 
 
           {/* Our Clients Section */}
-          <section className="py-20 md:py-32">
+          <section ref={clientsSectionRef} className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <ScrollAnimation staggerChildren={0.2} className="text-center px-12">
-                <motion.h2 variants={cardVariants} className="text-sm font-bold tracking-widest uppercase text-white/50 mb-12">
+              <div className="text-center px-12">
+                <h2 className="text-sm font-bold tracking-widest uppercase text-white/50 mb-12">
                   OUR CLIENTS
-                </motion.h2>
-                <motion.div 
-                  variants={cardVariants} 
+                </h2>
+                <div 
+                  data-anim="marquee"
                   className="relative overflow-hidden"
                 >
                   <div className="flex animate-marquee">
@@ -279,14 +368,19 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                </motion.div>
-              </ScrollAnimation>
+                </div>
+              </div>
             </div>
           </section>
 
           {/* Featured Project Section */}
           <section className="py-8 md:py-16">
-            <ScrollAnimation>
+            <motion.div
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+            >
               <div className="relative w-full h-[80vh] flex items-end">
                 <Image
                   src="https://picsum.photos/1800/1200?1"
@@ -307,7 +401,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </ScrollAnimation>
+            </motion.div>
           </section>
 
           {/* Our Team Section */}
@@ -383,14 +477,20 @@ export default function Home() {
           {/* CTA Section */}
           <section className="py-20 md:py-32">
               <div className="container mx-auto px-4">
-                  <ScrollAnimation staggerChildren={0.3} className="flex flex-col md:flex-row justify-between items-center gap-8 px-12">
-                      <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl text-white max-w-2xl text-center md:text-left">
+                  <motion.div 
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={cardVariants}
+                    className="flex flex-col md:flex-row justify-between items-center gap-8 px-12"
+                   >
+                      <h2 className="text-4xl md:text-5xl text-white max-w-2xl text-center md:text-left">
                           Big company resources, small company care.
-                      </motion.h2>
-                      <motion.div variants={cardVariants} className="flex-shrink-0">
+                      </h2>
+                      <div className="flex-shrink-0">
                           <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
-                      </motion.div>
-                  </ScrollAnimation>
+                      </div>
+                  </motion.div>
               </div>
           </section>
 
@@ -400,3 +500,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
