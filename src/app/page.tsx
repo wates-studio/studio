@@ -208,7 +208,7 @@ export default function Home() {
                               <Link
                                 href="/services"
                                 key={i}
-                                className="group flex items-center justify-between gap-4 p-4 bg-white/5 border border-white/20 rounded-lg transition-all hover:bg-white/10 hover:border-white/30 w-full"
+                                className="group flex items-center justify-between gap-4 p-4 bg-white/5 border border-white/20 rounded-lg transition-all hover:bg-white/10 hover:border-white/30"
                               >
                                 <span>{service}</span>
                                 <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
