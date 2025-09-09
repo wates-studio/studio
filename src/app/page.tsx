@@ -82,11 +82,11 @@ const cardVariants = {
 };
 
 const services = [
-    "Lighting Design & Product Development",
-    "Lighting Architectural Master Planning & Design",
-    "Lighting Consultancy & Sourcing",
-    "Lighting Energy Conservation & Safety",
-    "Lighting Project Management"
+    "Design & Product Development",
+    "Architectural Master Planning & Design",
+    "Consultancy & Sourcing",
+    "Energy Conservation & Safety",
+    "Project Management"
 ];
 
 const clientLogos = [
@@ -209,7 +209,7 @@ export default function Home() {
                 {/* Services Part */}
                 <motion.div variants={cardVariants} className="grid md:grid-cols-2 gap-16 items-start px-12">
                   <div className="flex flex-col gap-6 items-start">
-                    <p className="text-sm font-bold tracking-widest uppercase text-white/50">OUR SERVICE</p>
+                    <p className="text-sm font-bold tracking-widest uppercase text-white/50">our lighting services</p>
                     <div className="w-[354px] flex flex-col gap-2.5 items-start">
                       {services.map((service, i) => (
                         <Link
