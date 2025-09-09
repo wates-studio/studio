@@ -37,7 +37,7 @@ interface InfoCarouselProps<T extends CarouselItemData> {
 
 export function InfoCarousel<T extends CarouselItemData>({ title, description, items, renderItem }: InfoCarouselProps<T>) {
   return (
-    <section className="py-20 md:py-32 overflow-hidden">
+    <section className="py-20 md:py-32">
       <div className="container mx-auto px-4">
         <ScrollAnimation staggerChildren={0.2} className="grid md:grid-cols-2 gap-16 items-center px-12">
           <motion.div variants={cardVariants} className="space-y-6 md:pr-8">
