@@ -1,6 +1,6 @@
 
 import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { SiteFooter } from '@/components/footer';
 import Image from 'next/image';
 import { JournalCard } from '@/components/page/journal-card';
 
@@ -63,7 +63,7 @@ export default function JournalPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

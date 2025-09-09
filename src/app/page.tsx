@@ -4,7 +4,7 @@
 import { useState, useRef, useLayoutEffect, type ComponentProps } from 'react';
 import Image from 'next/image';
 import { Scenes } from '@/components/page/scenes';
-import { Footer } from '@/components/footer';
+import { SiteFooter } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Header } from '@/components/header';
@@ -504,7 +504,7 @@ export default function Home() {
 
         </main>
       </div>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 
 import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { SiteFooter } from '@/components/footer';
 import Image from 'next/image';
 import { Lightbulb, Users, Handshake } from 'lucide-react';
 
@@ -79,7 +79,7 @@ export default function PhilosophyPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

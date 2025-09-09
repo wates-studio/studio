@@ -1,5 +1,5 @@
 import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { SiteFooter } from '@/components/footer';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -63,7 +63,7 @@ export default function ContactPage() {
           </Card>
         </div>
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

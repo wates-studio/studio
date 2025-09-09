@@ -1,7 +1,6 @@
-
 import Link from 'next/link';
 
-export function Footer() {
+export function SiteFooter() {
   return (
     <footer className="bg-neutral-900 text-white py-20 relative z-10">
       <div className="container mx-auto px-4 text-center">

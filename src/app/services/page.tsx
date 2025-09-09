@@ -1,5 +1,5 @@
 import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { SiteFooter } from '@/components/footer';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Lightbulb, Users, Handshake } from 'lucide-react';
 
@@ -59,7 +59,7 @@ export default function ServicesPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }
