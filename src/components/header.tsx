@@ -20,12 +20,15 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [scrolled]);
 
   return (
     <motion.header
@@ -36,28 +39,46 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
-        <div className="flex-1 flex justify-start">
-          <Link href="/" aria-label="Homepage">
-            <Logo scrolled={scrolled} />
-          </Link>
-        </div>
+        {scrolled ? (
+          <>
+            <div className="flex-1 flex justify-start">
+              <Link href="/" aria-label="Homepage">
+                <Logo scrolled={scrolled} />
+              </Link>
+            </div>
 
-        <nav className="hidden md:flex flex-1 justify-center items-center gap-8 text-sm text-white/80">
-          {navItems.map((item) => (
-            <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
-              {item.name}
+            <nav className="hidden md:flex flex-1 justify-center items-center gap-8 text-sm text-white/80">
+              {navItems.map((item) => (
+                <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="flex-1 flex justify-end">
+              <Button 
+                variant="outline" 
+                className="hidden md:inline-flex bg-transparent text-white border-white/50 hover:bg-white hover:text-black"
+              >
+                Book Consultation
+              </Button>
+            </div>
+          </>
+        ) : (
+          <>
+            <Link href="/" aria-label="Homepage">
+              <Logo scrolled={scrolled} />
             </Link>
-          ))}
-        </nav>
 
-        <div className="flex-1 flex justify-end">
-          <Button 
-            variant="outline" 
-            className="hidden md:inline-flex bg-transparent text-white border-white/50 hover:bg-white hover:text-black"
-          >
-            Book Consultation
-          </Button>
-        </div>
+            <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+              {navItems.map((item) => (
+                <Link key={item.name} href={item.href} className="hover:text-white transition-colors whitespace-nowrap">
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          </>
+        )}
       </div>
     </motion.header>
   );
