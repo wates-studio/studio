@@ -168,7 +168,7 @@ export default function Home() {
               <ScrollAnimation staggerChildren={0.2} className="flex flex-col gap-28">
 
                 {/* Philosophy Part */}
-                <motion.div variants={cardVariants} className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-y-20 gap-x-24 px-12">
+                <motion.div variants={cardVariants} className="flex flex-col md:flex-row flex-wrap items-center justify-between gap-y-20 gap-x-12 px-12">
                   <div className="md:w-1/2 max-w-xl space-y-8">
                     <h2 className="text-5xl md:text-6xl leading-tight">
                       We breathe life
@@ -191,7 +191,7 @@ export default function Home() {
                         </motion.div>
                     </Link>
                   </div>
-                  <div className="md:w-auto flex justify-center items-center">
+                  <div className="flex justify-center items-center">
                     <div className="relative w-[190px] h-[330px]">
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[189px] h-[189px] border border-white/50 rounded-full flex items-center justify-center">
                         <span className="text-xl">Artistry</span>
