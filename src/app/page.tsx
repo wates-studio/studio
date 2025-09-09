@@ -115,16 +115,43 @@ export default function Home() {
 
         <main className="bg-transparent">
           {/* Section 2: The Philosophy */}
-          <div className="min-h-screen flex items-center justify-center text-center">
-            <ScrollAnimation className="max-w-3xl mx-auto px-4" staggerChildren={0.3}>
-              <motion.p variants={cardVariants} className="text-2xl md:text-3xl leading-relaxed text-white/90">
-                The way of DUA is balancing artistry and technical refinement. It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the purpose of light is not simply to illuminate, but to transform how a space is felt.
-              </motion.p>
-              <motion.p variants={cardVariants} className="text-2xl md:text-3xl leading-relaxed mt-8 text-white/90">
-                This is the balance we pursue. This is DUA.
-              </motion.p>
-            </ScrollAnimation>
-          </div>
+          <section className="min-h-screen flex items-center justify-center py-20 md:py-32">
+            <div className="container mx-auto px-4">
+              <ScrollAnimation staggerChildren={0.2} className="flex flex-col md:flex-row items-center justify-between gap-16">
+                <motion.div variants={cardVariants} className="md:w-1/2 space-y-8">
+                  <p className="text-sm font-bold tracking-widest uppercase text-white/50">
+                    DUA Philosophy
+                  </p>
+                  <h2 className="text-5xl md:text-6xl leading-tight">
+                    We breathe life
+                    <br />
+                    into <span className="font-bold">spaces.</span>
+                  </h2>
+                  <h2 className="text-5xl md:text-6xl leading-tight">
+                    We <span className="font-bold">sculpt soul</span>
+                    <br />
+                    with light and shadow.
+                  </h2>
+                  <Link href="/philosophy" className="inline-block text-3xl font-bold hover:underline mt-4">
+                    READ MORE →
+                  </Link>
+                </motion.div>
+                <motion.div variants={cardVariants} className="md:w-1/2 flex justify-center items-center">
+                  <div className="relative w-80 h-80">
+                    <div className="absolute top-0 left-0 w-48 h-48 border border-white/50 rounded-full flex items-center justify-center">
+                      <span className="text-xl">Artistry</span>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-48 h-48 border border-white/50 rounded-full flex items-center justify-center">
+                      <span className="text-xl">Craftsmanship</span>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-xs font-bold tracking-widest text-white/80">MEETS</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </ScrollAnimation>
+            </div>
+          </section>
 
           {/* Section 3: DUA Lighting (Our Service) */}
           <section className="py-20 md:py-32">
