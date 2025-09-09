@@ -180,8 +180,15 @@ export default function Home() {
                       <br />
                       with light and shadow.
                     </h2>
-                    <Link href="/philosophy" className="inline-block text-4xl font-bold hover:underline">
-                        READ MORE →
+                    <Link href="/philosophy" className="inline-flex items-center group text-4xl font-bold">
+                        <span>READ MORE</span>
+                        <motion.div
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                            className="ml-4 transition-transform duration-300 group-hover:translate-x-2"
+                        >
+                            <ArrowRight className="w-10 h-10" />
+                        </motion.div>
                     </Link>
                   </div>
                   <div className="md:w-auto flex justify-center items-center">
@@ -224,8 +231,15 @@ export default function Home() {
                     <p className="text-xl leading-relaxed text-white/80">
                       It is where light meets space, heritage craftsmanship meets advanced technology, and physical presence meets ethereal absence. We believe the <span className="font-bold">purpose of light</span> is not simply to illuminate, but to transform <span className="font-bold">how a space is felt.</span> This is the balance we pursue. This is DUA.
                     </p>
-                    <Link href="/philosophy" className="inline-block text-3xl font-bold hover:underline">
-                        READ MORE →
+                    <Link href="/philosophy" className="inline-flex items-center group text-3xl font-bold">
+                        <span>READ MORE</span>
+                        <motion.div
+                            animate={{ x: [0, 4, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                            className="ml-3 transition-transform duration-300 group-hover:translate-x-1.5"
+                        >
+                            <ArrowRight className="w-8 h-8" />
+                        </motion.div>
                     </Link>
                   </div>
                 </motion.div>
@@ -375,5 +389,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
