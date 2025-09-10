@@ -141,6 +141,8 @@ export default function Home() {
   const philosophySectionRef = useRef<HTMLDivElement>(null);
   const servicesSectionRef = useRef<HTMLDivElement>(null);
   const clientsSectionRef = useRef<HTMLDivElement>(null);
+  const ctaSectionRef = useRef<HTMLDivElement>(null);
+
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -227,6 +229,27 @@ export default function Home() {
               y: 30,
           }, "-=0.3");
       }
+
+      // CTA Section Animation
+      if (ctaSectionRef.current) {
+        const ctaHeadline = ctaSectionRef.current.querySelector('h2');
+        if (ctaHeadline) {
+          const ctaSplit = new SplitText(ctaHeadline, { type: 'words' });
+          gsap.from(ctaSplit.words, {
+            scrollTrigger: {
+              trigger: ctaSectionRef.current,
+              start: 'top 80%',
+              end: 'bottom 90%',
+              scrub: 1,
+            },
+            opacity: 0.1,
+            y: 20,
+            stagger: 0.05,
+            ease: 'power2.out',
+          });
+        }
+      }
+
     });
 
     return () => ctx.revert();
@@ -519,22 +542,16 @@ export default function Home() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-20 md:py-32">
+          <section ref={ctaSectionRef} className="py-20 md:py-32">
               <div className="container mx-auto">
-                  <motion.div 
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={cardVariants}
-                    className="flex flex-col md:flex-row justify-between items-center gap-8 px-12"
-                   >
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-8 px-12">
                       <h2 className="text-4xl md:text-5xl text-white max-w-2xl text-center md:text-left">
                           Big company resources, small company care.
                       </h2>
                       <div className="flex-shrink-0">
                           <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
                       </div>
-                  </motion.div>
+                  </div>
               </div>
           </section>
 
@@ -547,6 +564,7 @@ export default function Home() {
     
 
     
+
 
 
 
