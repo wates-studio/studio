@@ -90,10 +90,20 @@
     "alt": "Balinese artisan at work",
     "hint": "artisan hands crafting"
   },
-  "philosophy_fixture": {
-    "src": "https://picsum.photos/seed/philFixture/800/1000",
-    "alt": "Close-up of a DUA lighting fixture",
-    "hint": "lighting fixture detail"
+  "philosophy_design": {
+    "src": "https://picsum.photos/seed/philDesign/800/1200",
+    "alt": "A minimalist lighting fixture casting a soft glow.",
+    "hint": "minimalist lighting design"
+  },
+  "philosophy_craft": {
+    "src": "https://picsum.photos/seed/philCraft/800/1200",
+    "alt": "Hands of a craftsman carefully assembling a brass fixture.",
+    "hint": "craftsman hands brass"
+  },
+  "philosophy_atmosphere": {
+    "src": "https://picsum.photos/seed/philAtmosphere/800/1200",
+    "alt": "A serene room with carefully engineered atmospheric lighting.",
+    "hint": "serene room lighting"
   },
   "project_mandapa": {
     "src": "https://picsum.photos/seed/projMandapa/1200/800",
