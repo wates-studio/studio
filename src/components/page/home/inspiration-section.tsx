@@ -8,7 +8,7 @@ import { designers } from '@/data/home-page';
 export function InspirationSection() {
     return (
         <InfoCarousel
-            title="Get Inspired"
+            title="Lighting Designers In History"
             description="We stand on the shoulders of giants. Explore the work of the master lighting designers who have shaped our philosophy and continue to inspire our craft."
             items={designers.map(designer => ({
               id: designer.name,
@@ -17,6 +17,8 @@ export function InspirationSection() {
               title: designer.name,
               subtitle: designer.quote
             }))}
+            layout="centered"
+            carouselBasis="1/3"
             renderItem={({ item }) => (
               <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden">
                 <Image

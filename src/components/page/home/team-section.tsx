@@ -8,7 +8,7 @@ import { teamMembers } from '@/data/home-page';
 export function TeamSection() {
     return (
         <InfoCarousel
-            title="Our Team"
+            title="BEHIND THE LIGHT"
             description="We are a collective of designers, engineers, and craftspeople united by a single belief: that light, when wielded with intention, is the most powerful tool for shaping human experience."
             items={teamMembers.map(member => ({
                 id: member.name,
@@ -17,6 +17,7 @@ export function TeamSection() {
                 title: member.name,
                 subtitle: member.title
             }))}
+            layout="centered"
             renderItem={({ item }) => (
               <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden">
                 <Image
