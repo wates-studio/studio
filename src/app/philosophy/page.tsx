@@ -3,19 +3,21 @@ import { Header } from '@/components/header';
 import { SiteFooter } from '@/components/footer';
 import Image from 'next/image';
 import { Lightbulb, Users, Handshake } from 'lucide-react';
+import placeholderImages from '@/lib/placeholder-images.json';
 
 export default function PhilosophyPage() {
+  const { philosophy_hero, philosophy_fixture } = placeholderImages;
   return (
     <div className="bg-[#111111] text-white antialiased">
       <Header />
       <main className="pt-20">
         <section className="relative h-[60vh] flex items-center justify-center text-center">
           <Image
-            src="https://picsum.photos/1800/1000"
-            alt="Balinese artisan at work"
+            src={philosophy_hero.src}
+            alt={philosophy_hero.alt}
             fill
             className="object-cover"
-            data-ai-hint="artisan hands crafting"
+            data-ai-hint={philosophy_hero.hint}
           />
           <div className="absolute inset-0 bg-black/60"></div>
           <div className="relative z-10 p-8">
@@ -39,12 +41,12 @@ export default function PhilosophyPage() {
             </div>
             <div>
               <Image 
-                src="https://picsum.photos/800/1000?2"
-                alt="Close-up of a DUA lighting fixture"
+                src={philosophy_fixture.src}
+                alt={philosophy_fixture.alt}
                 width={800}
                 height={1000}
                 className="rounded-lg object-cover"
-                data-ai-hint="lighting fixture detail"
+                data-ai-hint={philosophy_fixture.hint}
               />
             </div>
           </div>

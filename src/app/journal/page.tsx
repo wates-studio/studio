@@ -1,45 +1,45 @@
 
 import { Header } from '@/components/header';
 import { SiteFooter } from '@/components/footer';
-import Image from 'next/image';
 import { JournalCard } from '@/components/page/journal-card';
+import placeholderImages from '@/lib/placeholder-images.json';
 
 const journalEntries = [
   {
     title: 'The Science of Atmosphere: An Introduction to Human-Centric Lighting',
-    image: 'https://picsum.photos/600/400?4',
-    alt: 'Abstract light and shadows',
-    hint: 'abstract light shadow'
+    image: placeholderImages.journal_atmosphere.src,
+    alt: placeholderImages.journal_atmosphere.alt,
+    hint: placeholderImages.journal_atmosphere.hint,
   },
   {
     title: 'Material Focus: The Living Finish of Hand-Brushed Brass',
-    image: 'https://picsum.photos/600/400?5',
-    alt: 'Molten brass',
-    hint: 'molten brass'
+    image: placeholderImages.journal_brass.src,
+    alt: placeholderImages.journal_brass.alt,
+    hint: placeholderImages.journal_brass.hint,
   },
   {
     title: 'Designer Spotlight: The Mind Behind the Aura Collection',
-    image: 'https://picsum.photos/600/400?6',
-    alt: 'Designer sketching',
-    hint: 'designer sketching black white'
+    image: placeholderImages.journal_designer.src,
+    alt: placeholderImages.journal_designer.alt,
+    hint: placeholderImages.journal_designer.hint,
   },
   {
     title: 'Case Study: Lighting the Mandapa Ritz-Carlton',
-    image: 'https://picsum.photos/600/400?11',
-    alt: 'Luxury hotel lobby',
-    hint: 'luxury hotel lobby'
+    image: placeholderImages.journal_mandapa.src,
+    alt: placeholderImages.journal_mandapa.alt,
+    hint: placeholderImages.journal_mandapa.hint,
   },
   {
     title: 'The Warmth of 2700K: A Deep Dive into Color Temperature',
-    image: 'https://picsum.photos/600/400?12',
-    alt: 'Warm interior lighting',
-    hint: 'warm interior lighting'
+    image: placeholderImages.journal_warmth.src,
+    alt: placeholderImages.journal_warmth.alt,
+    hint: placeholderImages.journal_warmth.hint,
   },
   {
     title: 'From Sketch to Fixture: The DUA Design Process',
-    image: 'https://picsum.photos/600/400?13',
-    alt: 'Design blueprints and tools',
-    hint: 'design blueprints tools'
+    image: placeholderImages.journal_sketch.src,
+    alt: placeholderImages.journal_sketch.alt,
+    hint: placeholderImages.journal_sketch.hint,
   }
 ];
 

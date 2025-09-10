@@ -4,8 +4,11 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import placeholderImages from '@/lib/placeholder-images.json';
 
 export default function ContactPage() {
+  const { contact_map } = placeholderImages;
   return (
     <>
       <Header />
@@ -36,7 +39,14 @@ export default function ContactPage() {
                     <p className="text-muted-foreground">+62 812-3456-7890</p>
                 </div>
                 <div className="mt-8">
-                    <img src="https://via.placeholder.com/600x400" alt="Map" className="rounded-lg" />
+                    <Image 
+                      src={contact_map.src} 
+                      alt={contact_map.alt} 
+                      width={600} 
+                      height={400} 
+                      className="rounded-lg" 
+                      data-ai-hint={contact_map.hint}
+                    />
                 </div>
             </CardContent>
           </Card>

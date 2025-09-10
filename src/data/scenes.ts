@@ -1,3 +1,5 @@
+import placeholderImages from '@/lib/placeholder-images.json';
+
 export interface Scene {
   id: string;
   name: string;
@@ -9,19 +11,19 @@ export const scenes: Scene[] = [
   {
     id: 'living-room',
     name: 'Living Room',
-    imageOn: '/hero1-on.png',
-    imageOff: '/hero1-off.png',
+    imageOn: placeholderImages.hero_living_room_on.src,
+    imageOff: placeholderImages.hero_living_room_off.src,
   },
   {
     id: 'lounge',
     name: 'Lounge',
-    imageOn: 'https://picsum.photos/1920/1280?random=1',
-    imageOff: 'https://picsum.photos/1920/1280?random=2',
+    imageOn: placeholderImages.hero_lounge_on.src,
+    imageOff: placeholderImages.hero_lounge_off.src,
   },
   {
     id: 'bedroom',
     name: 'Bedroom',
-    imageOn: 'https://picsum.photos/1920/1280?random=3',
-    imageOff: 'https://picsum.photos/1920/1280?random=4',
+    imageOn: placeholderImages.hero_bedroom_on.src,
+    imageOff: placeholderImages.hero_bedroom_off.src,
   },
 ];

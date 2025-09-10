@@ -4,30 +4,31 @@ import { SiteFooter } from '@/components/footer';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import placeholderImages from '@/lib/placeholder-images.json';
 
 const projects = [
   {
     name: 'Mandapa, a Ritz-Carlton Reserve',
     location: 'Ubud, Bali',
     description: 'A complete lighting solution for a world-renowned luxury resort, enhancing its connection to the natural landscape.',
-    image: 'https://picsum.photos/1200/800?1',
-    hint: 'luxury resort lobby night',
+    image: placeholderImages.project_mandapa.src,
+    hint: placeholderImages.project_mandapa.hint,
     slug: '/projects/mandapa-ritz-carlton'
   },
   {
     name: 'The Legian Seminyak',
     location: 'Seminyak, Bali',
     description: 'Bespoke fixtures that complement the hotel\'s timeless elegance and beachfront location.',
-    image: 'https://picsum.photos/1200/800?2',
-    hint: 'modern hotel suite ocean view',
+    image: placeholderImages.project_legian.src,
+    hint: placeholderImages.project_legian.hint,
     slug: '/projects/legian-seminyak'
   },
   {
     name: 'Apéritif Restaurant & Bar',
     location: 'Ubud, Bali',
     description: 'Atmospheric lighting for a fine-dining experience, balancing intimacy with 1920s-inspired grandeur.',
-    image: 'https://picsum.photos/1200/800?3',
-    hint: 'fine dining restaurant interior',
+    image: placeholderImages.project_aperitif.src,
+    hint: placeholderImages.project_aperitif.hint,
     slug: '/projects/aperitif-ubud'
   },
 ];

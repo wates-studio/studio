@@ -1,0 +1,137 @@
+{
+  "hero_living_room_on": {
+    "src": "/hero1-on.png",
+    "alt": "Luxurious Living Room with DUA lighting fixtures on",
+    "hint": "living room night"
+  },
+  "hero_living_room_off": {
+    "src": "/hero1-off.png",
+    "alt": "Luxurious Living Room with DUA lighting fixtures off",
+    "hint": "living room day"
+  },
+  "hero_lounge_on": {
+    "src": "https://picsum.photos/seed/loungeOn/1920/1280",
+    "alt": "Modern lounge with ambient lighting",
+    "hint": "lounge ambient lighting"
+  },
+  "hero_lounge_off": {
+    "src": "https://picsum.photos/seed/loungeOff/1920/1280",
+    "alt": "Modern lounge in daylight",
+    "hint": "lounge daylight"
+  },
+  "hero_bedroom_on": {
+    "src": "https://picsum.photos/seed/bedOn/1920/1280",
+    "alt": "Cozy bedroom with warm lighting",
+    "hint": "bedroom warm lighting"
+  },
+  "hero_bedroom_off": {
+    "src": "https://picsum.photos/seed/bedOff/1920/1280",
+    "alt": "Cozy bedroom in daylight",
+    "hint": "bedroom daylight"
+  },
+  "featured_project": {
+    "src": "https://picsum.photos/seed/featProject/1800/1200",
+    "alt": "Mandapa, a Ritz-Carlton Reserve",
+    "hint": "luxury resort lobby night"
+  },
+  "team_anya": {
+    "src": "https://picsum.photos/seed/anya/400/500",
+    "alt": "Portrait of Anya Sharma",
+    "hint": "woman portrait professional"
+  },
+  "team_leo": {
+    "src": "https://picsum.photos/seed/leo/400/500",
+    "alt": "Portrait of Leo De Wit",
+    "hint": "man portrait professional"
+  },
+  "team_kenji": {
+    "src": "https://picsum.photos/seed/kenji/400/500",
+    "alt": "Portrait of Kenji Tanaka",
+    "hint": "craftsman portrait serious"
+  },
+  "team_isabella": {
+    "src": "https://picsum.photos/seed/isabella/400/500",
+    "alt": "Portrait of Isabella Rossi",
+    "hint": "designer portrait professional"
+  },
+  "designer_achille": {
+    "src": "https://picsum.photos/seed/achille/400/500",
+    "alt": "Portrait of Achille Castiglioni",
+    "hint": "portrait achille castiglioni"
+  },
+  "designer_poul": {
+    "src": "https://picsum.photos/seed/poul/400/500",
+    "alt": "Portrait of Poul Henningsen",
+    "hint": "portrait poul henningsen"
+  },
+  "designer_ingo": {
+    "src": "https://picsum.photos/seed/ingo/400/500",
+    "alt": "Portrait of Ingo Maurer",
+    "hint": "portrait ingo maurer"
+  },
+  "philosophy_hero": {
+    "src": "https://picsum.photos/seed/philHero/1800/1000",
+    "alt": "Balinese artisan at work",
+    "hint": "artisan hands crafting"
+  },
+  "philosophy_fixture": {
+    "src": "https://picsum.photos/seed/philFixture/800/1000",
+    "alt": "Close-up of a DUA lighting fixture",
+    "hint": "lighting fixture detail"
+  },
+  "project_mandapa": {
+    "src": "https://picsum.photos/seed/projMandapa/1200/800",
+    "alt": "Mandapa, a Ritz-Carlton Reserve",
+    "hint": "luxury resort lobby night"
+  },
+  "project_legian": {
+    "src": "https://picsum.photos/seed/projLegian/1200/800",
+    "alt": "The Legian Seminyak",
+    "hint": "modern hotel suite ocean view"
+  },
+  "project_aperitif": {
+    "src": "https://picsum.photos/seed/projAperitif/1200/800",
+    "alt": "Apéritif Restaurant & Bar",
+    "hint": "fine dining restaurant interior"
+  },
+  "journal_atmosphere": {
+    "src": "https://picsum.photos/seed/jAtmosphere/600/400",
+    "alt": "Abstract light and shadows",
+    "hint": "abstract light shadow"
+  },
+  "journal_brass": {
+    "src": "https://picsum.photos/seed/jBrass/600/400",
+    "alt": "Molten brass",
+    "hint": "molten brass"
+  },
+  "journal_designer": {
+    "src": "https://picsum.photos/seed/jDesigner/600/400",
+    "alt": "Designer sketching",
+    "hint": "designer sketching"
+  },
+  "journal_mandapa": {
+    "src": "https://picsum.photos/seed/jMandapa/600/400",
+    "alt": "Luxury hotel lobby",
+    "hint": "luxury hotel lobby"
+  },
+  "journal_warmth": {
+    "src": "https://picsum.photos/seed/jWarmth/600/400",
+    "alt": "Warm interior lighting",
+    "hint": "warm interior lighting"
+  },
+  "journal_sketch": {
+    "src": "https://picsum.photos/seed/jSketch/600/400",
+    "alt": "Design blueprints and tools",
+    "hint": "design blueprints"
+  },
+  "contact_map": {
+    "src": "https://picsum.photos/seed/contactMap/600/400",
+    "alt": "Map showing location of the studio",
+    "hint": "map location"
+  },
+  "blog_placeholder_1": {
+    "src": "https://picsum.photos/seed/blog1/400/200",
+    "alt": "Blog post placeholder image",
+    "hint": "abstract texture"
+  }
+}
