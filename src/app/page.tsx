@@ -142,6 +142,9 @@ export default function Home() {
   const servicesSectionRef = useRef<HTMLDivElement>(null);
   const clientsSectionRef = useRef<HTMLDivElement>(null);
   const ctaSectionRef = useRef<HTMLDivElement>(null);
+  const ctaHeadlineRef = useRef<HTMLHeadingElement>(null);
+  const ctaButtonRef = useRef<HTMLDivElement>(null);
+  const ctaWrapperRef = useRef<HTMLDivElement>(null);
 
 
   useLayoutEffect(() => {
@@ -231,38 +234,31 @@ export default function Home() {
       }
 
       // CTA Section Animation
-      if (ctaSectionRef.current) {
-        const ctaWrapper = ctaSectionRef.current.querySelector('[data-anim="cta-wrapper"]');
-        const ctaHeadline = ctaSectionRef.current.querySelector('h2');
-        const ctaButton = ctaSectionRef.current.querySelector('button');
+      if (ctaSectionRef.current && ctaWrapperRef.current && ctaHeadlineRef.current && ctaButtonRef.current) {
+        gsap.set(ctaButtonRef.current, { opacity: 0 });
+        
+        const ctaTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ctaSectionRef.current,
+            start: 'top center',
+            end: 'center center',
+            scrub: 1,
+          },
+        });
 
-        if (ctaWrapper && ctaHeadline && ctaButton) {
-          const ctaSplit = new SplitText(ctaHeadline, { type: 'words,chars' });
-          
-          const ctaTl = gsap.timeline({
-            scrollTrigger: {
-              trigger: ctaSectionRef.current,
-              start: 'top 70%',
-              end: 'bottom 90%',
-              scrub: 1,
-            },
-          });
-
-          ctaTl.from(ctaSplit.chars, {
-              opacity: 0.2,
-              y: 20,
-              stagger: 0.05,
-              ease: 'power2.out',
-            })
-            .to(ctaWrapper, {
-              justifyContent: 'space-between',
-              ease: 'power2.inOut'
-            }, ">-0.5")
-            .to(ctaButton, {
-              opacity: 1,
-              ease: 'power2.inOut'
-            }, "<");
-        }
+        ctaTl.to(ctaWrapperRef.current, {
+            justifyContent: 'space-between',
+            ease: 'power2.inOut',
+          })
+          .to(ctaHeadlineRef.current, {
+            textAlign: 'left',
+            className: 'text-4xl md:text-5xl text-white max-w-2xl',
+            ease: 'power2.inOut'
+          }, "<")
+          .to(ctaButtonRef.current, {
+            opacity: 1,
+            ease: 'power2.inOut',
+          }, "<");
       }
 
     });
@@ -273,6 +269,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#111111] text-white antialiased overflow-hidden">
+      <Header />
       {/* Persistent Background */}
       <div className="fixed inset-0 z-0">
         <AnimatePresence>
@@ -319,7 +316,6 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-      <Header />
 
       <div className="relative z-10">
         <Scenes 
@@ -560,14 +556,17 @@ export default function Home() {
           <section ref={ctaSectionRef} className="py-20 md:py-40">
               <div className="container mx-auto">
                   <div 
-                    data-anim="cta-wrapper"
+                    ref={ctaWrapperRef}
                     className="flex justify-center items-center gap-8 px-12"
                   >
-                      <h2 className="text-4xl md:text-5xl text-white max-w-2xl text-center md:text-left">
+                      <h2 
+                        ref={ctaHeadlineRef}
+                        className="text-4xl md:text-5xl text-white max-w-2xl text-center"
+                      >
                           Big company resources, small company care.
                       </h2>
-                      <div className="flex-shrink-0">
-                          <Button size="lg" className="advanced-glass text-white hover:bg-white/10 opacity-0">Book a Consultation</Button>
+                      <div ref={ctaButtonRef} className="flex-shrink-0">
+                          <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
                       </div>
                   </div>
               </div>
@@ -578,4 +577,5 @@ export default function Home() {
       <SiteFooter />
     </div>
   );
-}
+
+    
