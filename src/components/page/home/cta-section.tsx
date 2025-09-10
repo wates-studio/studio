@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useRef, useLayoutEffect } from 'react';
@@ -25,6 +24,7 @@ export function CTASection() {
 
           if (!headline || !button || !wrapper || !section) return;
 
+          // Mobile animation (screens up to 767px)
           mm.add("(max-width: 767px)", () => {
             const split = new SplitText(headline, { type: "words" });
             
@@ -51,6 +51,7 @@ export function CTASection() {
             }, "-=0.6");
           });
 
+          // Desktop animation (screens 768px and wider)
           mm.add("(min-width: 768px)", () => {
             if (ctaSectionRef.current && ctaWrapperRef.current && ctaHeadlineRef.current && ctaButtonRef.current) {
               const split = new SplitText(headline, { type: "words" });
