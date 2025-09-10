@@ -279,11 +279,8 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-      <div className="relative z-20">
-        <Header />
-      </div>
-      
       <div className="relative z-10">
+        <Header />
         <Scenes 
           lightsOn={lightsOn}
           setLightsOn={setLightsOn}
@@ -547,3 +544,4 @@ export default function Home() {
     
 
     
+
