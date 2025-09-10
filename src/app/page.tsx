@@ -234,15 +234,15 @@ export default function Home() {
       if (ctaSectionRef.current) {
         const ctaHeadline = ctaSectionRef.current.querySelector('h2');
         if (ctaHeadline) {
-          const ctaSplit = new SplitText(ctaHeadline, { type: 'words' });
-          gsap.from(ctaSplit.words, {
+          const ctaSplit = new SplitText(ctaHeadline, { type: 'words,chars' });
+          gsap.from(ctaSplit.chars, {
             scrollTrigger: {
               trigger: ctaSectionRef.current,
               start: 'top 80%',
               end: 'bottom 90%',
-              scrub: 1,
+              scrub: true,
             },
-            opacity: 0.1,
+            opacity: 0.2,
             y: 20,
             stagger: 0.05,
             ease: 'power2.out',
@@ -257,7 +257,7 @@ export default function Home() {
 
 
   return (
-    <div className="bg-[#111111] text-white antialiased">
+    <div className="bg-[#111111] text-white antialiased overflow-hidden">
       {/* Persistent Background */}
       <div className="fixed inset-0 z-0">
         <AnimatePresence>
