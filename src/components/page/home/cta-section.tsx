@@ -18,13 +18,29 @@ export function CTASection() {
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
           const mm = gsap.matchMedia();
+          const headline = ctaHeadlineRef.current;
+          const button = ctaButtonRef.current;
+          const wrapper = ctaWrapperRef.current;
+
+          if (!headline || !button || !wrapper || !ctaSectionRef.current) return;
+
+          mm.add("(max-width: 767px)", () => {
+            gsap.from([headline, button], {
+              opacity: 0,
+              y: 30,
+              duration: 1,
+              stagger: 0.2,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: ctaSectionRef.current,
+                start: 'top 80%',
+                toggleActions: 'play none none none',
+              }
+            });
+          });
 
           mm.add("(min-width: 768px)", () => {
             if (ctaSectionRef.current && ctaWrapperRef.current && ctaHeadlineRef.current && ctaButtonRef.current) {
-              const headline = ctaHeadlineRef.current;
-              const button = ctaButtonRef.current;
-              const wrapper = ctaWrapperRef.current;
-      
               const split = new SplitText(headline, { type: "words" });
               
               gsap.set(button, { position: 'absolute', opacity: 0 });
@@ -71,12 +87,12 @@ export function CTASection() {
                 >
                     <h2 
                       ref={ctaHeadlineRef}
-                      className="text-5xl md:text-7xl text-white max-w-2xl text-center"
+                      className="text-4xl md:text-7xl text-white max-w-2xl text-center"
                     >
                         Big company <span className="font-bold">resources,</span> small company <span className="font-bold">care.</span>
                     </h2>
                     <div ref={ctaButtonRef} className="flex-shrink-0">
-                        <Button size="lg" className="advanced-glass bg-transparent text-white hover:bg-white hover:text-black">Book a Consultation</Button>
+                        <Button size="lg" className="bg-transparent advanced-glass text-white hover:bg-white hover:text-black">Book a Consultation</Button>
                     </div>
                 </div>
             </div>
