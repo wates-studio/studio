@@ -194,24 +194,24 @@ export default function Home() {
         const servicesTl = gsap.timeline({
           scrollTrigger: {
             trigger: servicesSectionRef.current,
-            start: 'top 70%',
-            end: 'bottom 90%',
+            start: 'top 80%',
+            end: 'center center',
             scrub: 1,
           }
         });
 
-        servicesTl.from(serviceTextSplit.words, {
-            opacity: 0.2,
-            y: 10,
-            stagger: 0.01,
-            ease: 'power2.out'
-        })
-        .to(serviceItems, {
+        servicesTl.to(serviceItems, {
             opacity: 1,
             x: 0,
             stagger: 0.05,
             ease: 'power2.out'
-        }, "-=0.8");
+        })
+        .from(serviceTextSplit.words, {
+            opacity: 0.2,
+            y: 10,
+            stagger: 0.01,
+            ease: 'power2.out'
+        }, "-=0.5");
       }
 
       // Clients Section Animation
