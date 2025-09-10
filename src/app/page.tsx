@@ -180,8 +180,9 @@ export default function Home() {
 
       // Services Section Animation
       if (servicesSectionRef.current) {
-        const servicesSplit = new SplitText(servicesSectionRef.current.querySelectorAll('h3, p'), { type: 'words' });
-        
+        const serviceTextSplit = new SplitText(servicesSectionRef.current.querySelectorAll('h3, p'), { type: 'words' });
+        const serviceItems = servicesSectionRef.current.querySelectorAll('[data-anim="service-item"]');
+
         const servicesTl = gsap.timeline({
           scrollTrigger: {
             trigger: servicesSectionRef.current,
@@ -191,12 +192,18 @@ export default function Home() {
           }
         });
 
-        servicesTl.from(servicesSplit.words, {
+        servicesTl.from(serviceTextSplit.words, {
             opacity: 0.2,
             y: 10,
             stagger: 0.01,
             ease: 'power2.out'
-        });
+        })
+        .from(serviceItems, {
+            opacity: 0,
+            x: -30,
+            stagger: 0.05,
+            ease: 'power2.out'
+        }, "-=0.5");
       }
 
       // Clients Section Animation
@@ -324,12 +331,9 @@ export default function Home() {
                     <p className="text-sm font-bold tracking-widest uppercase text-white/50">our lighting services</p>
                     <div className="w-[354px] flex flex-col gap-2.5 items-start">
                       {services.map((service, i) => (
-                        <motion.div
+                        <div
                           key={i}
-                          initial={{ opacity: 0, x: -30 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true, amount: 0.3 }}
-                          transition={{ duration: 0.5, delay: i * 0.1 }}
+                          data-anim="service-item"
                           className="w-full"
                         >
                           <Link
@@ -339,7 +343,7 @@ export default function Home() {
                             <span className="text-sm">{service}</span>
                             <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
                           </Link>
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -537,4 +541,5 @@ export default function Home() {
       <SiteFooter />
     </div>
   );
-}
+
+    
