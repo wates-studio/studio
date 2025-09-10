@@ -23,7 +23,7 @@ export function PhilosophySection() {
             const philosophyTl = gsap.timeline({
               scrollTrigger: {
                 trigger: philosophySectionRef.current,
-                start: 'top 70%',
+                start: 'top 80%',
                 end: 'bottom 90%',
                 scrub: 1,
               }
