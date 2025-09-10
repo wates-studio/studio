@@ -242,9 +242,8 @@ export default function Home() {
           const ctaTl = gsap.timeline({
             scrollTrigger: {
               trigger: ctaSectionRef.current,
-              start: 'top top',
-              end: '+=100%',
-              pin: true,
+              start: 'top 70%',
+              end: 'bottom 90%',
               scrub: 1,
             },
           });
@@ -558,11 +557,11 @@ export default function Home() {
           </section>
 
           {/* CTA Section */}
-          <section ref={ctaSectionRef} className="h-[200vh]">
-              <div className="container mx-auto h-full">
+          <section ref={ctaSectionRef} className="py-20 md:py-40">
+              <div className="container mx-auto">
                   <div 
                     data-anim="cta-wrapper"
-                    className="flex justify-center items-center gap-8 px-12 h-full"
+                    className="flex justify-center items-center gap-8 px-12"
                   >
                       <h2 className="text-4xl md:text-5xl text-white max-w-2xl text-center md:text-left">
                           Big company resources, small company care.
