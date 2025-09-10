@@ -240,7 +240,7 @@ export default function Home() {
         const button = ctaButtonRef.current;
         const wrapper = ctaWrapperRef.current;
 
-        gsap.set(button, { opacity: 0, x: '100%' });
+        gsap.set(button, { position: 'absolute', opacity: 0 });
 
         const split = new SplitText(headline, { type: "words" });
 
@@ -266,8 +266,8 @@ export default function Home() {
             ease: 'power2.inOut'
         }))
         .to(button, {
+            position: 'relative',
             opacity: 1,
-            x: '0%',
             duration: 0.5,
             ease: 'power2.inOut'
         }, "-=0.75");
@@ -281,7 +281,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#111111] text-white antialiased overflow-hidden">
-      <Header />
+      
       {/* Persistent Background */}
       <div className="fixed inset-0 z-0">
         <AnimatePresence>
@@ -328,7 +328,7 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-
+      <Header />
       <div className="relative z-10">
         <Scenes 
           lightsOn={lightsOn}
