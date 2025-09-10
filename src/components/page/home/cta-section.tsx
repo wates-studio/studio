@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRef, useLayoutEffect } from 'react';
@@ -32,7 +33,7 @@ export function CTASection() {
               scrollTrigger: {
                 trigger: section,
                 start: 'top 80%',
-                end: 'bottom 90%',
+                end: 'center center',
                 scrub: 1,
               }
             })
