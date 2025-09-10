@@ -11,7 +11,7 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-neutral-900 text-white py-16 relative z-10">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-12">
 
         <div className="mb-12 text-center">
           <h2 className="text-4xl md:text-6xl font-medium tracking-tight">
