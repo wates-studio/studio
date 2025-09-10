@@ -24,7 +24,7 @@ export default function Home() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (contentRef.current) {
-        gsap.fromTo(content.current, 
+        gsap.fromTo(contentRef.current, 
           { opacity: 0 }, 
           { 
             opacity: 1,
