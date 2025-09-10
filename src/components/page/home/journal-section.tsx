@@ -15,23 +15,28 @@ export function JournalSection() {
         <section className="py-20 md:py-32">
             <div className="container mx-auto">
                 <div className="px-4 md:px-12 flex flex-col gap-8">
-                    <div className="hidden md:flex justify-end items-center gap-4">
-                        <Button 
-                            variant="outline" 
-                            size="icon" 
-                            className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white rounded-full"
-                            onClick={() => journalCarouselApi?.scrollPrev()}
-                        >
-                            <ArrowLeft className="h-4 w-4" />
-                        </Button>
-                        <Button 
-                            variant="outline" 
-                            size="icon" 
-                            className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white rounded-full"
-                            onClick={() => journalCarouselApi?.scrollNext()}
-                        >
-                            <ArrowRight className="h-4 w-4" />
-                        </Button>
+                    <div className="flex justify-between items-center">
+                      <h2 className="text-sm font-bold tracking-widest uppercase text-white/50">
+                        DUA JOURNAL
+                      </h2>
+                      <div className="hidden md:flex justify-end items-center gap-4">
+                          <Button 
+                              variant="outline" 
+                              size="icon" 
+                              className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white rounded-full"
+                              onClick={() => journalCarouselApi?.scrollPrev()}
+                          >
+                              <ArrowLeft className="h-4 w-4" />
+                          </Button>
+                          <Button 
+                              variant="outline" 
+                              size="icon" 
+                              className="text-white bg-black/20 border-white/20 hover:bg-white/10 hover:text-white rounded-full"
+                              onClick={() => journalCarouselApi?.scrollNext()}
+                          >
+                              <ArrowRight className="h-4 w-4" />
+                          </Button>
+                      </div>
                     </div>
                     <Carousel
                         setApi={setJournalCarouselApi}
