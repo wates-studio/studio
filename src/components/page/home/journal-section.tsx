@@ -17,7 +17,7 @@ export function JournalSection() {
                 <div className="px-4 md:px-12 flex flex-col gap-8">
                     <div className="flex justify-between items-center">
                       <h2 className="text-sm font-bold tracking-widest uppercase text-white/50">
-                        DUA JOURNAL
+                        FEATURED JOURNAL
                       </h2>
                       <div className="hidden md:flex justify-end items-center gap-4">
                           <Button 
