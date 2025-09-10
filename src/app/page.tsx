@@ -232,7 +232,7 @@ export default function Home() {
 
 
   return (
-    <div className="bg-[#111111] text-white antialiased">
+    <div className="bg-[#111111] text-white antialiased overflow-hidden">
       {/* Persistent Background */}
       <div className="fixed inset-0 z-0">
         <AnimatePresence>
@@ -498,7 +498,7 @@ export default function Home() {
                               align: "start",
                               loop: true,
                           }}
-                          className="w-full overflow-hidden"
+                          className="w-full"
                       >
                           <CarouselContent className="-ml-8">
                               {journalEntries.map((entry, index) => (
@@ -537,4 +537,5 @@ export default function Home() {
       <SiteFooter />
     </div>
   );
-}
+
+    
