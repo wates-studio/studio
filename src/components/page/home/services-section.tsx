@@ -14,45 +14,79 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export function ServicesSection() {
     const servicesSectionRef = useRef<HTMLDivElement>(null);
+    const servicesListRef = useRef<HTMLDivElement>(null);
+    const servicesTextRef = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            if (servicesSectionRef.current) {
+            if (servicesSectionRef.current && servicesListRef.current && servicesTextRef.current) {
                 const mm = gsap.matchMedia(servicesSectionRef.current);
-                const serviceTextSplit = new SplitText(servicesSectionRef.current.querySelectorAll('h3, p'), { type: 'words' });
-                const serviceItems = servicesSectionRef.current.querySelectorAll('[data-anim="service-item"]');
+                const serviceTextSplit = new SplitText(servicesTextRef.current.querySelectorAll('h3, p'), { type: 'words' });
+                const serviceItems = servicesListRef.current.querySelectorAll('[data-anim="service-item"]');
                 gsap.set(serviceItems, { opacity: 0, x: -30 });
 
-                const createServicesTimeline = (start: string) => {
-                  const servicesTl = gsap.timeline({
-                    scrollTrigger: {
-                      trigger: servicesSectionRef.current,
-                      start: start,
-                      end: 'center center',
-                      scrub: 1,
-                    }
-                  });
-        
-                  servicesTl.to(serviceItems, {
-                      opacity: 1,
-                      x: 0,
-                      stagger: 0.05,
-                      ease: 'power2.out'
-                  })
-                  .from(serviceTextSplit.words, {
-                      opacity: 0.2,
-                      y: 10,
-                      stagger: 0.01,
-                      ease: 'power2.out'
-                  }, "-=0.25");
-                };
-                
                 mm.add({
                   isMobile: "(max-width: 767px)",
                   isDesktop: "(min-width: 768px)",
                 }, (context) => {
-                  let { isMobile } = context.conditions as {isMobile: boolean};
-                  createServicesTimeline(isMobile ? "top 60%" : "top 80%");
+                  let { isMobile, isDesktop } = context.conditions as {isMobile: boolean, isDesktop: boolean};
+                  
+                  if (isMobile) {
+                    // Mobile animation with separate timelines
+                    const listTl = gsap.timeline({
+                      scrollTrigger: {
+                        trigger: servicesListRef.current,
+                        start: 'top 80%',
+                        end: 'center center',
+                        scrub: 1,
+                      }
+                    });
+                    listTl.to(serviceItems, {
+                        opacity: 1,
+                        x: 0,
+                        stagger: 0.05,
+                        ease: 'power2.out'
+                    });
+
+                    const textTl = gsap.timeline({
+                      scrollTrigger: {
+                        trigger: servicesTextRef.current,
+                        start: 'top 90%',
+                        end: 'center center',
+                        scrub: 1,
+                      }
+                    });
+                    textTl.from(serviceTextSplit.words, {
+                        opacity: 0.2,
+                        y: 10,
+                        stagger: 0.01,
+                        ease: 'power2.out'
+                    });
+
+                  } else if (isDesktop) {
+                    // Original Desktop animation
+                    const servicesTl = gsap.timeline({
+                      scrollTrigger: {
+                        trigger: servicesSectionRef.current,
+                        start: 'top 80%',
+                        end: 'center center',
+                        scrub: 1,
+                      }
+                    });
+          
+                    servicesTl.to(serviceItems, {
+                        opacity: 1,
+                        x: 0,
+                        stagger: 0.05,
+                        ease: 'power2.out'
+                    })
+                    .from(serviceTextSplit.words, {
+                        opacity: 0.2,
+                        y: 10,
+                        stagger: 0.01,
+                        ease: 'power2.out'
+                    }, "-=0.25");
+                  }
                 });
             }
         });
@@ -63,7 +97,7 @@ export function ServicesSection() {
         <section className="py-20 md:py-32">
             <div className="container mx-auto">
                 <div ref={servicesSectionRef} className="grid md:grid-cols-2 gap-16 items-start px-4 md:px-12 mt-28">
-                    <div className="flex flex-col gap-6 items-start">
+                    <div ref={servicesListRef} className="flex flex-col gap-6 items-start">
                         <p className="text-sm font-bold tracking-widest uppercase text-white/50">our lighting services</p>
                         <div className="w-full max-w-[354px] flex flex-col gap-2.5 items-start">
                         {services.map((service, i) => (
@@ -84,7 +118,7 @@ export function ServicesSection() {
                         </div>
                     </div>
 
-                    <div className="max-w-md space-y-8">
+                    <div ref={servicesTextRef} className="max-w-md space-y-8">
                         <h3 className="text-3xl md:text-4xl leading-tight">
                         The way of DUA is balancing <span className="font-bold">artistry</span> and <span className="font-bold">technical refinement.</span>
                         </h3>
