@@ -45,13 +45,13 @@ const journalEntries = [
 
 export default function JournalPage() {
   return (
-    <div className="bg-[#111111] text-white antialiased">
+    <div className="bg-white text-[#111111] antialiased">
       <Header />
       <main className="pt-20">
         <section className="container mx-auto px-4 py-16 md:py-24">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-light">The Journal</h1>
-            <p className="mt-4 text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg md:text-xl text-black/70 max-w-2xl mx-auto">
               Insights on design, material, and the art of atmospheric engineering.
             </p>
           </div>

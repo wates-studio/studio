@@ -13,7 +13,7 @@ type JournalCardProps = {
 export function JournalCard({ title, image, alt, hint }: JournalCardProps) {
   return (
     <motion.div 
-      className="space-y-4"
+      className="space-y-4 bg-white p-4 rounded-lg"
       whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
     >
       <Link href="/journal" className="block">
@@ -32,8 +32,8 @@ export function JournalCard({ title, image, alt, hint }: JournalCardProps) {
           </motion.div>
         </div>
       </Link>
-      <h3 className="text-xl font-medium pt-2">{title}</h3>
-      <Link href="/journal" className="text-white/70 hover:text-white transition-colors">Read More →</Link>
+      <h3 className="text-xl font-medium pt-2 text-black">{title}</h3>
+      <Link href="/journal" className="text-gray-500 hover:text-black transition-colors">Read More →</Link>
     </motion.div>
   );
 }

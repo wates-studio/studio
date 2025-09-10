@@ -22,9 +22,12 @@ interface ScenesProps {
 export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId }: ScenesProps) {
   const heroRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const stickyContainerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (!heroRef.current || !headlineRef.current) return;
+    if (!heroRef.current || !headlineRef.current || !stickyContainerRef.current) return;
+
+    gsap.set(headlineRef.current, { visibility: 'hidden' });
 
     const lightTrigger = ScrollTrigger.create({
       trigger: heroRef.current,
@@ -36,13 +39,13 @@ export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId 
       },
     });
 
-    // Re-split the text content including the new HTML structure
     const split = new SplitText(headlineRef.current, { type: "words, lines" });
     gsap.set(split.words, { opacity: 0, yPercent: 50 });
     
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heroRef.current,
+        pin: stickyContainerRef.current,
         start: "top top",
         end: "+=50%",
         scrub: 1,
@@ -62,13 +65,15 @@ export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId 
       lightTrigger.kill();
       tl.scrollTrigger?.kill();
       split.revert();
+      // A safety cleanup for all ScrollTriggers to prevent issues on re-renders
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, [setLightsOn]);
 
   return (
     <section>
       <div ref={heroRef} className="relative h-[150vh] w-full">
-        <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
+        <div ref={stickyContainerRef} className="sticky top-0 h-screen w-full flex flex-col items-center justify-center text-white text-center p-4">
           
           <div className="relative z-10 flex flex-col items-center">
             <div className="text-center">
