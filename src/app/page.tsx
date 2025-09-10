@@ -186,32 +186,42 @@ export default function Home() {
 
       // Services Section Animation
       if (servicesSectionRef.current) {
+        const mm = gsap.matchMedia(servicesSectionRef.current);
         const serviceTextSplit = new SplitText(servicesSectionRef.current.querySelectorAll('h3, p'), { type: 'words' });
         const serviceItems = servicesSectionRef.current.querySelectorAll('[data-anim="service-item"]');
-
         gsap.set(serviceItems, { opacity: 0, x: -30 });
 
-        const servicesTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: servicesSectionRef.current,
-            start: 'top 80%',
-            end: 'center center',
-            scrub: 1,
-          }
-        });
+        const createServicesTimeline = (start: string) => {
+          const servicesTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: servicesSectionRef.current,
+              start: start,
+              end: 'center center',
+              scrub: 1,
+            }
+          });
 
-        servicesTl.to(serviceItems, {
-            opacity: 1,
-            x: 0,
-            stagger: 0.05,
-            ease: 'power2.out'
-        })
-        .from(serviceTextSplit.words, {
-            opacity: 0.2,
-            y: 10,
-            stagger: 0.01,
-            ease: 'power2.out'
-        }, "-=0.5");
+          servicesTl.to(serviceItems, {
+              opacity: 1,
+              x: 0,
+              stagger: 0.05,
+              ease: 'power2.out'
+          })
+          .from(serviceTextSplit.words, {
+              opacity: 0.2,
+              y: 10,
+              stagger: 0.01,
+              ease: 'power2.out'
+          }, "+=0.25");
+        };
+        
+        mm.add({
+          isMobile: "(max-width: 767px)",
+          isDesktop: "(min-width: 768px)",
+        }, (context) => {
+          let { isMobile } = context.conditions as {isMobile: boolean};
+          createServicesTimeline(isMobile ? "top 60%" : "top 80%");
+        });
       }
 
       // Clients Section Animation
