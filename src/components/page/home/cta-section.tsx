@@ -72,7 +72,7 @@ export function CTASection() {
                         Big company <span className="font-bold">resources,</span> small company <span className="font-bold">care.</span>
                     </h2>
                     <div ref={ctaButtonRef} className="flex-shrink-0">
-                        <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
+                        <Button size="lg" className="advanced-glass text-white hover:bg-white hover:text-black">Book a Consultation</Button>
                     </div>
                 </div>
             </div>
