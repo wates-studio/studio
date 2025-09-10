@@ -17,6 +17,9 @@ export function CTASection() {
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
+          const mm = gsap.matchMedia();
+
+          mm.add("(min-width: 768px)", () => {
             if (ctaSectionRef.current && ctaWrapperRef.current && ctaHeadlineRef.current && ctaButtonRef.current) {
               const headline = ctaHeadlineRef.current;
               const button = ctaButtonRef.current;
@@ -28,8 +31,8 @@ export function CTASection() {
       
               const state = Flip.getState(split.words);
       
-              wrapper.classList.remove('justify-center');
-              wrapper.classList.add('justify-between');
+              wrapper.classList.remove('justify-center', 'text-center');
+              wrapper.classList.add('justify-between', 'text-left');
               headline.classList.remove('text-center');
               headline.classList.add('text-left');
               
@@ -54,6 +57,7 @@ export function CTASection() {
                   ease: 'power2.inOut'
               }, "-=0.75");
             }
+          });
         });
         return () => ctx.revert();
     }, []);
@@ -63,11 +67,11 @@ export function CTASection() {
             <div className="container mx-auto">
                 <div 
                   ref={ctaWrapperRef}
-                  className="flex justify-center items-center gap-8 px-12"
+                  className="flex flex-col md:flex-row justify-center items-center gap-8 px-4 md:px-12 text-center"
                 >
                     <h2 
                       ref={ctaHeadlineRef}
-                      className="text-7xl text-white max-w-2xl text-center"
+                      className="text-5xl md:text-7xl text-white max-w-2xl text-center"
                     >
                         Big company <span className="font-bold">resources,</span> small company <span className="font-bold">care.</span>
                     </h2>
