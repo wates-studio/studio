@@ -240,7 +240,7 @@ export default function Home() {
         const button = ctaButtonRef.current;
         const wrapper = ctaWrapperRef.current;
 
-        gsap.set(button, { opacity: 0 });
+        gsap.set(button, { opacity: 0, x: '100%' });
 
         const split = new SplitText(headline, { type: "words" });
 
@@ -267,6 +267,7 @@ export default function Home() {
         }))
         .to(button, {
             opacity: 1,
+            x: '0%',
             duration: 0.5,
             ease: 'power2.inOut'
         }, "-=0.75");
@@ -576,7 +577,7 @@ export default function Home() {
                       >
                           Big company resources, small company care.
                       </h2>
-                      <div ref={ctaButtonRef} className="flex-shrink-0 opacity-0">
+                      <div ref={ctaButtonRef} className="flex-shrink-0">
                           <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
                       </div>
                   </div>
@@ -588,6 +589,8 @@ export default function Home() {
       <SiteFooter />
     </div>
   );
+
+    
 
     
 
