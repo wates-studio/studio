@@ -76,7 +76,7 @@ export function Scenes({ lightsOn, setLightsOn, activeSceneId, setActiveSceneId 
             <div className="text-center">
               <h1 
                 ref={headlineRef}
-                className="text-5xl md:text-7xl tracking-tight font-light"
+                className="text-4xl md:text-5xl tracking-tight font-light"
                 style={{ visibility: 'hidden' }}
               >
                 We <span className="font-bold">breathe life</span> <br /> into <span className="font-bold">spaces</span>
