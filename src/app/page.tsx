@@ -211,7 +211,7 @@ export default function Home() {
             x: 0,
             stagger: 0.05,
             ease: 'power2.out'
-        }, "-=0.5");
+        }, "-=0.8");
       }
 
       // Clients Section Animation
@@ -240,9 +240,9 @@ export default function Home() {
         const button = ctaButtonRef.current;
         const wrapper = ctaWrapperRef.current;
 
-        gsap.set(button, { position: 'absolute', opacity: 0 });
-
         const split = new SplitText(headline, { type: "words" });
+        
+        gsap.set(button, { position: 'absolute', opacity: 0 });
 
         const state = Flip.getState(split.words);
 
@@ -573,7 +573,7 @@ export default function Home() {
                   >
                       <h2 
                         ref={ctaHeadlineRef}
-                        className="text-5xl md:text-7xl text-white max-w-2xl text-center"
+                        className="text-6xl text-white max-w-2xl text-center"
                       >
                           Big company <span className="font-bold">resources,</span> small company <span className="font-bold">care.</span>
                       </h2>
