@@ -83,7 +83,7 @@ export function SceneControl({ lightsOn, setLightsOn, activeSceneId, setActiveSc
       )}
     >
       <div className="flex items-center gap-3">
-        <span className="text-white/90 w-20 hidden md:inline">{lightsOn ? 'Lights on' : 'Lights off'}</span>
+        <span className="text-white/90 w-20">{lightsOn ? 'Lights on' : 'Lights off'}</span>
         <CustomToggle checked={lightsOn} onChange={setLightsOn} />
       </div>
       <div className="w-px h-6 bg-white/20" />
