@@ -21,22 +21,33 @@ export function CTASection() {
           const headline = ctaHeadlineRef.current;
           const button = ctaButtonRef.current;
           const wrapper = ctaWrapperRef.current;
+          const section = ctaSectionRef.current;
 
-          if (!headline || !button || !wrapper || !ctaSectionRef.current) return;
+          if (!headline || !button || !wrapper || !section) return;
 
           mm.add("(max-width: 767px)", () => {
-            gsap.from([headline, button], {
-              opacity: 0,
-              y: 30,
-              duration: 1,
-              stagger: 0.2,
-              ease: 'power3.out',
+            const split = new SplitText(headline, { type: "words" });
+            
+            gsap.timeline({
               scrollTrigger: {
-                trigger: ctaSectionRef.current,
+                trigger: section,
                 start: 'top 80%',
                 toggleActions: 'play none none none',
               }
-            });
+            })
+            .from(split.words, {
+              opacity: 0,
+              y: 30,
+              duration: 0.8,
+              stagger: 0.05,
+              ease: 'power3.out',
+            })
+            .from(button, {
+              opacity: 0,
+              y: 30,
+              duration: 1,
+              ease: 'power3.out',
+            }, "-=0.6");
           });
 
           mm.add("(min-width: 768px)", () => {
