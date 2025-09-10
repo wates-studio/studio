@@ -20,18 +20,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      if (contentRef.current) {
+      if (contentRef.current && heroRef.current) {
         gsap.fromTo(contentRef.current, 
           { opacity: 0.05 }, 
           { 
             opacity: 1,
             scrollTrigger: {
-              trigger: contentRef.current,
-              start: 'top bottom',
-              end: 'top 60%',
+              trigger: heroRef.current,
+              start: 'top top',
+              end: '+=50%',
               scrub: true,
             }
           }
@@ -43,7 +44,9 @@ export default function Home() {
 
   return (
     <div className="bg-[#111111] text-white antialiased overflow-hidden">
-      <HeroSection />
+      <div ref={heroRef}>
+        <HeroSection />
+      </div>
       <Header />
       <div ref={contentRef} className="relative z-10">
         <main className="bg-transparent">
