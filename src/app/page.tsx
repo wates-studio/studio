@@ -250,6 +250,7 @@ export default function Home() {
                 animate={{ opacity: lightsOn ? 1 : 0 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
                 className="absolute inset-0"
+                style={{ transformStyle: 'flat' }}
               >
                 <Image
                   src={scene.imageOn}
@@ -264,6 +265,7 @@ export default function Home() {
                 animate={{ opacity: lightsOn ? 0 : 1 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
                 className="absolute inset-0"
+                style={{ transformStyle: 'flat' }}
               >
                 <Image
                   src={scene.imageOff}
@@ -545,5 +547,6 @@ export default function Home() {
     
 
     
+
 
 
