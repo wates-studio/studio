@@ -34,10 +34,13 @@ export function Header() {
       layout
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled ? "top-4 left-4 right-4 advanced-glass" : "bg-transparent"
+        scrolled ? "p-2" : ""
       )}
     >
-      <div className="container mx-auto flex items-center justify-between pl-4 md:pl-6 pr-8 md:pr-12">
+      <div className={cn(
+        "container mx-auto flex items-center justify-between pl-4 md:pl-6 pr-8 md:pr-12 transition-all duration-500",
+        scrolled ? "advanced-glass rounded-2xl" : ""
+      )}>
         <div className="flex-1">
             <Link href="/" aria-label="Homepage">
               <Logo scrolled={scrolled} />
