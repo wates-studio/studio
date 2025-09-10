@@ -239,8 +239,6 @@ export default function Home() {
         if (ctaWrapper && ctaHeadline && ctaButton) {
           const ctaSplit = new SplitText(ctaHeadline, { type: 'words,chars' });
           
-          gsap.set(ctaButton, { opacity: 0 });
-
           const ctaTl = gsap.timeline({
             scrollTrigger: {
               trigger: ctaSectionRef.current,
@@ -570,7 +568,7 @@ export default function Home() {
                           Big company resources, small company care.
                       </h2>
                       <div className="flex-shrink-0">
-                          <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
+                          <Button size="lg" className="advanced-glass text-white hover:bg-white/10 opacity-0">Book a Consultation</Button>
                       </div>
                   </div>
               </div>
