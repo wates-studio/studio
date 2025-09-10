@@ -573,7 +573,7 @@ export default function Home() {
                   >
                       <h2 
                         ref={ctaHeadlineRef}
-                        className="text-4xl md:text-5xl text-white max-w-2xl text-center"
+                        className="text-5xl md:text-7xl text-white max-w-2xl text-center"
                       >
                           Big company resources, small company care.
                       </h2>
