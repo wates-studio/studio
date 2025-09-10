@@ -473,7 +473,7 @@ export default function Home() {
           {/* DUA Journal Section */}
           <section className="py-20 md:py-32">
               <div className="container mx-auto px-4">
-                  <div className="px-12 flex flex-col gap-8 overflow-hidden">
+                  <div className="px-12 flex flex-col gap-8">
                       <div className="flex justify-end items-center gap-4">
                           <Button 
                               variant="outline" 
@@ -498,7 +498,7 @@ export default function Home() {
                               align: "start",
                               loop: true,
                           }}
-                          className="w-full"
+                          className="w-full overflow-hidden"
                       >
                           <CarouselContent className="-ml-8">
                               {journalEntries.map((entry, index) => (
