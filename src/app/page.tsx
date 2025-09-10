@@ -183,6 +183,8 @@ export default function Home() {
         const serviceTextSplit = new SplitText(servicesSectionRef.current.querySelectorAll('h3, p'), { type: 'words' });
         const serviceItems = servicesSectionRef.current.querySelectorAll('[data-anim="service-item"]');
 
+        gsap.set(serviceItems, { opacity: 0, x: -30 });
+
         const servicesTl = gsap.timeline({
           scrollTrigger: {
             trigger: servicesSectionRef.current,
@@ -198,9 +200,9 @@ export default function Home() {
             stagger: 0.01,
             ease: 'power2.out'
         })
-        .from(serviceItems, {
-            opacity: 0,
-            x: -30,
+        .to(serviceItems, {
+            opacity: 1,
+            x: 0,
             stagger: 0.05,
             ease: 'power2.out'
         }, "-=0.5");
@@ -296,14 +298,14 @@ export default function Home() {
               <div className="flex flex-col gap-28">
 
                 {/* Philosophy Part */}
-                <div ref={philosophySectionRef} className="flex flex-col md:flex-row flex-wrap items-center justify-between gap-y-20 gap-x-12 px-12">
+                <div ref={philosophySectionRef} className="flex flex-col md:flex-row flex-wrap items-center justify-between gap-y-20 gap-x-12 px-4 md:px-12">
                   <div className="md:w-1/2 max-w-xl space-y-8">
-                    <h2 className="text-5xl md:text-6xl leading-tight">
+                    <h2 className="text-4xl md:text-6xl leading-tight">
                       We breathe life
                       <br />
                       into <span className="font-bold">spaces.</span>
                     </h2>
-                    <h2 className="text-5xl md:text-6xl leading-tight">
+                    <h2 className="text-4xl md:text-6xl leading-tight">
                       We <span className="font-bold">sculpt soul</span>
                       <br />
                       with light and shadow.
@@ -326,10 +328,10 @@ export default function Home() {
                 </div>
 
                 {/* Services Part */}
-                <div ref={servicesSectionRef} className="grid md:grid-cols-2 gap-16 items-start px-12">
+                <div ref={servicesSectionRef} className="grid md:grid-cols-2 gap-16 items-start px-4 md:px-12">
                   <div className="flex flex-col gap-6 items-start">
                     <p className="text-sm font-bold tracking-widest uppercase text-white/50">our lighting services</p>
-                    <div className="w-[354px] flex flex-col gap-2.5 items-start">
+                    <div className="w-full max-w-[354px] flex flex-col gap-2.5 items-start">
                       {services.map((service, i) => (
                         <div
                           key={i}
@@ -349,7 +351,7 @@ export default function Home() {
                   </div>
 
                   <div className="max-w-md space-y-8">
-                    <h3 className="text-4xl leading-tight">
+                    <h3 className="text-3xl md:text-4xl leading-tight">
                       The way of DUA is balancing <span className="font-bold">artistry</span> and <span className="font-bold">technical refinement.</span>
                     </h3>
                     <p className="text-xl leading-relaxed text-white/80">
@@ -366,7 +368,7 @@ export default function Home() {
           {/* Our Clients Section */}
           <section ref={clientsSectionRef} className="py-20 md:py-32">
             <div className="container mx-auto px-4">
-              <div className="text-center px-12">
+              <div className="text-center px-4 md:px-12">
                 <h2 className="text-sm font-bold tracking-widest uppercase text-white/50 mb-12">
                   OUR CLIENTS
                 </h2>
@@ -541,5 +543,7 @@ export default function Home() {
       <SiteFooter />
     </div>
   );
+
+    
 
     
