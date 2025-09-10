@@ -29,15 +29,15 @@ export default function Home() {
           { 
             opacity: 1,
             scrollTrigger: {
-              trigger: document.body,
-              start: 'top 90%',
-              end: 'top 40%',
+              trigger: contentRef.current,
+              start: 'top bottom',
+              end: 'top 60%',
               scrub: true,
             }
           }
         );
       }
-    });
+    }, contentRef);
     return () => ctx.revert();
   }, []);
 
