@@ -70,6 +70,21 @@
     "alt": "Portrait of Ingo Maurer",
     "hint": "portrait ingo maurer"
   },
+  "designer_richard": {
+    "src": "https://picsum.photos/seed/richard/400/500",
+    "alt": "Portrait of Richard Kelly",
+    "hint": "portrait richard kelly"
+  },
+  "designer_shiro": {
+    "src": "https://picsum.photos/seed/shiro/400/500",
+    "alt": "Portrait of Shiro Kuramata",
+    "hint": "portrait shiro kuramata"
+  },
+  "designer_gino": {
+    "src": "https://picsum.photos/seed/gino/400/500",
+    "alt": "Portrait of Gino Sarfatti",
+    "hint": "portrait gino sarfatti"
+  },
   "philosophy_hero": {
     "src": "https://picsum.photos/seed/philHero/1800/1000",
     "alt": "Balinese artisan at work",

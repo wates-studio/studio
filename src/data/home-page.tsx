@@ -48,7 +48,28 @@ export const designers = [
     description: "Known as the 'poet of light,' Maurer was a German industrial designer who specialized in lamps and light installations, consistently pushed the boundaries of art and technology.",
     image: placeholderImages.designer_ingo.src,
     hint: placeholderImages.designer_ingo.hint,
-  }
+  },
+  {
+    name: 'Richard Kelly',
+    quote: "An American pioneer who articulated the qualitative principles of light, shaping modern architectural lighting.",
+    description: "An American pioneer who articulated the qualitative principles of light—focal glow, ambient luminescence, and play of brilliants—shaping modern architectural lighting.",
+    image: placeholderImages.designer_richard.src,
+    hint: placeholderImages.designer_richard.hint,
+  },
+  {
+    name: 'Shiro Kuramata',
+    quote: "A leading figure in Japanese postmodern design, known for his poetic and minimalist use of industrial materials.",
+    description: "A leading figure in Japanese postmodern design, known for his poetic and minimalist use of industrial materials like acrylic and glass in furniture and lighting.",
+    image: placeholderImages.designer_shiro.src,
+    hint: placeholderImages.designer_shiro.hint,
+  },
+  {
+    name: 'Gino Sarfatti',
+    quote: "An Italian master who designed over 700 lighting products, pioneering the use of new materials and technologies.",
+    description: "An Italian master who designed over 700 lighting products for his company Arteluce, pioneering the use of new materials like halogen bulbs and transformers.",
+    image: placeholderImages.designer_gino.src,
+    hint: placeholderImages.designer_gino.hint,
+  },
 ];
 
 export const journalEntries = [
