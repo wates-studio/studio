@@ -1,3 +1,4 @@
+
 {
   "hero_living_room_on": {
     "src": "/hero1-on.png",
@@ -128,10 +129,5 @@
     "src": "https://picsum.photos/seed/contactMap/600/400",
     "alt": "Map showing location of the studio",
     "hint": "map location"
-  },
-  "blog_placeholder_1": {
-    "src": "https://picsum.photos/seed/blog1/400/200",
-    "alt": "Blog post placeholder image",
-    "hint": "abstract texture"
   }
 }

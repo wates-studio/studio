@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 
 export function SiteFooter() {
@@ -23,7 +24,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-3 text-white/70">
             <h4 className="font-semibold text-white mb-2">Work</h4>
             <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
-            <Link href="/services" className="hover:text-white transition-colors">Collection</Link>
+            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Bespoke</Link>
           </div>
 

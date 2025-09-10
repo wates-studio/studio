@@ -9,9 +9,10 @@ import { motion } from 'framer-motion';
 
 const navItems = [
   { name: 'Projects', href: '/projects' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Inspiration', href: '/journal' },
-  { name: 'About', href: '/philosophy' },
+  { name: 'Journal', href: '/journal' },
+  { name: 'Philosophy', href: '/philosophy' },
+  { name: 'Services', href: '/services' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export function Header() {
