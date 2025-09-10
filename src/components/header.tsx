@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import { MobileNav } from '@/components/mobile-nav';
 
 const navItems = [
   { name: 'Projects', href: '/projects' },
@@ -38,7 +39,7 @@ export function Header() {
       )}
     >
       <div className={cn(
-        "container mx-auto flex items-center justify-between pl-4 md:pl-6 pr-8 md:pr-12 transition-all duration-500",
+        "container mx-auto flex items-center justify-between pl-4 md:pl-6 pr-4 md:pr-12 transition-all duration-500",
         scrolled ? "advanced-glass rounded-2xl" : ""
       )}>
         <div className="flex-1">
@@ -54,6 +55,10 @@ export function Header() {
             </Link>
           ))}
         </nav>
+
+        <div className="md:hidden">
+          <MobileNav navItems={navItems} />
+        </div>
       </div>
     </motion.header>
   );
