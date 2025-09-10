@@ -30,7 +30,7 @@ export default function ServicesPage() {
     <div className="bg-[#111111] text-white antialiased">
       <Header />
       <main>
-        <section className="container mx-auto px-6 md:px-4 py-20 md:py-32 text-center">
+        <section className="container mx-auto px-4 md:px-8 py-20 md:py-32 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-light mb-6">Our Services</h1>
             <p className="text-xl md:text-2xl font-light leading-relaxed text-white/80">
@@ -39,7 +39,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 md:px-4 pb-20 md:pb-32 space-y-16">
+        <section className="container mx-auto px-4 md:px-8 pb-20 md:pb-32 space-y-16">
           {services.map((service, index) => (
             <div key={index} className="grid md:grid-cols-12 gap-8 items-start">
               <div className="md:col-span-1">
