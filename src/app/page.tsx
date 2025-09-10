@@ -19,8 +19,9 @@ import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/com
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
+import { Flip } from 'gsap/Flip';
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText, Flip);
 
 const teamMembers = [
   {
@@ -235,30 +236,40 @@ export default function Home() {
 
       // CTA Section Animation
       if (ctaSectionRef.current && ctaWrapperRef.current && ctaHeadlineRef.current && ctaButtonRef.current) {
-        gsap.set(ctaButtonRef.current, { opacity: 0 });
+        const headline = ctaHeadlineRef.current;
+        const button = ctaButtonRef.current;
+        const wrapper = ctaWrapperRef.current;
+
+        gsap.set(button, { opacity: 0 });
+
+        const split = new SplitText(headline, { type: "words" });
+
+        const state = Flip.getState(split.words);
+
+        wrapper.classList.remove('justify-center');
+        wrapper.classList.add('justify-between');
+        headline.classList.remove('text-center');
+        headline.classList.add('text-left');
         
         const ctaTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ctaSectionRef.current,
-            start: 'top center',
-            end: 'center center',
-            scrub: 1,
-          },
+            scrollTrigger: {
+                trigger: ctaSectionRef.current,
+                start: 'top 50%',
+                end: 'bottom 80%',
+                scrub: 1,
+            }
         });
 
-        ctaTl.to(ctaWrapperRef.current, {
-            justifyContent: 'space-between',
-            ease: 'power2.inOut',
-          })
-          .to(ctaHeadlineRef.current, {
-            textAlign: 'left',
-            className: 'text-4xl md:text-5xl text-white max-w-2xl',
+        ctaTl.add(Flip.from(state, {
+            duration: 1,
+            stagger: 0.05,
             ease: 'power2.inOut'
-          }, "<")
-          .to(ctaButtonRef.current, {
+        }))
+        .to(button, {
             opacity: 1,
-            ease: 'power2.inOut',
-          }, "<");
+            duration: 0.5,
+            ease: 'power2.inOut'
+        }, "-=0.75");
       }
 
     });
@@ -565,7 +576,7 @@ export default function Home() {
                       >
                           Big company resources, small company care.
                       </h2>
-                      <div ref={ctaButtonRef} className="flex-shrink-0">
+                      <div ref={ctaButtonRef} className="flex-shrink-0 opacity-0">
                           <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
                       </div>
                   </div>
@@ -577,5 +588,7 @@ export default function Home() {
       <SiteFooter />
     </div>
   );
+
+    
 
     
