@@ -79,7 +79,7 @@ export function SceneControl({ lightsOn, setLightsOn, activeSceneId, setActiveSc
       transition={{ duration: 1, delay: 1 }}
       className={cn(
         "advanced-glass",
-        "absolute bottom-8 z-10 p-2 md:p-4 md:px-8 flex items-center gap-4 md:gap-8 text-sm"
+        "absolute bottom-8 z-10 px-4 py-2 md:p-4 md:px-8 flex items-center gap-4 md:gap-8 text-sm"
       )}
     >
       <div className="flex items-center gap-3">
