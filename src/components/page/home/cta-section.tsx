@@ -32,7 +32,8 @@ export function CTASection() {
               scrollTrigger: {
                 trigger: section,
                 start: 'top 80%',
-                toggleActions: 'play none none none',
+                end: 'bottom 90%',
+                scrub: 1,
               }
             })
             .from(split.words, {
