@@ -36,7 +36,6 @@ export function SiteFooter() {
           </div>
           
           <div className="md:col-span-2">
-            <h4 className="font-semibold text-white mb-2">Get in Touch</h4>
             <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="font-medium text-white/90">Bali Office</p>
