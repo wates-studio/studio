@@ -575,7 +575,7 @@ export default function Home() {
                         ref={ctaHeadlineRef}
                         className="text-5xl md:text-7xl text-white max-w-2xl text-center"
                       >
-                          Big company resources, small company care.
+                          Big company <span className="font-bold">resources,</span> small company <span className="font-bold">care.</span>
                       </h2>
                       <div ref={ctaButtonRef} className="flex-shrink-0">
                           <Button size="lg" className="advanced-glass text-white hover:bg-white/10">Book a Consultation</Button>
