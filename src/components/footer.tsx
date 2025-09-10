@@ -11,72 +11,63 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-neutral-900 text-white py-20 relative z-10">
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4">
 
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight">
+        <div className="mb-20 text-center">
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tight">
             Light Matters.
           </h2>
         </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-left mb-20 text-sm">
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-left text-sm">
           
-          <div className="flex flex-col gap-3 text-white/70">
+          <div className="flex flex-col gap-3">
             <h4 className="font-semibold text-white mb-2">Company</h4>
-            <Link href="/philosophy" className="hover:text-white transition-colors">The Studio</Link>
-            <Link href="/journal" className="hover:text-white transition-colors">Journal</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <Link href="/philosophy" className="text-white/70 hover:text-white transition-colors">The Studio</Link>
+            <Link href="/journal" className="text-white/70 hover:text-white transition-colors">Journal</Link>
+            <Link href="/contact" className="text-white/70 hover:text-white transition-colors">Contact</Link>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h4 className="font-semibold text-white mb-2">Work</h4>
+            <Link href="/projects" className="text-white/70 hover:text-white transition-colors">Projects</Link>
+            <Link href="/services" className="text-white/70 hover:text-white transition-colors">Services</Link>
+            <Link href="/contact" className="text-white/70 hover:text-white transition-colors">Bespoke</Link>
           </div>
           
-          <div className="flex flex-col gap-3 text-white/70">
-            <h4 className="font-semibold text-white mb-2">Work</h4>
-            <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
-            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Bespoke</Link>
-          </div>
-
-          <div className="flex flex-col gap-3 text-white/70">
-            <h4 className="font-semibold text-white mb-2">Legal</h4>
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Use</Link>
-          </div>
-
-          <div className="flex flex-col gap-3 text-white/70">
-            <h4 className="font-semibold text-white mb-2">Social</h4>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Pinterest</a>
+          <div className="md:col-span-2">
+            <h4 className="font-semibold text-white mb-2">Get in Touch</h4>
+            <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <p className="font-medium text-white/90">Bali Office</p>
+                  <p className="text-white/70 my-2 leading-relaxed">{baliAddress}</p>
+                  <a href={baliGmapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-white/80 hover:text-white transition-colors font-semibold">
+                    <MapPin className="mr-2 h-4 w-4" />
+                    View Map
+                  </a>
+                </div>
+                <div>
+                  <p className="font-medium text-white/90">Jakarta Office</p>
+                  <p className="text-white/70 my-2 leading-relaxed">{jakartaAddress}</p>
+                  <a href={jakartaGmapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-white/80 hover:text-white transition-colors font-semibold">
+                    <MapPin className="mr-2 h-4 w-4" />
+                    View Map
+                  </a>
+                </div>
+            </div>
           </div>
 
         </div>
 
-        <div className="border-t border-white/10 pt-12 mb-12 max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 text-left">
-            <div>
-              <h4 className="font-semibold text-white mb-3">Bali Office</h4>
-              <p className="text-white/70 text-sm mb-4 leading-relaxed">{baliAddress}</p>
-              <Button asChild variant="outline" className="bg-transparent border-white/30 text-white/80 hover:bg-white/10 hover:text-white">
-                <a href={baliGmapsUrl} target="_blank" rel="noopener noreferrer">
-                  <MapPin className="mr-2 h-4 w-4" />
-                  View on Google Maps
-                </a>
-              </Button>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-3">Jakarta Office</h4>
-              <p className="text-white/70 text-sm mb-4 leading-relaxed">{jakartaAddress}</p>
-              <Button asChild variant="outline" className="bg-transparent border-white/30 text-white/80 hover:bg-white/10 hover:text-white">
-                <a href={jakartaGmapsUrl} target="_blank" rel="noopener noreferrer">
-                  <MapPin className="mr-2 h-4 w-4" />
-                  View on Google Maps
-                </a>
-              </Button>
-            </div>
+        <div className="border-t border-white/10 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+          <p className="text-xs text-white/50 mb-4 md:mb-0">
+            © 2025 DUA LIGHTING. ALL RIGHTS RESERVED.
+          </p>
+          <div className="flex gap-6 text-xs text-white/50">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">INSTAGRAM</a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">PINTEREST</a>
           </div>
         </div>
-
-        <p className="text-xs text-white/50">
-          © 2025 DUA LIGHTING
-        </p>
 
       </div>
     </footer>
