@@ -1,16 +1,13 @@
 
 import { Header } from '@/components/header';
 import { SiteFooter } from '@/components/footer';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { ProjectCard } from '@/components/page/project-card';
 import placeholderImages from '@/lib/placeholder-images.json';
 
 const projects = [
   {
     name: 'Mandapa, a Ritz-Carlton Reserve',
     location: 'Ubud, Bali',
-    description: 'A complete lighting solution for a world-renowned luxury resort, enhancing its connection to the natural landscape.',
     image: placeholderImages.project_mandapa.src,
     hint: placeholderImages.project_mandapa.hint,
     slug: '/projects/mandapa-ritz-carlton'
@@ -18,7 +15,6 @@ const projects = [
   {
     name: 'The Legian Seminyak',
     location: 'Seminyak, Bali',
-    description: 'Bespoke fixtures that complement the hotel\'s timeless elegance and beachfront location.',
     image: placeholderImages.project_legian.src,
     hint: placeholderImages.project_legian.hint,
     slug: '/projects/legian-seminyak'
@@ -26,11 +22,17 @@ const projects = [
   {
     name: 'Apéritif Restaurant & Bar',
     location: 'Ubud, Bali',
-    description: 'Atmospheric lighting for a fine-dining experience, balancing intimacy with 1920s-inspired grandeur.',
     image: placeholderImages.project_aperitif.src,
     hint: placeholderImages.project_aperitif.hint,
     slug: '/projects/aperitif-ubud'
   },
+  {
+    name: 'St. Regis Bali Resort',
+    location: 'Nusa Dua, Bali',
+    image: 'https://picsum.photos/seed/stregis/1000/1200',
+    hint: 'luxury resort reception',
+    slug: '/projects/st-regis-bali'
+  }
 ];
 
 export default function ProjectsPage() {
@@ -46,30 +48,9 @@ export default function ProjectsPage() {
             </p>
           </div>
           
-          <div className="space-y-24">
-            {projects.map((project, index) => (
-              <div key={project.name} className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-                <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                  <Image 
-                    src={project.image}
-                    alt={project.name}
-                    width={1200}
-                    height={800}
-                    className="rounded-lg object-cover"
-                    data-ai-hint={project.hint}
-                  />
-                </div>
-                <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                  <h2 className="text-3xl md:text-4xl font-semibold">{project.name}</h2>
-                  <p className="text-white/60 text-lg mb-4">{project.location}</p>
-                  <p className="text-white/80 text-xl font-light leading-relaxed mb-8">
-                    {project.description}
-                  </p>
-                  <Button asChild size="lg" className="bg-white text-black hover:bg-white/80">
-                    <Link href={project.slug}>View Case Study</Link>
-                  </Button>
-                </div>
-              </div>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+            {projects.map((project) => (
+              <ProjectCard key={project.name} {...project} />
             ))}
           </div>
         </section>
