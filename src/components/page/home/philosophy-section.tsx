@@ -20,31 +20,38 @@ export function PhilosophySection() {
             const expertiseEl = philosophySectionRef.current.querySelector('[data-anim="expertise"]');
             const meetsEl = philosophySectionRef.current.querySelector('[data-anim="meets"]');
     
-            const philosophyTl = gsap.timeline({
-              scrollTrigger: {
-                trigger: philosophySectionRef.current,
-                start: 'top 80%',
-                end: 'bottom 90%',
-                scrub: 1,
-              }
+            const mm = gsap.matchMedia(philosophySectionRef.current);
+            mm.add({
+              isMobile: "(max-width: 767px)",
+              isDesktop: "(min-width: 768px)",
+            }, (context) => {
+              let { isMobile } = context.conditions as {isMobile: boolean};
+              const philosophyTl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: philosophySectionRef.current,
+                  start: isMobile ? 'top 60%' : 'top 80%',
+                  end: 'bottom 90%',
+                  scrub: 1,
+                }
+              });
+              philosophyTl.from(philosophySplit.chars, {
+                  opacity: 0.2,
+                  y: 20,
+                  stagger: 0.02,
+                  ease: 'power2.out',
+              })
+              .from([artistryEl, expertiseEl], {
+                  autoAlpha: 0,
+                  y: (i) => (i === 0 ? -40 : 40),
+                  stagger: 0.1,
+                  ease: 'power3.out'
+              }, "-=0.7")
+              .from(meetsEl, {
+                  autoAlpha: 0,
+                  scale: 0.5,
+                  ease: 'power3.out'
+              }, "-=0.4");
             });
-            philosophyTl.from(philosophySplit.chars, {
-                opacity: 0.2,
-                y: 20,
-                stagger: 0.02,
-                ease: 'power2.out',
-            })
-            .from([artistryEl, expertiseEl], {
-                autoAlpha: 0,
-                y: (i) => (i === 0 ? -40 : 40),
-                stagger: 0.1,
-                ease: 'power3.out'
-            }, "-=0.7")
-            .from(meetsEl, {
-                autoAlpha: 0,
-                scale: 0.5,
-                ease: 'power3.out'
-            }, "-=0.4");
           }
         });
         return () => ctx.revert();
