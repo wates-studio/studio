@@ -25,13 +25,13 @@ export default function Home() {
     const ctx = gsap.context(() => {
       if (contentRef.current) {
         gsap.fromTo(contentRef.current, 
-          { opacity: 0 }, 
+          { opacity: 0.05 }, 
           { 
             opacity: 1,
             scrollTrigger: {
               trigger: document.body,
-              start: 'top 80%',
-              end: 'top 20%',
+              start: 'top 90%',
+              end: 'top 40%',
               scrub: true,
             }
           }
