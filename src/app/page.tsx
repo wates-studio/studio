@@ -142,6 +142,8 @@ export default function Home() {
   const philosophySectionRef = useRef<HTMLDivElement>(null);
   const servicesSectionRef = useRef<HTMLDivElement>(null);
   const clientsSectionRef = useRef<HTMLDivElement>(null);
+  const featuredProjectSectionRef = useRef<HTMLDivElement>(null);
+  const featuredProjectImageRef = useRef<HTMLImageElement>(null);
   const ctaSectionRef = useRef<HTMLDivElement>(null);
   const ctaHeadlineRef = useRef<HTMLHeadingElement>(null);
   const ctaButtonRef = useRef<HTMLDivElement>(null);
@@ -242,6 +244,21 @@ export default function Home() {
               opacity: 0,
               y: 30,
           }, "-=0.3");
+      }
+      
+      // Featured Project Parallax
+      if (featuredProjectSectionRef.current && featuredProjectImageRef.current) {
+        gsap.fromTo(featuredProjectImageRef.current,
+          { yPercent: -10 },
+          {
+            yPercent: 10,
+            ease: "none",
+            scrollTrigger: {
+              trigger: featuredProjectSectionRef.current,
+              scrub: true
+            }
+          }
+        );
       }
 
       // CTA Section Animation
@@ -445,7 +462,7 @@ export default function Home() {
           </section>
 
           {/* Featured Project Section */}
-          <section className="py-8 md:py-16 px-4 md:px-8">
+          <section ref={featuredProjectSectionRef} className="py-8 md:py-16 px-4 md:px-8">
             <motion.div
               initial="offscreen"
               whileInView="onscreen"
@@ -454,6 +471,7 @@ export default function Home() {
               className="relative w-full h-[80vh] rounded-2xl overflow-hidden"
             >
               <Image
+                ref={featuredProjectImageRef}
                 src="https://picsum.photos/1800/1200?1"
                 alt="Mandapa, a Ritz-Carlton Reserve"
                 fill
