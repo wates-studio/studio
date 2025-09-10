@@ -424,19 +424,20 @@ export default function Home() {
                 subtitle: member.title
             }))}
             renderItem={({ item }) => (
-              <>
-                <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden mb-4">
-                    <Image
-                        src={item.image}
-                        alt={`Portrait of ${item.title}`}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-ai-hint={item.hint}
-                    />
+              <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden">
+                <Image
+                    src={item.image}
+                    alt={`Portrait of ${item.title}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    data-ai-hint={item.hint}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-4">
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                    <p className="text-white/80">{item.subtitle}</p>
                 </div>
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="text-white/70">{item.subtitle}</p>
-              </>
+              </div>
             )}
           />
 
