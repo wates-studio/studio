@@ -479,8 +479,8 @@ export default function Home() {
           {/* DUA Journal Section */}
           <section className="py-20 md:py-32">
               <div className="container mx-auto px-4">
-                  <div className="px-12 flex flex-col gap-8">
-                      <div className="flex justify-end items-center gap-4">
+                  <div className="px-4 md:px-12 flex flex-col gap-8">
+                      <div className="hidden md:flex justify-end items-center gap-4">
                           <Button 
                               variant="outline" 
                               size="icon" 
@@ -508,7 +508,7 @@ export default function Home() {
                       >
                           <CarouselContent className="-ml-8">
                               {journalEntries.map((entry, index) => (
-                                  <CarouselItem key={index} className="pl-8 md:basis-1/2 lg:basis-[70%]">
+                                  <CarouselItem key={index} className="pl-8 basis-full md:basis-1/2 lg:basis-[70%]">
                                       <TextJournalCard {...entry} />
                                   </CarouselItem>
                               ))}
