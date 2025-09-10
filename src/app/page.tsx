@@ -257,7 +257,7 @@ export default function Home() {
 
 
   return (
-    <div className="bg-[#111111] text-white antialiased overflow-hidden">
+    <div className="bg-[#111111] text-white antialiased">
       {/* Persistent Background */}
       <div className="fixed inset-0 z-0">
         <AnimatePresence>
@@ -560,11 +560,4 @@ export default function Home() {
       <SiteFooter />
     </div>
   );
-
-    
-
-    
-
-
-
-
+}
