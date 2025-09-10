@@ -18,6 +18,7 @@ export function TeamSection() {
                 subtitle: member.title
             }))}
             layout="centered"
+            carouselBasis="1/4"
             renderItem={({ item }) => (
               <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden">
                 <Image

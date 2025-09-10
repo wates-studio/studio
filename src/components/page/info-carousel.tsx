@@ -38,7 +38,7 @@ interface InfoCarouselProps<T extends CarouselItemData> {
   carouselBasis?: string;
 }
 
-export function InfoCarousel<T extends CarouselItemData>({ title, description, items, renderItem, layout = 'split', carouselBasis = "md:basis-1/2 lg:basis-1/2" }: InfoCarouselProps<T>) {
+export function InfoCarousel<T extends CarouselItemData>({ title, description, items, renderItem, layout = 'split', carouselBasis = "md:basis-1/2 lg:basis-1/3" }: InfoCarouselProps<T>) {
   
   const content = (
     <>
@@ -59,7 +59,7 @@ export function InfoCarousel<T extends CarouselItemData>({ title, description, i
         <Carousel opts={{ loop: true, align: "start" }} className="w-full">
           <CarouselContent className="-ml-4">
             {items.map((item) => (
-              <CarouselItem key={item.id} className={cn("pl-4", carouselBasis)}>
+              <CarouselItem key={item.id} className={cn("pl-4 basis-1/2 md:basis-1/3", carouselBasis)}>
                 <div className="p-1 group">
                     {renderItem({ item })}
                 </div>
