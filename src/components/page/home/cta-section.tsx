@@ -27,7 +27,7 @@ export function CTASection() {
 
           // Mobile animation (screens up to 767px)
           mm.add("(max-width: 767px)", () => {
-            const split = new SplitText(headline, { type: "words" });
+            const split = new SplitText(headline, { type: "words,chars" });
             
             gsap.timeline({
               scrollTrigger: {
@@ -37,11 +37,11 @@ export function CTASection() {
                 scrub: 1,
               }
             })
-            .from(split.words, {
-              opacity: 0,
-              y: 30,
+            .from(split.chars, {
+              opacity: 0.2,
+              y: 20,
               duration: 0.8,
-              stagger: 0.05,
+              stagger: 0.02,
               ease: 'power3.out',
             })
             .from(button, {
