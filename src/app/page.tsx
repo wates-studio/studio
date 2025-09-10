@@ -279,8 +279,9 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
+      <Header />
+
       <div className="relative z-10">
-        <Header />
         <Scenes 
           lightsOn={lightsOn}
           setLightsOn={setLightsOn}
@@ -290,8 +291,8 @@ export default function Home() {
 
         <main className="bg-transparent">
           {/* Section 2: The Philosophy & Services */}
-          <section className="py-20 md:py-32 overflow-hidden">
-            <div className="container mx-auto px-4">
+          <section className="py-20 md:py-32">
+            <div className="container mx-auto">
               <div className="flex flex-col gap-28">
 
                 {/* Philosophy Part */}
@@ -364,7 +365,7 @@ export default function Home() {
 
           {/* Our Clients Section */}
           <section ref={clientsSectionRef} className="py-20 md:py-32">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto">
               <div className="text-center px-4 md:px-12">
                 <h2 className="text-sm font-bold tracking-widest uppercase text-white/50 mb-12">
                   OUR CLIENTS
@@ -475,7 +476,7 @@ export default function Home() {
 
           {/* DUA Journal Section */}
           <section className="py-20 md:py-32">
-              <div className="container mx-auto px-4">
+              <div className="container mx-auto">
                   <div className="px-4 md:px-12 flex flex-col gap-8">
                       <div className="hidden md:flex justify-end items-center gap-4">
                           <Button 
@@ -517,7 +518,7 @@ export default function Home() {
 
           {/* CTA Section */}
           <section className="py-20 md:py-32">
-              <div className="container mx-auto px-4">
+              <div className="container mx-auto">
                   <motion.div 
                     initial="offscreen"
                     whileInView="onscreen"
@@ -544,4 +545,5 @@ export default function Home() {
     
 
     
+
 
