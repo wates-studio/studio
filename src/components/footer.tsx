@@ -10,10 +10,10 @@ export function SiteFooter() {
   const jakartaGmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(jakartaAddress)}`;
 
   return (
-    <footer className="bg-neutral-900 text-white py-20 relative z-10">
+    <footer className="bg-neutral-900 text-white py-16 relative z-10">
       <div className="container mx-auto px-4">
 
-        <div className="mb-20 text-center">
+        <div className="mb-12 text-center">
           <h2 className="text-4xl md:text-6xl font-medium tracking-tight">
             Light Matters.
           </h2>
@@ -59,7 +59,7 @@ export function SiteFooter() {
 
         </div>
 
-        <div className="border-t border-white/10 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           <p className="text-xs text-white/50 mb-4 md:mb-0">
             © 2025 DUA LIGHTING. ALL RIGHTS RESERVED.
           </p>
