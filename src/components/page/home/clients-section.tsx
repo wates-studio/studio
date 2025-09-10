@@ -48,7 +48,7 @@ export function ClientsSection() {
                 >
                   <div className="flex animate-marquee">
                     {[...clientLogos, ...clientLogos].map((logo, index) => (
-                      <div key={index} className="flex-shrink-0 w-64 mx-8 flex items-center justify-center text-white/80 hover:text-white transition-colors duration-300">
+                      <div key={index} className="flex-shrink-0 w-64 mx-4 flex items-center justify-center text-white/80 hover:text-white transition-colors duration-300">
                         {logo.component}
                       </div>
                     ))}
