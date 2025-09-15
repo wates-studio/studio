@@ -1,0 +1,8 @@
+{
+   "servers": {
+     "Figma Dev Mode MCP": {
+       "type": "http",
+       "url": "https://8af2e0877bb1.ngrok-free.app/mcp"
+     }
+   }
+ }
